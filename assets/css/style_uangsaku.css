@@ -1,0 +1,63 @@
+#logo{
+	margin-top: 60px;
+}
+#btn-buat_akun{
+	width: 100%;
+	margin-top: 20px;
+	border-radius: 25px;
+}
+#btn_pra_daftar{
+	width: 100%;
+	border-radius: 25px;
+	margin-top: 9px;
+}
+/* HEADER */
+#LINK-KEMBALI{
+	height: 35px;
+	margin-top: 10px;
+	text-align: center;
+	width: 25px;
+}
+#ICON-LINK-KEMBALI{
+	margin-top: -11px;
+	height: 100%;
+}
+#JUDUL{
+	padding-top: 16px;
+	margin-left: 30px;
+}
+/*LOGIN*/
+#CARD-LOGIN{
+	margin-top: 100px;
+	height: max-content;
+}
+#LOGO-LOGIN{
+	margin-top: 10px;
+}
+#flash{
+	display: none;
+}
+#EMAIL{
+	margin-top: 40px;
+}
+#PASSWORD{
+	width: 87%!important;
+}
+#view-pass{
+	cursor: pointer;
+}
+#DIV-BTN-MASUK-LOGIN{
+	margin-top: 30px;
+}
+#masuk{
+	width:100%;
+	border-radius: 25px; 
+	box-shadow: none;
+}
+/*DAFTAR FORM SEKOALH*/
+#FORM-DAFTAR-SEKOLAH{
+	margin-top: 100px;
+}
+#LOGO-DAFTAR{
+	margin-top: 35px;
+}
