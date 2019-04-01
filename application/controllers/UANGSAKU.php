@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class UANGSAKU extends CI_controller
 {
@@ -53,7 +54,15 @@ class UANGSAKU extends CI_controller
 	public function daftar_orang_tua()
 	{
 		$var['header']	= 'user/main_view/header';
-		$var['konten']	= 'user/view/siswa/first_daftar';
+		$var['konten']	= 'user/view/orangtua/first_daftar';
+		$var['footer']	= 'user/main_view/footer';
+		$var['judul']   = 'Daftar';
+		$this->load->view('template',$var);	
+	}
+	public function second_daftar_orang_tua()
+	{
+		$var['header']	= 'user/main_view/header';
+		$var['konten']	= 'user/view/orangtua/second_daftar';
 		$var['footer']	= 'user/main_view/footer';
 		$var['judul']   = 'Daftar';
 		$this->load->view('template',$var);	
