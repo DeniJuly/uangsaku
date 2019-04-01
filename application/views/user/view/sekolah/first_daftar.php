@@ -18,7 +18,7 @@
 		          <input placeholder="Verifikasi Password" id="VERIFIKASI_PASSWORD_SEKOLAH" type="password" class="validate">
 		        </div>
 		        <div class="input-field col s12">
-		          <a class="waves-effect waves-light btn blue lighten-1" id="btn_pra_daftar" href="<?php echo site_url('UANGSAKU/login') ?>">Lanjutkan</a>
+		          <button class="waves-effect waves-light btn blue lighten-1" id="btn-daftar">Daftar</button>
 		        </div>
 	        </div>
 		</div>

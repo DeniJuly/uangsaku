@@ -56,8 +56,13 @@
 }
 /*DAFTAR FORM SEKOALH*/
 #FORM-DAFTAR-SEKOLAH{
-	margin-top: 100px;
+	margin-top: 10px;
+	display: inline-block;
 }
 #LOGO-DAFTAR{
 	margin-top: 35px;
+}
+.card-daftar-sekolah{
+	max-height: max-content;
+	margin-top: 50%;
 }

@@ -26,6 +26,8 @@ class UANGSAKU extends CI_controller
 		$var['judul']   = 'Daftar';
 		$this->load->view('template',$var);	
 	}
+
+	// daftar sekolah
 	public function daftar_sekolah()
 	{
 		$var['header']	= 'user/main_view/header';
@@ -34,6 +36,24 @@ class UANGSAKU extends CI_controller
 		$var['judul']   = 'Daftar';
 		$this->load->view('template',$var);	
 	}
+	public function get_parent_code()
+	{
+		$var['header']	= 'user/main_view/header';
+		$var['konten']	= 'user/view/sekolah/second_daftar';
+		$var['footer']	= 'user/main_view/footer';
+		$var['judul']   = 'Daftar';
+		$this->load->view('template',$var);		
+	}
+	public function konfirmasi_email()
+	{
+		$var['header']	= 'user/main_view/header';
+		$var['konten']	= 'user/view/sekolah/third_daftar';
+		$var['footer']	= 'user/main_view/footer';
+		$var['judul']   = 'Daftar';
+		$this->load->view('template',$var);	
+	}
+
+	// daftar siswa
 	public function daftar_siswa()
 	{
 		$var['header']	= 'user/main_view/header';
@@ -50,10 +70,12 @@ class UANGSAKU extends CI_controller
 		$var['judul']   = 'Daftar';
 		$this->load->view('template',$var);	
 	}
+
+	// daftar ortu
 	public function daftar_orang_tua()
 	{
 		$var['header']	= 'user/main_view/header';
-		$var['konten']	= 'user/view/siswa/first_daftar';
+		$var['konten']	= 'user/view/sekolah/first_daftar';
 		$var['footer']	= 'user/main_view/footer';
 		$var['judul']   = 'Daftar';
 		$this->load->view('template',$var);	
