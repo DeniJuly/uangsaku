@@ -3,8 +3,9 @@
 		<div class="col s10 m4 l4 offset-s1 offset-m4 offset-l4">
 			<div class="card-panel card-daftar-sekolah">
 				<div id="FORM-DAFTAR-SEKOLAH">
+			        <p>kami telah mengirim kode verifikasi ke email test@gmail.com</p>
 			        <div class="input-field col s12">
-			          <input placeholder="Parent Code" id="VERIFIKASI_EMAIL_SEKOLAH" type="number" class="validate" required="on" autofocus="on">
+			          <input placeholder="Verifikasi Kode" id="VERIFIKASI_EMAIL_SEKOLAH" type="number" class="validate" required="on" autofocus="on">
 			        </div>
 			        <div class="input-field col s12 center">
 			          <button class="waves-effect waves-light btn blue lighten-1" id="btn-kode" disabled>30</button>

@@ -96,4 +96,12 @@ class UANGSAKU extends CI_controller
 		$var['judul']   = 'Daftar';
 		$this->load->view('template',$var);	
 	}
+	public function daftar_orang_tua4()
+	{
+		$var['header']	= 'user/main_view/header';
+		$var['konten']	= 'user/view/orangtua/fourth_daftar';
+		$var['footer']	= 'user/main_view/footer';
+		$var['judul']   = 'Daftar';
+		$this->load->view('template',$var);	
+	}
 }

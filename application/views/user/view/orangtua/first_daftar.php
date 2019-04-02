@@ -9,7 +9,7 @@
 		          <input placeholder="Email" id="EMAIL_MITRA" type="email" class="validate" autocomplete="off" autofocus="on">
 		        </div>
 		        <div class="input-field col s12">
-		          <input placeholder="Username" id="Username" type="text" class="validate" autocomplete="off">
+		          <input placeholder="NIK" id="Username" type="text" class="validate" autocomplete="off">
 		        </div>
 		        <div class="input-field col s12">
 		          <input placeholder="Password" id="PASSWORD_SEKOLAH" type="password" class="validate">

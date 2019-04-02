@@ -6,7 +6,7 @@
             </div>
 
 			<div id="FORM-DAFTAR-SEKOLAH">
-			<h4>Memilih Sebagai : </h4>
+				<h4>Memilih Sebagai : </h4>
 		        <div class="col s12">
 		          	<p>
 				      <input class="with-gap" name="group1" type="radio" id="test1" />
