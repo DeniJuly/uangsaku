@@ -6,6 +6,7 @@
       <link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/css/materialize.min.css') ?>"  media="screen,projection"/>
       <link rel="stylesheet" href="<?php echo base_url('assets/css/style_uangsaku.css') ?>">
       <link rel="stylesheet" href="<?php echo base_url('assets/css/style_all.css') ?>">
+      <link rel="shortcut icon" href="<?php echo base_url('assets/img/app/icon/logo_32.png') ?>">
 
       <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.js') ?>"></script>
       <script type="text/javascript" src="<?php echo base_url('assets/js/materialize.min.js') ?>"></script>
