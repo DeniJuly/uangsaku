@@ -1,12 +1,12 @@
 <div class="container">
 	<div class="row">
 		<div class="col s10 m4 l4 offset-s1 offset-m4 offset-l4">
-			<div class="col s4 offset-s4">
-                <img src="<?= base_url('assets/img/app/icon/logo_login.jpg'); ?>" id="LOGO-DAFTAR">
+			<div class="col s4 offset-s3">
+                <img src="<?= base_url('assets/img/app/icon/logo_120.png'); ?>" id="LOGO-DAFTAR">
             </div>
 
 			<div id="FORM-DAFTAR-SEKOLAH">
-				<h4>Memilih Sebagai : </h4>
+				<h5 class="center">Memilih Sebagai : </h5>
 		        <div class="col s12">
 		          	<p>
 				      <input class="with-gap" name="group1" type="radio" id="test1" />

@@ -22,7 +22,7 @@ $(document).ready(function(){
 		var id;
 		id = setInterval(function(){
 			if (seconds < 1) {
-				$("#btn-kode").text("Kirim ulang");
+				$("#btn-kode").text("Next");
 				$("#btn-kode").removeAttr('disabled');
 			}else{
 				var detik = --seconds;

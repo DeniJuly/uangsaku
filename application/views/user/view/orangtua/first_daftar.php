@@ -1,8 +1,8 @@
 <div class="container">
 	<div class="row">
 		<div class="col s10 m4 l4 offset-s1 offset-m4 offset-l4">
-			<div class="col s4 offset-s4">
-                <img src="<?= base_url('assets/img/app/icon/logo_login.jpg'); ?>" id="LOGO-DAFTAR">
+			<div class="col s4 offset-s3">
+                <img src="<?= base_url('assets/img/app/icon/logo_120.png'); ?>" id="LOGO-DAFTAR">
             </div>
 			<div id="FORM-DAFTAR-SEKOLAH">
 		        <div class="input-field col s12">
