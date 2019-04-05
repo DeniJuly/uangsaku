@@ -6,7 +6,7 @@
 					<small class="red-text" id="flash">tolong isi formnya</small>
 			        <p>kami telah mengirim kode verifikasi ke email test@gmail.com</p>
 			        <div class="input-field col s12">
-			          <input placeholder="KODE" id="VERIFIKASI_EMAIL_SEKOLAH" type="number" class="validate" required="on" autofocus="on">
+			          <input placeholder="KODE" id="VERIFIKASI_EMAIL_SISWA" type="number" class="validate" required="on" autofocus="on">
 			        </div>
 			        <div class="input-field col s12 center">
 			        	<button class="waves-effect waves-light btn blue lighten-1" id="btn-lanjutkan">Lanjutkan</button>
@@ -39,11 +39,11 @@ $(document).ready(function(){
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#btn-lanjutkan").click(function(){
-			var kode = $("#VERIFIKASI_EMAIL_SEKOLAH").val();
+			var kode = $("#VERIFIKASI_EMAIL_SISWA").val();
 			if (kode == '') {
 				$("#flash").css("display","block");
 			}else{
-				$("#VERIFIKASI_EMAIL_SEKOLAH").attr("disabled");
+				$("#VERIFIKASI_EMAIL_SISWA").attr("disabled");
 				console.log(kode);
 			}
 		});

@@ -7,9 +7,10 @@
 	border-radius: 25px;
 }
 #btn_pra_daftar{
-	width: 100%;
+	width: 45%;
 	border-radius: 25px;
 	margin-top: 9px;
+	margin-left: 5px;
 }
 /* HEADER */
 #LINK-KEMBALI{
@@ -25,6 +26,9 @@
 #JUDUL{
 	padding-top: 16px;
 	margin-left: 30px;
+}
+#JUDUL h6{
+	margin-top: 5px;
 }
 /*LOGIN*/
 #CARD-LOGIN{
@@ -54,15 +58,128 @@
 	border-radius: 25px; 
 	box-shadow: none;
 }
-/*DAFTAR FORM SEKOALH*/
-#FORM-DAFTAR-SEKOLAH{
+/*KONFIRMASI EMAIL*/
+#KONFIRMASI-EMAIL{
 	margin-top: 10px;
 	display: inline-block;
+}
+#KONFIRMASI-EMAIL #btn-kode{
+	margin-top: 5px;
+}
+#KONFIRMASI-EMAIL button{
+	border-radius: 25px;
 }
 #LOGO-DAFTAR{
 	margin-top: 35px;
 }
-.card-daftar-sekolah{
+.card-konfirmasi-email{
 	max-height: max-content;
 	margin-top: 50%;
+}
+/*LANDING PAGE*/
+#ILUSTRASI-BANNER{
+	margin-top: 135px;
+}
+#ILUSTRASI-BANNER-SMALL{
+	display: none;
+    border-bottom: 1px solid #d4d4d4;
+    padding-bottom: 15px;
+}
+#ILUSTRASI-BANNER-SMALL-BUTTON{
+	margin: 5%;
+}
+#MOTO{
+	margin-top: 190px;
+}
+#INFO{
+	border-top: 1px solid #eee;
+	padding-top: 20px;
+	margin-top: 112px;
+}
+#INFO-ABOUT .pengertian{
+	font-size: 12px;
+	margin-bottom: 0!important;
+}
+#INFO-ABOUT .copy-right{
+	line-height: 0!important;
+}
+#INFO-ABOUT-SMALL{
+	display: none;
+}
+#SOCIAL-MEDIA .social-media{
+	margin: 5px 0;
+}
+#SOCIAL-MEDIA .social-media a{
+	margin: 0 10px;
+}
+#INFO-UANGSAKU ul li{
+	margin: 5px 0;
+}
+#FOOTER-LANDING-PAGE{
+    height: 50px;
+    padding-top: 1px;
+    border-top: 1px solid #eee;
+}
+#PENGERTIAN{
+	padding: 110px 0;
+}
+#FITUR,
+#TAMPILAN,
+#DEVELOPER{
+	margin-top: 120px;
+	background-size: contain!important;
+}
+#PENGERTIAN-JUDUL h5,
+#FITUR-JUDUL h5,
+#TAMPILAN-JUDUL h5,
+#DEVELOPER-JUDUL h5{
+	border-bottom: 2px solid #42a5f5;
+	margin-bottom: 10px;
+}
+#PENGERTIAN-PENJELASAN{
+	text-align: justify;
+}
+#FITUR-PENJELASAN,
+#DEVELOPER-PENJELASAN-FOTO{
+	padding-top: 20px;
+}
+#FITUR-PENJELASAN p{
+	text-align: justify;
+}
+.btn_login{
+	width: 90%;
+	border-radius: 25px;
+}
+@media only screen and (max-width: 1000px){
+	#FITUR{
+		background: #fff!important;
+	}
+}
+@media only screen and (max-width: 992px){
+	#LOGO-HEADER-LANDING-PAGE{
+		display: none;
+	}
+}
+@media only screen and (max-width: 600px){
+	#ILUSTRASI-BANNER,
+	#INFO-ABOUT,
+	#INFO-UANGSAKU,
+	#SOCIAL-MEDIA{
+		display: none;
+	}
+	#INFO{
+		padding-top: 0!important;
+	}
+	#MOTO{
+		margin-top: 10px;
+	}
+	#ILUSTRASI-BANNER-SMALL,
+	#INFO-ABOUT-SMALL{
+		display: block;
+	}
+	#FITUR, 
+	#TAMPILAN, 
+	#DEVELOPER{
+		margin-top: 50px;
+	}
 }

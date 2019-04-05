@@ -78,3 +78,7 @@
 .tabs .indicator{
   background-color: #42a5f5!important;
 }
+/*flash*/
+#flash{
+  display: none;
+}

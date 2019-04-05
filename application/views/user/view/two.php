@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="center-align">
-			<img src="<?php echo base_url('assets/img/app/icon/logo_200.png') ?>" class="responsive-img" id="logo">
+			<img src="<?php echo base_url('assets/img/app/logo/logo_200.png') ?>" class="responsive-img" id="logo">
 		</div>
 		<div class="col s8 m4 l4 offset-s2 offset-m4 offset-l4">
 			<a href="<?php echo site_url('UANGSAKU/daftar_sekolah') ?>" class="waves-effect waves-light btn white blue-text" id="btn_pra_daftar">SEKOLAH</a>
