@@ -93,5 +93,8 @@ class UANGSAKU extends CI_controller
 	{
 		$var['header']	= 'user/main_view/header';
 		$var['konten']	= 'user/view/orangtua/second_daftar';
+		$var['footer']	= 'user/main_view/footer';
+		$var['judul']   = 'Daftar';
+		$this->load->view('template',$var);	
 	}
 }
