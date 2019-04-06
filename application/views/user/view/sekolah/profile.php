@@ -96,3 +96,20 @@
 
 	</div>
 </div>
+<script>
+	$(document).ready(function () {
+		$("#UBAH").click(function(){
+			$(this).css("display","none");
+			$("#SIMPAN").css("display","block");
+			$("#nama").prop("disabled",false);
+			$("#telp").prop("disabled",false);
+		});
+		$("#SIMPAN").click(function(){
+			$("#flash").hide();
+			$("#nama").prop("disabled",true);
+			$("#telp").prop("disabled",true);
+			$("#UBAH").css("display","block");
+			$("#SIMPAN").css("display","none");
+		});
+	});
+</script>

@@ -1,40 +1,51 @@
 <div class="container" style="height: auto;">
 	<div class="row">
 		<div class="col s10 m4 l4 offset-s1 offset-m4 offset-l4">
-			<div class="col s4 offset-s3">
-                <img src="<?= base_url('assets/img/app/icon/logo_120.png'); ?>" id="LOGO-DAFTAR">
-            </div>
-
-			<div id="FORM-DAFTAR-SEKOLAH">
-				<h5 class="center">Memilih Sebagai : </h5>
-		        <div class="col s12">
-		          	<p>
-				      <input class="with-gap" name="group1" type="radio" id="test1" />
-				      <label class="black-text" for="test1">Ayah Siswa</label>
-				  	</p>
+			<div class="card-panel card-konfirmasi-email">
+				<div id="KONFIRMASI-EMAIL">
+					<small class="red-text" id="flash">tolong isi formnya</small>
+			        <p>kami telah mengirim kode verifikasi ke email test@gmail.com</p>
+			        <div class="input-field col s12">
+			          <input placeholder="KODE" id="VERIFIKASI_EMAIL_ORANGTUA" type="number" class="validate" required="on" autofocus="on">
+			        </div>
+			        <div class="input-field col s12 center">
+			        	<button class="waves-effect waves-light btn blue lighten-1" id="btn-lanjutkan">Lanjutkan</button>
+			          	<button class="waves-effect waves-light btn blue lighten-1" id="btn-kode" disabled>30</button>
+			        </div>
 		        </div>
-		        <div class="col s12">
-		          	<p>
-				      <input class="with-gap" name="group1" type="radio" id="test2" />
-				      <label class="black-text" for="test2">Ibu Siswa</label>
-				  	</p>
-		        </div>
-		        <div class="col s12">
-		          	<p>
-				      <input class="with-gap" name="group1" type="radio" id="test3" />
-				      <label class="black-text" for="test3">Kakak Siswa</label>
-				  	</p>
-		        </div>
-		        <div class="col s12">
-		          	<p>
-				      <input class="with-gap" name="group1" type="radio" id="test4" />
-				      <label class="black-text" for="test4">Wali Siswa</label>
-				  	</p>
-		        </div>
-		        <div class="input-field col s12">
-		          <a class="waves-effect waves-light btn blue lighten-1" id="btn_pra_daftar" href="<?php echo site_url('UANGSAKU/login') ?>">Lanjutkan</a>
-		        </div>
-	        </div>
+		    </div>
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+$(document).ready(function(){
+	timer();
+	var seconds = 30;
+	function timer(){
+		var id;
+		id = setInterval(function(){
+			if (seconds < 1) {
+				clearInterval(id);
+				$("#btn-kode").text("Kirim ulang");
+				$("#btn-kode").removeAttr('disabled');
+			}else{
+				var detik = --seconds;
+				$("#btn-kode").text(detik);
+			}
+		},1000);
+	}
+});
+</script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#btn-lanjutkan").click(function(){
+			var kode = $("#VERIFIKASI_EMAIL_ORANGTUA").val();
+			if (kode == '') {
+				$("#flash").css("display","block");
+			}else{
+				$("#VERIFIKASI_EMAIL_ORANGTUA").attr("disabled");
+				console.log(kode);
+			}
+		});
+	});
+</script>

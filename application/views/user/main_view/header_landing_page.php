@@ -15,20 +15,30 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
 
-    <body>
+    <body id="body">
+
       <div class="navbar-fixed">
           <nav class="blue lighten-1">
             <div class="nav-wrapper">
               <div class="container">
                 <div class="row">
-                  <?php if ($this->uri->segment(1) != null) : ?>
-                  <a href="javascript:window.history.go(-1);" class="brand-logo left" id="LINK-KEMBALI">
-                    <i class="material-icons white-text" id="ICON-LINK-KEMBALI">chevron_left</i>
+
+                  <a href="#body" class="left page-control" id="LOGO-HEADER-LANDING-PAGE">
+                    <img src="<?php echo base_url('assets/img/app/logo/logo_64.png') ?>" class="responsive-img">
                   </a>
-                  <?php endif; ?>
                   <div class="left" id="JUDUL">
                     <h6 class="white-text"><?php echo $judul; ?></h6>
                   </div>
+                  <?php if ($this->uri->segment(2) == null) : ?>
+                  <ul id="nav-mobile" class="right hide-on-small-only">
+                    <li><a href="#PENGERTIAN" class="page-control">TENTANG</a></li>
+                    <li><a href="#FITUR" class="page-control">FITUR</a></li>
+                    <li><a href="#DEVELOPER" class="page-control">DEVELOPER</a></li>
+                    <li style="margin-top: 15px;">
+                      <a href="<?php echo site_url('Login') ?>" class="center right btn white blue-text btn_login">Login</a>
+                    </li>
+                  </ul>
+                  <?php endif ?>
                 </div>
               </div>
             </div>

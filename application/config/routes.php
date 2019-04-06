@@ -49,6 +49,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'UANGSAKU';
-$route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+$route = array(
+	'default_controller' 	=> 'UANGSAKU',
+	'404_override'		 	=> '',
+	'translate_uri_dashes' 	=> FALSE,
+
+	// CONTROLLER UANGSAKU
+	'daftar_sekolah' 			=> 'UANGSAKU/daftar_sekolah',
+	'daftar_siswa'				=> 'UANGSAKU/daftar_siswa',
+	'daftar_orangtua'			=> 'UANGSAKU/daftar_orangtua',
+	'daftar_mitra'				=> 'UANGSAKU/daftar_mitra',
+	'Login'						=> 'UANGSAKU/login',
+	'konfirmasi_email_sekolah'	=> 'UANGSAKU/konfirmasi_email_sekolah',
+	'konfirmasi_email_siswa'	=> 'UANGSAKU/konfirmasi_email_siswa',
+	'konfirmasi_email_orangtua'	=> 'UANGSAKU/konfirmasi_email_orangtua',
+	'konfirmasi_email_mitra'	=> 'UANGSAKU/konfirmasi_email_mitra',
+
+	// CONTROLLER UANGSAKU_SEKOLAH
+	'SEKOLAH'					=> 'UANGSAKU_Sekolah',
+	'SEKOLAH/siswa'				=> 'UANGSAKU_Sekolah/siswa',
+	'SEKOLAH/Profile'				=> 'UANGSAKU_Sekolah/Profile'
+);

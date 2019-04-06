@@ -4,8 +4,8 @@
             <div id="CARD-LOGIN">
               <!-- form -->
               <div class="row">
-                  <div class="col s4 m6 l6 offset-s4 offset-m3 offset-l3 center">
-                    <img src="<?= base_url('assets/img/app/icon/logo_120.png') ?>" id="LOGO-LOGIN">
+                  <div class="col s6 m6 l6 offset-s3 offset-m3 offset-l3 center">
+                    <img src="<?= base_url('assets/img/app/logo/logo_120.png') ?>" id="LOGO-LOGIN">
                   </div>
                   <div class="input-field col s10 offset-s1">
                     <small class="red-text" id="flash">*isi semua colom</small>
