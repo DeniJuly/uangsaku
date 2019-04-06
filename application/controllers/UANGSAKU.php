@@ -97,47 +97,4 @@ class UANGSAKU extends CI_controller
 		$var['judul']   = 'Daftar';
 		$this->load->view('template',$var);	
 	}
-	// Page Orang Tua
-	public function beranda_orang_tua()
-	{
-		$var['header']	= 'user/main_view/header_orang_tua';
-		$var['konten']	= 'user/view/orangtua/page/beranda';
-		$var['footer']	= 'user/main_view/footer_orang_tua';
-		$var['judul']   = 'Beranda';
-		$this->load->view('template',$var);	
-	}
-	public function profile_orang_tua()
-	{
-		$var['header'] = 'user/main_view/header_orang_tua';
-		$var['konten'] = 'user/view/orangtua/page/profile_orang_tua';
-		$var['footer'] = 'user/main_view/footer_orang_tua';
-		$var['judul']  = 'UANGSAKU';
-		$this->load->view('template',$var);		
-	}
-	public function history_orang_tua()
-	{
-		$var['header'] = 'user/main_view/header_orang_tua';
-		$var['konten'] = 'user/view/orangtua/page/history';
-		$var['footer'] = 'user/main_view/footer_orang_tua';
-		$var['judul']  = 'Riwayat Anak';
-		$this->load->view('template',$var);		
-	}
-
-	public function bayar()
-	{
-		$var['header'] = 'user/main_view/header_orang_tua';
-		$var['konten'] = 'user/view/orangtua/page/bayar';
-		$var['footer'] = 'user/main_view/footer_orang_tua';
-		$var['judul']  = 'Riwayat Anak';
-		$this->load->view('template',$var);		
-	}
-
-	public function beli()
-	{
-		$var['header'] = 'user/main_view/header_orang_tua';
-		$var['konten'] = 'user/view/orangtua/page/beli';
-		$var['footer'] = 'user/main_view/footer_orang_tua';
-		$var['judul']  = 'Riwayat Anak';
-		$this->load->view('template',$var);		
-	}
 }

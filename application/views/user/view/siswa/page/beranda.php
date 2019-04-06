@@ -21,22 +21,15 @@
 			<div class="col s12 m12">
 
 				<!-- JIKA SUDAH TERKAIT -->
-				<div class="col s4 m2 l2  offset-m2 offset-l3">
-					<a href="<?= site_url('ORANGTUA/Anak') ?>">
+				<div class="col s4 m2 l2 offset-s1  offset-m2 offset-l3">
+					<a href="<?= site_url('SISWA/Pembayaran') ?>">
 						<div class="card-panel center">
 							<img src="<?php echo base_url('assets/img/app/icon/pembayaran.png') ?>" width="24px">
 						</div>
 					</a>
 				</div>
-				<div class="col s4 m2 l2">
-					<a href="<?= site_url('ORANGTUA/Anak') ?>">
-						<div class="card-panel center">
-							<img src="<?php echo base_url('assets/img/app/icon/history.png') ?>" width="24px">
-						</div>
-					</a>
-				</div>
-				<div class="col s4 m2 l2">
-					<a href="<?= site_url('ORANGTUA/Beli') ?>">
+				<div class="col s4 m2 l2 offset-s1 offset-l2 m2">
+					<a href="<?= site_url('SISWA/Beli') ?>">
 						<div class="card-panel center">
 							<img src="<?php echo base_url('assets/img/app/icon/pembelian.png') ?>" width="24px">
 						</div>
@@ -67,7 +60,7 @@
 					<small class="grey-text lighten-1 left">di paymen poin uangsaku</small>
 				</div>
 				<div class="col s2 m2 l1 center offset-l1" id="LINK-TIPS-BERANDA">
-					<a href="<?= site_url('ORANGTUA/Topup') ?>">
+					<a href="<?= site_url('SISWA/Topup') ?>">
 						<i class="material-icons">chevron_right</i>
 					</a>
 				</div>

@@ -1,6 +1,51 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
+$route = array(
+	'default_controller' 	=> 'UANGSAKU',
+	'404_override'		 	=> '',
+	'translate_uri_dashes' 	=> FALSE,
+
+	// CONTROLLER UANGSAKU
+	'daftar_sekolah' 			=> 'UANGSAKU/daftar_sekolah',
+	'daftar_siswa'				=> 'UANGSAKU/daftar_siswa',
+	'daftar_orangtua'			=> 'UANGSAKU/daftar_orangtua',
+	'daftar_mitra'				=> 'UANGSAKU/daftar_mitra',
+	'Login'						=> 'UANGSAKU/login',
+	'konfirmasi_email_sekolah'	=> 'UANGSAKU/konfirmasi_email_sekolah',
+	'konfirmasi_email_siswa'	=> 'UANGSAKU/konfirmasi_email_siswa',
+	'konfirmasi_email_orangtua'	=> 'UANGSAKU/konfirmasi_email_orangtua',
+	'konfirmasi_email_mitra'	=> 'UANGSAKU/konfirmasi_email_mitra',
+
+	// CONTROLLER UANGSAKU_SEKOLAH
+	'SEKOLAH'					=> 'UANGSAKU_Sekolah',
+	'SEKOLAH/siswa'				=> 'UANGSAKU_Sekolah/siswa',
+	'SEKOLAH/Profile'			=> 'UANGSAKU_Sekolah/Profile',
+
+	// CONTROLLER ORANGTUA
+	'ORANGTUA'					=> 'UANGSAKU_Orangtua',
+	'ORANGTUA/Profile'			=> 'UANGSAKU_Orangtua/Profile',
+	'ORANGTUA/Beli'				=> 'UANGSAKU_Orangtua/Beli',
+	'ORANGTUA/Riwayat'			=> 'UANGSAKU_Orangtua/Riwayat',
+	'ORANGTUA/Bayar'			=> 'UANGSAKU_Orangtua/Bayar',
+	'ORANGTUA/Anak'				=> 'UANGSAKU_Orangtua/Anak',
+	'ORANGTUA/Detail_history'	=> 'UANGSAKU_Orangtua/Detail_history',
+	'ORANGTUA/Topup'			=> 'UANGSAKU_Orangtua/Tips',
+	'ORANGTUA/Beli/Beranda'		=> 'UANGSAKU_Orangtua/Beli_beranda',
+
+	// CONTROLLER SISWA
+	'SISWA'						=> 'UANGSAKU_Siswa',
+	'SISWA/Profile'				=> 'UANGSAKU_Siswa/Profile',
+	'SISWA/Pembayaran'			=> 'UANGSAKU_Siswa/Pembayaran',
+	'SISWA/Bayar'				=> 'UANGSAKU_Siswa/Bayar',
+	'SISWA/Beli'				=> 'UANGSAKU_Siswa/Beli',
+	'SISWA/Riwayat'				=> 'UANGSAKU_Siswa/Riwayat',
+	'SISWA/Detail_riwayat'		=> 'UANGSAKU_Siswa/Detail_riwayat',
+	'SISWA/Topup'				=> 'UANGSAKU_Siswa/Tips',
+
+);
+
 /*
 | -------------------------------------------------------------------------
 | URI ROUTING
@@ -49,24 +94,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route = array(
-	'default_controller' 	=> 'UANGSAKU',
-	'404_override'		 	=> '',
-	'translate_uri_dashes' 	=> FALSE,
-
-	// CONTROLLER UANGSAKU
-	'daftar_sekolah' 			=> 'UANGSAKU/daftar_sekolah',
-	'daftar_siswa'				=> 'UANGSAKU/daftar_siswa',
-	'daftar_orangtua'			=> 'UANGSAKU/daftar_orangtua',
-	'daftar_mitra'				=> 'UANGSAKU/daftar_mitra',
-	'Login'						=> 'UANGSAKU/login',
-	'konfirmasi_email_sekolah'	=> 'UANGSAKU/konfirmasi_email_sekolah',
-	'konfirmasi_email_siswa'	=> 'UANGSAKU/konfirmasi_email_siswa',
-	'konfirmasi_email_orangtua'	=> 'UANGSAKU/konfirmasi_email_orangtua',
-	'konfirmasi_email_mitra'	=> 'UANGSAKU/konfirmasi_email_mitra',
-
-	// CONTROLLER UANGSAKU_SEKOLAH
-	'SEKOLAH'					=> 'UANGSAKU_Sekolah',
-	'SEKOLAH/siswa'				=> 'UANGSAKU_Sekolah/siswa',
-	'SEKOLAH/Profile'				=> 'UANGSAKU_Sekolah/Profile'
-);

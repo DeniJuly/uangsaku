@@ -25,13 +25,18 @@
 					</a>
 				</div>
 				<div class="input-field col s10 offset-s1">
-				  <small>NIK</small><br>
+				  <small>NIS</small><br>
 				  <input value="" id="nis" type="text" disabled>
 				</div>
 
 				<div class="input-field col s10 offset-s1">
-				  <small>Email</small><br>
+				  <small>Nama</small><br>
 				  <input value="" id="nama" type="text" disabled autocomplete="off">
+				</div>
+
+				<div class="input-field col s10 offset-s1">
+				  <small>No Telephon</small><br>
+				  <input value="" id="telp" type="text" disabled autocomplete="off">
 				</div>
 
 			  	<div class="col s10 m10 l10 offset-s1 offset-m1 offset-l1 tips" style="border: 1px solid #eee;height: 45px;">
@@ -91,3 +96,20 @@
 
 	</div>
 </div>
+<script>
+	$(document).ready(function () {
+		$("#UBAH").click(function(){
+			$(this).css("display","none");
+			$("#SIMPAN").css("display","block");
+			$("#nama").prop("disabled",false);
+			$("#telp").prop("disabled",false);
+		});
+		$("#SIMPAN").click(function(){
+			$("#flash").hide();
+			$("#nama").prop("disabled",true);
+			$("#telp").prop("disabled",true);
+			$("#UBAH").css("display","block");
+			$("#SIMPAN").css("display","none");
+		});
+	});
+</script>

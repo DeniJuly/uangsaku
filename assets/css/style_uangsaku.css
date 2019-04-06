@@ -23,11 +23,11 @@
 	margin-top: -11px;
 	height: 100%;
 }
-#JUDUL{
+#HEADER-UANGSAKU-JUDUL{
 	padding-top: 16px;
 	margin-left: 30px;
 }
-#JUDUL h6{
+#HEADER-UANGSAKU-JUDUL h6{
 	margin-top: 5px;
 }
 /*LOGIN*/
@@ -181,5 +181,12 @@
 	#TAMPILAN, 
 	#DEVELOPER{
 		margin-top: 50px;
+	}
+}
+@media only screen and (min-width: 1000px){
+	
+	#HEADER-UANGSAKU-JUDUL{
+		padding-top: 18px!important;
+		margin-left: 42px!important;
 	}
 }

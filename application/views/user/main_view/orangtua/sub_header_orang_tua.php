@@ -4,7 +4,7 @@
 
       <link href="<?php echo base_url('assets/css/icon.css')  ?> " rel="stylesheet">
       <link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/css/materialize.min.css') ?>"  media="screen,projection"/>
-      <link rel="stylesheet" href="<?php echo base_url('assets/css/style_uangsaku.css') ?>">
+      <link rel="stylesheet" href="<?php echo base_url('assets/css/style_all_ui_user.css') ?>">
       <link rel="stylesheet" href="<?php echo base_url('assets/css/style_all.css') ?>">
       <link rel="shortcut icon" href="<?php echo base_url('assets/img/app/logo/logo_32.png') ?>">
 
@@ -16,30 +16,18 @@
       <title><?php echo $judul ?></title>
     </head>
 
-    <body id="body">
-
+    <body>
       <div class="navbar-fixed">
           <nav class="blue lighten-1">
             <div class="nav-wrapper">
               <div class="container">
                 <div class="row">
-
-                  <a href="#body" class="left page-control" id="LOGO-HEADER-LANDING-PAGE">
-                    <img src="<?php echo base_url('assets/img/app/logo/logo_64.png') ?>" class="responsive-img">
+                  <a href="javascript:window.history.go(-1);" class="brand-logo left" id="LINK-KEMBALI">
+                    <i class="material-icons white-text" id="ICON-LINK-KEMBALI">chevron_left</i>
                   </a>
                   <div class="left" id="HEADER-UANGSAKU-JUDUL">
-                    <h6 class="white-text"><?php echo $judul; ?></h6>
+                    <h6 class="white-text">HISTORY PEMBAYARAN</h6>
                   </div>
-                  <?php if ($this->uri->segment(2) == null) : ?>
-                  <ul id="nav-mobile" class="right hide-on-small-only">
-                    <li><a href="#PENGERTIAN" class="page-control">TENTANG</a></li>
-                    <li><a href="#FITUR" class="page-control">FITUR</a></li>
-                    <li><a href="#DEVELOPER" class="page-control">DEVELOPER</a></li>
-                    <li style="margin-top: 15px;">
-                      <a href="<?php echo site_url('Login') ?>" class="center right btn white blue-text btn_login">Login</a>
-                    </li>
-                  </ul>
-                  <?php endif ?>
                 </div>
               </div>
             </div>
