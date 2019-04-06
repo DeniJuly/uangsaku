@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="height: auto;">
 	<div class="row">
 		<div class="col s10 m4 l4 offset-s1 offset-m4 offset-l4">
 			<div class="card-panel card-konfirmasi-email">
