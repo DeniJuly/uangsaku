@@ -75,7 +75,9 @@ html{
 #label-side-navbar,
 #label-side-navbar2,
 #label-side-navbar3,
-#label-side-navbar4{
+#label-side-navbar4,
+#label-side-navbar5,
+#label-side-navbar6{
 	font-size: 13px!important;
     position: absolute!important;
     margin-top: 4px!important;
@@ -102,4 +104,144 @@ html{
 }
 .side-nav .judul p{
 	line-height: 1;
+}
+/*BERANDA TIPS*/
+#TIPS-BERANDA{
+	margin-top: 10px;
+}
+#TIPS-BERANDA{
+	border: 1px solid #eee;
+}
+#TIPS-BERANDA #ICON-TIPS-BERANDA img{
+	margin-top: 12px!important;
+}
+#TIPS-BERANDA #JUDUL-TIPS-BERANDA{
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 12px;
+}
+#TIPS-BERANDA #JUDUL-TIPS-BERANDA h6{
+	margin-bottom: -6px;
+}
+#TIPS-BERANDA #LINK-TIPS-BERANDA{
+	padding-top: 20px;
+}
+/*BERANDA*/
+#BUNGKUS-SALDO{
+	height: 110px;
+	margin-top: 22px;
+	border-radius: 10px;
+}
+#BUNGKUS-SALDO #BUNGKUS-JUDUL-SALDO{
+	margin-top: -16px;
+	padding-bottom: 10px;
+}
+#BUNGKUS-JUDUL-SALDO #JUDUL-SALDO h6{
+	font-size: 15px;
+}
+/*BELI*/
+.btn-cari-toko{
+	margin-top: 20px;
+	border-radius: 25px;
+}
+#BUNGKUS-TOKO #TOKO .row{
+	margin-bottom: 0!important;
+}
+#CARD-TOKO{
+	height: 275px!important;
+}
+/*BAYAR KEBUTUHAN SEKOLAH*/
+#CARD-BAYAR-KEBUTUHAN-SEKOLAH{
+	margin-top: 50px;
+	border-top: 2px solid #f3c60e !important;
+	margin-bottom: 50px;
+}
+#INFO-BAYAR-KEBUTUHAN-SEKOLAH table tr td{
+	padding: 5px 0px!important;
+}
+/*ANAK*/
+#HISTORY,
+#PEMBAYARAN-ANAK{
+	margin-top: 50px;
+}
+#CARD-PEMBAYARAN-ANAK{
+	height: 150px!important;
+	border-left: 2px solid #f3c60e !important;
+}
+#CARD-PEMBAYARAN-ANAK #JUDUL-PEMBAYARAN-ANAK{
+	height: 45px!important;
+}
+#CARD-PEMBAYARAN-ANAK .row{
+	margin-bottom: 0!important;
+}
+#INFO-PEMBAYARAN-ANAK{
+	margin-top: 10px;
+	border-top: 1px solid #eee;
+}
+#CARD-HISTORY-KEUANGAN-ANAK{
+	height: 150px!important;
+	border-left: 2px solid #f3c60e !important;
+}
+#CARD-HISTORY-KEUANGAN-ANAK #JUDUL-HISTORY-KEUANGAN-ANAK{
+	height: 45px!important;
+}
+#CARD-HISTORY-KEUANGAN-ANAK .row{
+	margin-bottom: 0!important;
+}
+#INFO-HISTORY-KEUANGAN-ANAK{
+	margin-top: 10px;
+	border-top: 1px solid #eee;
+}
+/*SUB HEADER*/
+#LINK-KEMBALI{
+	height: 35px;
+	margin-top: 10px;
+	text-align: center;
+	width: 25px;
+}
+#ICON-LINK-KEMBALI{
+	margin-top: -11px;
+	height: 100%;
+}
+#HEADER-UANGSAKU-JUDUL{
+	padding-top: 16px;
+	margin-left: 40px;
+}
+#HEADER-UANGSAKU-JUDUL h6{
+	margin-top: 5px;
+}
+/*TIPS*/
+#TIPS{
+	margin-top: 10px;
+}
+#CARD-TIPS{
+	height: 85px;
+}
+#NO-TIPS .circle{
+	height: 35px;
+	width: 35px;
+	text-align: center;
+	padding: 4px;
+}
+
+/*RESPONSIVE*/
+@media only screen and (min-width: 1000px){
+	#TIPS-BERANDA #JUDUL-TIPS-BERANDA{
+		padding-top: 7px!important;
+	}
+	#TIPS-BERANDA #LINK-TIPS-BERANDA{
+		padding-top: 15px!important;
+	}
+}
+@media only screen and (max-width: 600px){
+	#BUNGKUS-TOKO #TOKO{
+		margin-left: 0!important;
+	}
+}
+@media only screen and (min-width: 1000px){
+	
+	#HEADER-UANGSAKU-JUDUL{
+		padding-top: 19px!important;
+		margin-left: 42px!important;
+	}
 }

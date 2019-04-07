@@ -23,9 +23,9 @@
       <nav class="white" id="nav-navbar">
         <div class="nav-wrapper">
           <a href="#" data-activates="mobile-demo" class="grey-text button-collapse"><i class="material-icons">menu</i></a>
-          <a class="big-side-nav left hide-on-small-only grey-text circle" id="btn-big-side-nav-small"><i class="center material-icons">menu</i></a>
-          <a class="big-side-nav left hide-on-small-only grey-text circle" id="btn-big-side-nav-big"><i class="center material-icons">menu</i></a>
-          <a href="#" class="brand-logo navbar-logo hide-on-small-only">
+          <a class="big-side-nav left hide-on-med-and-down grey-text circle" id="btn-big-side-nav-small"><i class="center material-icons">menu</i></a>
+          <a class="big-side-nav left hide-on-med-and-down grey-text circle" id="btn-big-side-nav-big"><i class="center material-icons">menu</i></a>
+          <a href="#" class="brand-logo navbar-logo hide-on-med-and-down">
             <img src="<?php echo base_url('assets/img/app/logo/logo_64.png') ?>" class="responsive-img">
           </a>
 
@@ -46,7 +46,7 @@
       </nav>
 
       <div class="row" style="height: 89.5%">
-        <div class="hide-on-small-only col m2 l2" id="side-navbar">
+        <div class="hide-on-med-and-down col m2 l2" id="side-navbar">
           <ul id="ul-side-navbar">
 
             <li id="li-side-navbar">

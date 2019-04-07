@@ -1,54 +1,23 @@
 	<div class="col s12 m10 l10" id="isi">
-		<div class="col s3 m1 l1" id="tambah-siswa">
+		<div class="col s3 m1 l1" id="TAMBAH-JENIS-PEMBAYARAN">
 			<a class="waves-effect waves-light btn modal-trigger white" href="#TAMBAH"><i class="material-icons blue-text">add</i></a>
 		</div>
 		<div class="col s12 m9 l9">
 			<div class="input-field col s9 m9 l9">
-	          <input placeholder="Cari Siswa" id="key" type="text" class="validate" autocomplete="off" autofocus="on">
+	          <input placeholder="Cari Jenis Pembayaran" id="key" type="text" class="validate" autocomplete="off" autofocus="on">
 	        </div>
 	          <a class="waves-effect waves-light btn white btn-cari-siswa"><i class="material-icons blue-text">search</i></a>
 		</div>
 		<div class="col s12 m12 l12">
 			<div class="col s12 m12 l12">
-				<h5 class="left">Data Siswa</h5> 
+				<h5 class="left">Data Jenis Pembayaran</h5> 
 				<div class="chip" style="margin-left: 10px;margin-top: 5px;">
-				    100 siswa
+				    2 jenis pembayaran
 				</div>
 			</div>
-			<table class="table table-bordered">
-				<thead>
-					<tr>
-						<th class="center">NO</th>
-						<th>NIS</th>
-						<th>Nama</th>
-						<th class="center">Info</th>
-						<th class="center">Opsi</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td class="center">1</td>
-						<td >12111</td>
-						<td>Deni</td>
-						<td class="center">
-							<a href="#INFO" class="admin-b btn orange modal-trigger"><i class="material-icons">info_outline</i></a>
-						</td>
-						<td class="center">
-							<a href="#EDIT" class="admin-b btn cyan modal-trigger"><i class="material-icons">create</i></a>
-							<a href="#hapus" class="admin-b btn red modal-trigger"><i class="material-icons">delete_forever</i></a>
-						</td>
-					</tr>
-				</tbody>
-				<tfoot>
-					<tr>
-						<th class="center">NO</th>
-						<th>NIS</th>
-						<th>Nama</th>
-						<th class="center">Info</th>
-						<th class="center">Opsi</th>
-					</tr>
-				</tfoot>
-			</table>
+			<div class="col s6 m4 l4">
+				<div class="card-panel"></div>
+			</div>
 		</div>
 	</div>
 </div>

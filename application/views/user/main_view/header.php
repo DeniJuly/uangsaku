@@ -13,6 +13,7 @@
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title><?php echo $judul ?></title>
     </head>
 
     <body>
@@ -26,7 +27,7 @@
                     <i class="material-icons white-text" id="ICON-LINK-KEMBALI">chevron_left</i>
                   </a>
                   <?php endif; ?>
-                  <div class="left" id="JUDUL">
+                  <div class="left" id="HEADER-UANGSAKU-JUDUL">
                     <h6 class="white-text"><?php echo $judul; ?></h6>
                   </div>
                 </div>
