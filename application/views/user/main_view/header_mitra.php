@@ -34,10 +34,41 @@
             <li class="judul">
               <p class="blue-text">UANGSAKU</p>
             </li>
-            <li><a href="<?php echo site_url('SEKOLAH/Profile') ?>"><i class="material-icons">person</i>Profile</a></li>
-            <li><a href="<?php echo site_url('SEKOLAH') ?>"><i class="material-icons">monetization_on</i>Pembayaran</a></li>
-            <li><a href="#!"><i class="material-icons">verified_user</i>Verifikasi</a></li>
-            <li><a href="<?php echo site_url('SEKOLAH/siswa') ?>"><i class="material-icons">school</i>SISWA</a></li>
+            <li>
+              <a href="<?php echo site_url('UANGSAKU_mitra/profile') ?>" class="<?php if ($this->uri->segment(2)=='profile') {
+                echo"active-side-navbar";
+              } ?>">
+                <i class="material-icons">person</i>
+                <label id="label-side-navbar">Profile</label>
+              </a>
+            </li>
+
+            <li>
+              <a href="<?php echo site_url('UANGSAKU_mitra/info') ?>" class="<?php if ($this->uri->segment(2)=='info') {
+                echo"active-side-navbar";
+              } ?>">
+                <i class="material-icons">info</i>
+                <label id="label-side-navbar2">Info</label>
+              </a>
+            </li>
+
+            <li>
+              <a href="<?php echo site_url('UANGSAKU_mitra/produk') ?>" class="<?php if ($this->uri->segment(2)=='produk') {
+                echo"active-side-navbar";
+              } ?>">
+                <i class="material-icons">shopping_basket</i>
+                <label id="label-side-navbar3">Produk</label>
+              </a>
+            </li>
+
+            <li>
+              <a href="<?php echo site_url('UANGSAKU_mitra/transaksi') ?>" class="<?php if ($this->uri->segment(2)=='transaksi') {
+                echo"active-side-navbar";
+              } ?>">
+                <i class="material-icons">compare_arrows</i>
+                <label id="label-side-navbar4">Transaksi</label>
+              </a>
+            </li>
           </ul>
         </div>
       </nav>

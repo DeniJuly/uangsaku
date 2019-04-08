@@ -26,7 +26,25 @@ class UANGSAKU_mitra extends CI_Controller {
 		$var['header'] = 'user/main_view/header_mitra';
 		$var['konten'] = 'user/view/mitra/produk';
 		$var['footer'] = 'user/main_view/footer_mitra';
-		$var['judul']  = 'Profile | Mitra';
+		$var['judul']  = 'Produk | Mitra';
+		$this->load->view('template',$var);			
+	}
+
+	public function transaksi()
+	{
+		$var['header'] = 'user/main_view/header_mitra';
+		$var['konten'] = 'user/view/mitra/transaksi';
+		$var['footer'] = 'user/main_view/footer_mitra';
+		$var['judul']  = 'Transaksi | Mitra';
+		$this->load->view('template',$var);			
+	}
+
+	public function info()
+	{
+		$var['header'] = 'user/main_view/header_mitra';
+		$var['konten'] = 'user/view/mitra/info';
+		$var['footer'] = 'user/main_view/footer_mitra';
+		$var['judul']  = 'Info | Mitra';
 		$this->load->view('template',$var);			
 	}
 
