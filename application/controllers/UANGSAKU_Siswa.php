@@ -68,6 +68,31 @@ class UANGSAKU_Siswa extends CI_Controller {
 		$var['judul']  = 'UANGSAKU';
 		$this->load->view('template',$var);		
 	}
+	public function Notifikasi()
+	{
+		$var['header'] = 'user/main_view/siswa/header_siswa';
+		$var['konten'] = 'user/view/siswa/page/Notifikasi';
+		$var['footer'] = 'user/main_view/siswa/footer_siswa';
+		$var['judul']  = 'UANGSAKU';
+		$this->load->view('template',$var);
+	}
+	public function Detail_notifikasi()
+	{
+		$notif = $this->uri->segment(3);
+		$var['header'] = 'user/main_view/siswa/sub_header_siswa';
+		$var['konten'] = 'user/view/notifikasi/'.$notif;
+		$var['footer'] = 'user/main_view/siswa/sub_footer_siswa';
+		$var['judul']  = 'UANGSAKU';
+		$this->load->view('template',$var);	
+	}
+	public function Detail_profile()
+	{
+		$var['header'] = 'user/main_view/siswa/sub_header_siswa';
+		$var['konten'] = 'user/view/siswa/page/Detail_profile';
+		$var['footer'] = 'user/main_view/siswa/sub_footer_siswa';
+		$var['judul']  = 'TENTANG';
+		$this->load->view('template',$var);	
+	}
 
 }
 

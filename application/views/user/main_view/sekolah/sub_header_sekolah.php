@@ -5,6 +5,7 @@
       <link href="<?php echo base_url('assets/css/icon.css')  ?> " rel="stylesheet">
       <link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/css/materialize.min.css') ?>"  media="screen,projection"/>
       <link rel="stylesheet" href="<?php echo base_url('assets/css/style_all_ui_user.css') ?>">
+      <link rel="stylesheet" href="<?php echo base_url('assets/css/style_uangsaku_sekolah.css') ?>">
       <link rel="stylesheet" href="<?php echo base_url('assets/css/style_all.css') ?>">
       <link rel="shortcut icon" href="<?php echo base_url('assets/img/app/logo/logo_32.png') ?>">
 

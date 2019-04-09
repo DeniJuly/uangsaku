@@ -20,9 +20,9 @@
 					<tr>
 						<th class="center">NO</th>
 						<th>NIS</th>
-						<th>Nama</th>
-						<th class="center">Info</th>
-						<th class="center">Opsi</th>
+						<th>NAMA</th>
+						<th>KELAS</th>
+						<th class="center">OPSI</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -30,24 +30,51 @@
 						<td class="center">1</td>
 						<td >12111</td>
 						<td>Deni</td>
-						<td class="center">
-							<a href="#INFO" class="admin-b btn orange modal-trigger"><i class="material-icons">info_outline</i></a>
+						<td>X RPL 2</td>
+						<td class="center" id="OPSI">
+							<a class='dropdown-button' data-activates='dropdown1' style="cursor: pointer;">
+								<i class="material-icons">more_vert</i>
+							</a>
+							<!-- Dropdown Structure -->
+							  <ul id='dropdown1' class='dropdown-content'>
+							    <li class="blue-text">
+							    	<a href="#EDIT" class="blue-text modal-trigger">
+							    		<i class="material-icons center">create</i>EDIT
+							    	</a>
+							    </li>
+							    <li class="blue-text">
+							    	<a href="#!" class="blue-text modal-trigger">
+							    		<i class="material-icons center">delete</i>HAPUS
+							    	</a>
+							    </li>
+							  </ul>
 						</td>
-						<td class="center">
-							<a href="#EDIT" class="admin-b btn cyan modal-trigger"><i class="material-icons">create</i></a>
-							<a href="#hapus" class="admin-b btn red modal-trigger"><i class="material-icons">delete_forever</i></a>
+					</tr>
+					<tr>
+						<td class="center">1</td>
+						<td >12111</td>
+						<td>Deni</td>
+						<td>X RPL 2</td>
+						<td class="center" id="OPSI">
+							<a class='dropdown-button' data-activates='dropdown1' style="cursor: pointer;">
+								<i class="material-icons">more_vert</i>
+							</a>
+							<!-- Dropdown Structure -->
+							  <ul id='dropdown1' class='dropdown-content'>
+							    <li class="blue-text">
+							    	<a href="#EDIT" class="blue-text modal-trigger">
+							    		<i class="material-icons center">create</i>EDIT
+							    	</a>
+							    </li>
+							    <li class="blue-text">
+							    	<a href="#!" class="blue-text modal-trigger">
+							    		<i class="material-icons center">delete</i>HAPUS
+							    	</a>
+							    </li>
+							  </ul>
 						</td>
 					</tr>
 				</tbody>
-				<tfoot>
-					<tr>
-						<th class="center">NO</th>
-						<th>NIS</th>
-						<th>Nama</th>
-						<th class="center">Info</th>
-						<th class="center">Opsi</th>
-					</tr>
-				</tfoot>
 			</table>
 		</div>
 	</div>
@@ -72,25 +99,6 @@
     </div>
     <div class="modal-footer">
       <a id="btn-simpan-siswa" class="waves-effect btn white blue-text">EDIT</a>
-    </div>
-  </div>
- <!-- Modal edit -->
-  <div id="INFO" class="modal modal-fixed-footer" style="height: 57%!important">
-  	<div class="modal-header">
-  		<h5 class="center">Info Data Siswa</h5>
-  	</div>
-    <div class="modal-content">
-    	<div class="container">
-	      	<div class="input-field col s12">
-	          <input placeholder="NISN" id="NISN" type="number" class="validate" disabled>
-	        </div>
-	        <div class="input-field col s12">
-	          <input placeholder="NAMA" id="NISN" type="number" class="validate" disabled>
-	        </div>
-	        <div class="input-field col s12">
-	          <input placeholder="KELAS" id="NISN" type="number" class="validate" disabled>
-	        </div>
-        </div>
     </div>
   </div>
 

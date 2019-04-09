@@ -30,19 +30,41 @@
           </a>
 
           <ul class="right" id="ul-navbar">
-            <li><a href="<?php echo site_url('SISWA/Profile') ?>"><img class="circle" src="<?php echo base_url('assets/img/user/coba.jpg') ?>"></a></li>
+            <li>
+              <a href="<?php echo site_url('SISWA/Profile') ?>">
+                <img class="circle" src="<?php echo base_url('assets/img/user/coba.jpg') ?>">
+              </a>
+            </li>
           </ul>
 
           <ul id="mobile-demo" class="side-nav">
             <li class="judul">
               <p class="blue-text">UANGSAKU</p>
             </li>
-            <li><a href="<?php echo site_url('SISWA') ?>"><i class="material-icons">home</i>BERANDA</a></li>
-            <li><a href="<?php echo site_url('SISWA/Anak') ?>"><i class="material-icons">person</i>PROFILE</a></li>
-            <li><a href="<?php echo site_url('SISWA/Anak') ?>"><i class="material-icons">payment</i>PEMBAYARAN</a></li>
-            <li><a href="<?php echo site_url('SISWA/Anak') ?>"><i class="material-icons">notifications</i>NOTIFIKASI</a></li>
-            <li><a href="<?php echo site_url('SISWA') ?>"><i class="material-icons">shopping_cart</i>BELI</a></li>
-            <li><a href="<?php echo site_url('SISWA/Riwayat') ?>"><i class="material-icons">history</i>RIWAYAT</a></li>
+            <li>
+              <a href="<?php echo site_url('SISWA') ?>">
+              <img src="<?php echo base_url('assets/img/app/icon/beranda.png') ?>" style="margin-right: 34px;margin-top: 10px;" class="responsive-img left">BERANDA</a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('SISWA/Profile') ?>">
+                <img src="<?php echo base_url('assets/img/app/icon/profile.png') ?>" style="margin-right: 34px;margin-top: 10px;" class="responsive-img left">PROFILE</a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('SISWA/Pembayaran') ?>">
+                <img src="<?php echo base_url('assets/img/app/icon/bayar.png') ?>" style="margin-right: 34px;margin-top: 10px;" class="responsive-img left">PEMBAYARAN</a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('SISWA/Notifikasi') ?>">
+              <img src="<?php echo base_url('assets/img/app/icon/notifications_on.png') ?>" style="margin-right: 34px;margin-top: 10px;" class="responsive-img left">NOTIFIKASI</a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('SISWA/Beli') ?>">
+                <img src="<?php echo base_url('assets/img/app/icon/beli.png') ?>" style="margin-right: 34px;margin-top: 10px;" class="responsive-img left">BELI</a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('SISWA/Riwayat') ?>">
+                <img src="<?php echo base_url('assets/img/app/icon/riwayat.png') ?>" style="margin-right: 34px;margin-top: 10px;" class="responsive-img left">RIWAYAT</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -55,7 +77,7 @@
               <a href="<?php echo site_url('SISWA') ?>" id="link-side-navbar" class="<?php if ($this->uri->segment(2)=='') {
                 echo"active-side-navbar";
               } ?>">
-                <i class="material-icons">home</i>
+                <img src="<?php echo base_url('assets/img/app/icon/beranda.png') ?>" class="responsive-img">
                 <label id="label-side-navbar">BERANDA</label>
               </a>
             </li>
@@ -64,16 +86,16 @@
               <a href="<?php echo site_url('SISWA/Profile') ?>" id="link-side-navbar2" class="<?php if ($this->uri->segment(2)=='Profile') {
                 echo"active-side-navbar";
               } ?>">
-                <i class="material-icons">person</i>
+                <img src="<?php echo base_url('assets/img/app/icon/profile.png') ?>" class="responsive-img">
                 <label id="label-side-navbar2">PROFILE</label>
               </a>
             </li>
 
             <li id="li-side-navbar3">
-              <a href="<?php echo site_url('SISWA/Profile') ?>" id="link-side-navbar3" class="<?php if ($this->uri->segment(2)=='Pembayaran') {
+              <a href="<?php echo site_url('SISWA/Pembayaran') ?>" id="link-side-navbar3" class="<?php if ($this->uri->segment(2)=='Pembayaran') {
                 echo"active-side-navbar";
               } ?>">
-                <i class="material-icons">payment</i>
+                <img src="<?php echo base_url('assets/img/app/icon/bayar.png') ?>" class="responsive-img">
                 <label id="label-side-navbar3">PEMBAYARAN</label>
               </a>
             </li>
@@ -82,7 +104,7 @@
               <a href="<?php echo site_url('SISWA/Notifikasi') ?>" id="link-side-navbar4" class="<?php if ($this->uri->segment(2)=='Notifikasi') {
                 echo"active-side-navbar";
               } ?>">
-                <i class="material-icons">notifications</i>
+                <img src="<?php echo base_url('assets/img/app/icon/notifications.png') ?>" alt="" class="responsive-img">
                 <label id="label-side-navbar4">NOTIFIKASI</label>
               </a>
             </li>
@@ -91,7 +113,7 @@
               <a href="<?php echo site_url('SISWA/Beli') ?>" id="link-side-navbar5" class="<?php if ($this->uri->segment(2)=='Beli') {
                 echo"active-side-navbar";
               } ?>">
-                <i class="material-icons">shopping_cart</i>
+                <img src="<?php echo base_url('assets/img/app/icon/beli.png') ?>" class="responsive-img">
                 <label id="label-side-navbar5">BELI</label>
               </a>
             </li>
@@ -100,7 +122,7 @@
               <a href="<?php echo site_url('SISWA/Riwayat') ?>" id="link-side-navbar6" class="<?php if ($this->uri->segment(2)=='Riwayat') {
                 echo"active-side-navbar";
               } ?>">
-                <i class="material-icons">history</i>
+                <img src="<?php echo base_url('assets/img/app/icon/riwayat.png') ?>" class="responsive-img">
                 <label id="label-side-navbar6">RIWAYAT</label>
               </a>
             </li>

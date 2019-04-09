@@ -8,6 +8,11 @@ html{
 	overflow-x: hidden;
     overflow-y: scroll;
 }
+#isi-sub{
+	height: 89.5%;
+	overflow-x: hidden;
+    overflow-y: scroll;	
+}
 #ul-navbar, 
 #ul-navbar li,
 #ul-navbar li a, 
@@ -140,6 +145,14 @@ html{
 	font-size: 15px;
 }
 /*BELI*/
+#BUNGKUS-TOKO{
+	margin-top: 20px;
+}
+.judul-mitra{
+	border-bottom: 2px solid #f3c60e;
+	margin-top: 20px;
+	margin-left: 10px!important;
+}
 .btn-cari-toko{
 	margin-top: 20px;
 	border-radius: 25px;
@@ -148,7 +161,17 @@ html{
 	margin-bottom: 0!important;
 }
 #CARD-TOKO{
-	height: 275px!important;
+	padding: 10px!important;
+	height: 220px!important;
+}
+#TOKO{
+	margin-left:10px;
+}
+#TOKO #INFO-TOKO{
+	padding: 0!important;
+}
+#BAYAR{
+	border-radius: 25px;
 }
 /*BAYAR KEBUTUHAN SEKOLAH*/
 #CARD-BAYAR-KEBUTUHAN-SEKOLAH{
@@ -191,6 +214,32 @@ html{
 #INFO-HISTORY-KEUANGAN-ANAK{
 	margin-top: 10px;
 	border-top: 1px solid #eee;
+}
+/*NOTIFIKASI*/
+.judul-notifikasi{
+	border-bottom: 2px solid #f3c60e;
+	margin-top: 20px;
+	margin-left: 10px!important;
+}
+#BUNGKUS-NOTIFIKASI{
+	margin-top: 10px;
+	padding: 0;
+}
+#CARD-NOTIFIKASI{
+	height:70px!important;
+	overflow: hidden;padding: 5px;
+	border-bottom: 2px solid #eee;
+}
+#JUDUL-NOTIFIKASI{
+	max-height: 47px;
+}
+/*DETAIL NOTIFIKASI*/
+#ISI-NOTIFIKASI p{
+	margin:0!important;
+}
+/*PADDING*/
+.P-0{
+	padding: 0!important;
 }
 /*SUB HEADER*/
 #LINK-KEMBALI{

@@ -21,7 +21,7 @@
 		          <input placeholder="Verifikasi Password" id="VERIFIKASI_PASSWORD_ORANGTUA" type="password" class="validate">
 		        </div>
 		        <div class="input-field col s12">
-		          <button class="waves-effect waves-light btn blue lighten-1" id="btn-daftar">Daftar</button>
+		          <button class="waves-effect waves-light btn yellow darken-2" id="BTN-DAFTAR">Daftar</button>
 		        </div>
 	        </div>
 		</div>
