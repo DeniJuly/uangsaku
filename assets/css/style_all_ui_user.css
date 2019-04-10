@@ -325,7 +325,25 @@ html{
 #CARD-TENTANG-PROFILE-PRIVASI{
 	height: 130px;
 }
-
+/*PROFILE BERANDA*/
+#BUNGKUS-PROFILE-BERANDA{
+	height: 145px;
+	border-radius: 5px;
+}
+#BUNGKUS-IMG-SALDO img{
+	width: 100px;
+}
+#BUNGKUS-SALDO-BERANDA{
+	height: 70px;
+    padding: 10px;
+    border-radius: 5px;
+}
+#TEKS-SALDO h6{
+	margin-top: 17px;
+}
+#ISI-SALDO h6{
+	margin-top: 17px;
+}
 /*RESPONSIVE*/
 @media only screen and (min-width: 1000px){
 	#TIPS-BERANDA #JUDUL-TIPS-BERANDA{

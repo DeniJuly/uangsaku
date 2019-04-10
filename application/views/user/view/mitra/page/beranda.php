@@ -1,102 +1,70 @@
 <div class="col s12 m10 l10" id="isi">
-	<div class="container">
 		
 		<div class="col s12">
-
-			<div class="card-panel grey-text" id="BUNGKUS-SALDO">
-				<div class="col s8 l10 m10" id="BUNGKUS-JUDUL-SALDO">
-					<div class="col s12 m12 l12" id="JUDUL-SALDO">
-						<h6 class="left"><b>SALDO</b></h6><br>
+			
+			<div class="col s12 m10 l10 offset-m1 offset-l1">
+				<div class="card-panel grey-text" id="BUNGKUS-PROFILE-BERANDA">
+					<div class="col s4 l2 m2 center" id="BUNGKUS-IMG-SALDO">
+						<img class="circle responsive-img center" src="<?php echo base_url('assets/img/user/coba.jpg') ?>">
 					</div>
-					<div class="col s12 m12 l12">
-						<h5 id="SALDO" class="left"><sup>Rp</sup>10.000</h5>
+					<div class="col s8 m10 l10">
+						<h6><b>KANTIN SEKOLAH</b></h6>
+					</div>
+					<div class="col s8 m10 l10">
+						<img src="<?php echo base_url('assets/img/app/icon/badges-off.jpg') ?>">
+						<i class="material-icons yellow-text" style="font-size: 20px;">star</i>
+						<i class="material-icons yellow-text" style="font-size: 20px;">star</i>
+						<i class="material-icons yellow-text" style="font-size: 20px;">star</i>
+						<i class="material-icons yellow-text" style="font-size: 20px;">star</i>
+						<i class="material-icons yellow-text" style="font-size: 20px;">star</i>
 					</div>
 				</div>
-				<div class="col s4 m2 l2">
-					<img src="<?php echo base_url('assets/img/app/logo/logo_64.png') ?>" alt="" class="responsive-img">
-				</div>
-
 			</div>
 
-			<div class="col s12 m12">
+			<div class="col s12 m10 l10 offset-m1 offset-l1">
+				<div class="card-panel grey-text" id="BUNGKUS-SALDO-BERANDA">
+					<div class="col s3 l1 m1 center" id="BUNGKUS-ICON-SALDO">
+						<img src="<?php echo base_url('assets/img/app/icon/saldo.png') ?>" width="50px;" class="center">
+					</div>
+					<div class="col s3 m1 l1" id="TEKS-SALDO">
+						<h6>SALDO</h6>
+					</div>
+					<div class="col s6 m10 l10" id="ISI-SALDO">
+						<h6 class="right"><b>Rp 0</b></h6>
+					</div>
+				</div>
+			</div>
+
+			<div class="col s12 m10 l10 offset-m1 offset-l1">
+			<h6><b>Penjualan</b></h6>
 
 				<!-- JIKA SUDAH TERKAIT -->
-				<div class="col s4 m2 l2 offset-s1  offset-m2 offset-l3">
+				<div class="col s3 m3 l3 center">
 					<a href="<?= site_url('SISWA/Pembayaran') ?>">
-						<div class="card-panel center">
-							<img src="<?php echo base_url('assets/img/app/icon/pembayaran.png') ?>" width="24px">
-						</div>
+						<img src="<?php echo base_url('assets/img/app/icon/pembayaran.png') ?>" width="24px">
+						<p>Pesanan Baru</p>
 					</a>
 				</div>
-				<div class="col s4 m2 l2 offset-s1 offset-l2 m2">
+				<div class="col s3 m3 l3 center">
 					<a href="<?= site_url('SISWA/Beli') ?>">
-						<div class="card-panel center">
-							<img src="<?php echo base_url('assets/img/app/icon/pembelian.png') ?>" width="24px">
-						</div>
+						<img src="<?php echo base_url('assets/img/app/icon/pembelian.png') ?>" width="24px">
+						<p>Siap Dikirim</p>
 					</a>
 				</div>
-
-				<!-- JIKA BELUM TERKAIT -->
-				<!-- <div class="col s4 m2 l2 offset-s4 offset-m5 offset-l5">
-					<a href="<?= site_url('UangSaku/spp') ?>">
-						<div class="card-panel center">
-							<img src="<?php echo base_url('assets/img/app/icon/pembelian.png') ?>" width="24px">
-						</div>
+				<div class="col s3 m3 l3 center">
+					<a href="<?= site_url('SISWA/Pembayaran') ?>">
+						<img src="<?php echo base_url('assets/img/app/icon/pembayaran.png') ?>" width="24px">
+						<p>Sedang Dikirim</p>
 					</a>
-				</div> -->
+				</div>
+				<div class="col s3 m3 l3 center">
+					<a href="<?= site_url('SISWA/Beli') ?>">
+						<img src="<?php echo base_url('assets/img/app/icon/pembelian.png') ?>" width="24px">
+						<p>Sampai Tujuan</p>
+					</a>
+				</div>
 
 			</div>			
 		</div>
 
-		<div class="col s12 m12 l12" id="BUNGKUS-TIPS-BERANDA">
-			<p><h6 class="left">TIPS</h6></p>
-
-			<div class="col s12 m12 l12"id="TIPS-BERANDA">
-				<div class="col s3 m2 l1 center" id="ICON-TIPS-BERANDA">
-					<img src="<?= base_url('assets/img/app/logo/logo_64.png') ?>" class="responsive-img">
-				</div>
-				<div class="col s7 m8 l9" id="JUDUL-TIPS-BERANDA">
-					<h6 class="left">ISI SALDO</h6><br>
-					<small class="grey-text lighten-1 left">di paymen poin uangsaku</small>
-				</div>
-				<div class="col s2 m2 l1 center offset-l1" id="LINK-TIPS-BERANDA">
-					<a href="<?= site_url('SISWA/Topup') ?>">
-						<i class="material-icons">chevron_right</i>
-					</a>
-				</div>
-			</div>
-
-			<div class="col s12 m12 l12"id="TIPS-BERANDA">
-				<div class="col s3 m2 l1 center" id="ICON-TIPS-BERANDA">
-					<img src="<?= base_url('assets/img/app/logo/logo_64.png') ?>" class="responsive-img">
-				</div>
-				<div class="col s7 m8 l9" id="JUDUL-TIPS-BERANDA">
-					<h6 class="left">BELI MAKANAN</h6><br>
-					<small class="grey-text lighten-1 left">Lebih praktis dan cepat</small>
-				</div>
-				<div class="col s2 m2 l1 center offset-l1" id="LINK-TIPS-BERANDA">
-					<a href="<?= site_url('UangSaku/tips/tips_beli') ?>">
-						<i class="material-icons">chevron_right</i>
-					</a>
-				</div>
-			</div>
-
-			<div class="col s12 m12 l12" id="TIPS-BERANDA">
-				<div class="col s3 m2 l1 center" id="ICON-TIPS-BERANDA">
-					<img src="<?= base_url('assets/img/app/logo/logo_64.png') ?>" class="responsive-img">
-				</div>
-				<div class="col s7 m8 l9" id="JUDUL-TIPS-BERANDA">
-					<h6 class="left">Bayar SPP</h6><br>
-					<small class="grey-text lighten-1 left">Bayar tanpa antri</small>
-				</div>
-				<div class="col s2 m2 l1 center offset-l1" id="LINK-TIPS-BERANDA">
-					<a href="<?= site_url('UangSaku/tips/tips_spp') ?>">
-						<i class="material-icons">chevron_right</i>
-					</a>
-				</div>
-			</div>
-
-		</div>
-
-	</div>
 </div>
