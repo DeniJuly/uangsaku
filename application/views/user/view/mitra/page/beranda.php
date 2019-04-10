@@ -38,28 +38,27 @@
 			<div class="col s12 m10 l10 offset-m1 offset-l1">
 			<h6><b>Penjualan</b></h6>
 
-				<!-- JIKA SUDAH TERKAIT -->
 				<div class="col s3 m3 l3 center">
 					<a href="<?= site_url('SISWA/Pembayaran') ?>">
-						<img src="<?php echo base_url('assets/img/app/icon/pembayaran.png') ?>" width="24px">
+						<img src="<?php echo base_url('assets/img/app/icon/pesanan_masuk.png') ?>" width="24px">
 						<p>Pesanan Baru</p>
 					</a>
 				</div>
 				<div class="col s3 m3 l3 center">
 					<a href="<?= site_url('SISWA/Beli') ?>">
-						<img src="<?php echo base_url('assets/img/app/icon/pembelian.png') ?>" width="24px">
+						<img src="<?php echo base_url('assets/img/app/icon/siap_dikirim.png') ?>" width="24px">
 						<p>Siap Dikirim</p>
 					</a>
 				</div>
 				<div class="col s3 m3 l3 center">
 					<a href="<?= site_url('SISWA/Pembayaran') ?>">
-						<img src="<?php echo base_url('assets/img/app/icon/pembayaran.png') ?>" width="24px">
+						<img src="<?php echo base_url('assets/img/app/icon/sedang_dikirim.png') ?>" width="24px">
 						<p>Sedang Dikirim</p>
 					</a>
 				</div>
 				<div class="col s3 m3 l3 center">
 					<a href="<?= site_url('SISWA/Beli') ?>">
-						<img src="<?php echo base_url('assets/img/app/icon/pembelian.png') ?>" width="24px">
+						<img src="<?php echo base_url('assets/img/app/icon/sampai_tujuan.png') ?>" width="24px">
 						<p>Sampai Tujuan</p>
 					</a>
 				</div>
