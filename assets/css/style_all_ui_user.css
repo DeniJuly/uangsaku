@@ -47,6 +47,16 @@ html{
 	height: 100%;
 	margin-top: -6px;	
 }
+.icon-navbar{
+	margin-top: 10px;
+	margin-right: 34px;
+	height: 24px!important;
+	width: 24px!important;
+}
+.icon-side-navbar{
+	height: 24px!important;
+	width: 24px!important;
+}
 /*side navbar*/
 #side-navbar{
 	height: 100%;
@@ -271,6 +281,49 @@ html{
 	width: 35px;
 	text-align: center;
 	padding: 4px;
+}
+/*PROFILE*/
+#DIV-FOTO-PROFILE{
+	margin-top: 50px;
+}
+#CIRCLE-FOTO-PROFIL{
+	overflow: hidden;
+	height: 150px;
+	width: 150px;
+	margin: auto;
+	border: 6px solid #FFC107;
+}
+#MENU-PROFILE{
+	border-bottom: 1px solid #eee;
+}
+#ICON-MENU-PROFILE img{
+	height: 34px;
+	margin-top: 11px;
+	margin-bottom: 4px;
+}
+#JUDUL-MENU-PROFILE,
+#LINK-MENU-PROFILE{
+	padding-top: 15px;
+}
+/*DETAIL PROFILE*/
+#BUNGKUS-TENTANG-PROFILE{
+	margin-top: 20px;
+}
+#CARD-TENTANG-PROFILE-INFO{
+	height: 415px;
+}
+#JUDUL-TENTANG-PROFILE{
+	border-bottom: 1px solid #eee;
+}
+#ICON-TENTANG-PROFILE img{
+	height:35px;
+	width: 35px;
+}
+#CARD-TENTANG-PROFILE-KONTAK{
+	height:200px;
+}
+#CARD-TENTANG-PROFILE-PRIVASI{
+	height: 130px;
 }
 
 /*RESPONSIVE*/

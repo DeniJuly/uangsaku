@@ -55,6 +55,11 @@ $route = array(
 	'SISWA/Notifikasi/Pembayaran'	=> 'UANGSAKU_Siswa/Detail_notifikasi',
 	'SISWA/Tentang'					=> 'UANGSAKU_Siswa/Detail_profile',
 
+	// MITRA
+	'MITRA'						=> 'UANGSAKU_mitra',
+	'MITRA/Profile'				=> 'UANGSAKU_mitra/Profile',
+	'MITRA/Info'				=> 'UANGSAKU_mitra/Info',
+	'MITRA/Order'				=> 'UANGSAKU_mitra/Order',
 );
 
 /*

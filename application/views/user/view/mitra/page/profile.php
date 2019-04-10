@@ -8,7 +8,7 @@
 			</div>
 		</div>
 		<div class="col s8 m4 l4 offset-s2 offset-m4 offset-l4 center">
-			<h6 class="grey-text"><b>Deni Juli Setiawan @ SMKN 1 Bawang</b></h6>
+			<h6 class="grey-text"><b>Toko makmur sejahtera</b></h6>
 			<h6 class="grey-text"><b>parent code : abcdef</b></h6>
 		</div>
 
