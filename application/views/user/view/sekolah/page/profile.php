@@ -13,7 +13,7 @@
 			</div>
 		</div>
 
-		<div class="container " style="margin-top: 60px;border: 1px solid #eee;padding: 50px 0px;border-radius: 5px;margin-bottom: 20px;height: max-content;">
+		<div class="container " style="margin-top: 60px;border: 1px solid #eee;padding: 20px 0px;border-radius: 5px;margin-bottom: 20px;height: max-content;">
 			<div class="row">
 				<div class="col s10 m10 l10 offset-s1 offset-m1 offset-l1">
 					<h6 class="left red-text" id="flash"></h6>
@@ -24,21 +24,36 @@
 						<h6>SIMPAN</h6>
 					</a>
 				</div>
-				<div class="input-field col s10 offset-s1">
-				  <small>NIS</small><br>
-				  <input value="" id="nis" type="text" disabled>
+				<div class="col s10 offset-s1">
+				  <small>NISN</small><br>
+				  <input value="1213121" id="nis" type="text" disabled id="info-profile">
 				</div>
 
-				<div class="input-field col s10 offset-s1">
+				<div class="col s10 offset-s1">
 				  <small>Nama</small><br>
-				  <input value="" id="nama" type="text" disabled autocomplete="off">
+				  <input value="Deni Juli Setiawan" id="nama" type="text" disabled autocomplete="off" id="info-profile">
 				</div>
 
-				<div class="input-field col s10 offset-s1">
+				<div class="col s10 offset-s1">
 				  <small>No Telephon</small><br>
-				  <input value="" id="telp" type="text" disabled autocomplete="off">
+				  <input value="083116247728" id="telp" type="text" disabled autocomplete="off" id="info-profile">
 				</div>
 
+				<div class="col s10 offset-s1">
+				  <small>Alamat</small><br>
+				  <input value="Desa Banjengan RT 01/02" id="telp" type="text" disabled autocomplete="off" id="info-profile">
+				</div>
+
+				<div class="col s10 m10 l10 offset-s1 offset-m1 offset-l1 tips" style="border: 1px solid #eee;height: 45px;">
+					<div class="col s10 m10 l10" style="padding-top: 6px;">
+						<h6 id="TEXT-PIN">LIHAT PROFILE LENGKAP</h6>
+					</div>
+					<div class="col s2 m2 l1 center offset-l1" style="padding-top: 9px;">
+						<a href="" class="modal-trigger" style="cursor: pointer;">
+							<i class="material-icons">chevron_right</i>
+						</a>
+					</div>
+				</div>
 			  	<div class="col s10 m10 l10 offset-s1 offset-m1 offset-l1 tips" style="border: 1px solid #eee;height: 45px;">
 					<div class="col s10 m10 l10" style="padding-top: 6px;">
 						<h6 id="TEXT-PIN">AMANKAN AKUN ANDA</h6>

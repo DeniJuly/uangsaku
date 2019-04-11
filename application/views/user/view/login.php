@@ -20,7 +20,7 @@
           </div>
 
           <div class="col s10 center offset-s1" id="DIV-BTN-MASUK-LOGIN">
-            <button class="waves-effect waves-light btn blue" id="masuk">masuk</button><br>
+            <button class="waves-effect waves-light btn yellow darken-2" id="BTN-LOGIN">masuk</button><br>
           </div>
         </div>
               <!-- end form -->

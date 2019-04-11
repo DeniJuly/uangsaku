@@ -26,7 +26,7 @@
                     <i class="material-icons white-text" id="ICON-LINK-KEMBALI">chevron_left</i>
                   </a>
                   <div class="left" id="HEADER-UANGSAKU-JUDUL">
-                    <h6 class="white-text">HISTORY PEMBAYARAN</h6>
+                    <h6 class="white-text"><?php echo $judul ?></h6>
                   </div>
                 </div>
               </div>

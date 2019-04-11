@@ -6,7 +6,7 @@
           <div class="card white">
             <div class="row">
             <div class="card-content col s12 m12 l12 center">
-            	<span class="card-title blue-text lighten-1"><i class="material-icons blue-text lighten-1 medium">shopping_cart</i></span>
+            	<img src="<?php echo base_url('assets/img/app/icon/terjual.png') ?>" alt="" class="responsive-img">
               <p class="blue-text lighten-1">200</p>
               <p class="blue-text lighten-1">Item Terjual</p>
             </div>
@@ -18,7 +18,7 @@
           <div class="card white">
             <div class="row">
             <div class="card-content col s12 m12 l12 center">
-            	<span class="card-title green-text lighten-1"><i class="material-icons green-text lighten-1 medium">attach_money</i></span>
+            	<img src="<?php echo base_url('assets/img/app/icon/transaksi.png') ?>" alt="" class="responsive-img">
               <p class="green-text lighten-1">Rp. 500.000</p>
               <p class="green-text lighten-1">Total Transaksi Masuk</p>
             </div>

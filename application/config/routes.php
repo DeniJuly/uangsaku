@@ -19,9 +19,15 @@ $route = array(
 	'konfirmasi_email_mitra'	=> 'UANGSAKU/konfirmasi_email_mitra',
 
 	// CONTROLLER UANGSAKU_SEKOLAH
-	'SEKOLAH'					=> 'UANGSAKU_Sekolah',
-	'SEKOLAH/siswa'				=> 'UANGSAKU_Sekolah/siswa',
-	'SEKOLAH/Profile'			=> 'UANGSAKU_Sekolah/Profile',
+	'SEKOLAH'							=> 'UANGSAKU_Sekolah',
+	'SEKOLAH/Siswa'						=> 'UANGSAKU_Sekolah/siswa',
+	'SEKOLAH/Profile'					=> 'UANGSAKU_Sekolah/Profile',
+	'SEKOLAH/Pembayaran'				=> 'UANGSAKU_Sekolah/Pembayaran',
+	'SEKOLAH/Notifikasi'				=> 'UANGSAKU_Sekolah/Notifikasi',
+	'SEKOLAH/tambah_data_pembiayaan'	=> 'UANGSAKU_Sekolah/tambah_data_pembiayaan',
+	'SEKOLAH/detail_data_pembiayaan'	=> 'UANGSAKU_Sekolah/detail_data_pembiayaan',
+	'SEKOLAH/edit_data_pembiayaan'		=> 'UANGSAKU_Sekolah/edit_data_pembiayaan',
+	'SEKOLAH/informasi_pembiayaan_siswa'=> 'UANGSAKU_Sekolah/informasi_pembiayaan_siswa',
 
 	// CONTROLLER ORANGTUA
 	'ORANGTUA'					=> 'UANGSAKU_Orangtua',
@@ -33,17 +39,27 @@ $route = array(
 	'ORANGTUA/Detail_history'	=> 'UANGSAKU_Orangtua/Detail_history',
 	'ORANGTUA/Topup'			=> 'UANGSAKU_Orangtua/Tips',
 	'ORANGTUA/Beli/Beranda'		=> 'UANGSAKU_Orangtua/Beli_beranda',
+	'ORANGTUA/Tentang'			=> 'UANGSAKU_Orangtua/Detail_profile',
 
 	// CONTROLLER SISWA
-	'SISWA'						=> 'UANGSAKU_Siswa',
-	'SISWA/Profile'				=> 'UANGSAKU_Siswa/Profile',
-	'SISWA/Pembayaran'			=> 'UANGSAKU_Siswa/Pembayaran',
-	'SISWA/Bayar'				=> 'UANGSAKU_Siswa/Bayar',
-	'SISWA/Beli'				=> 'UANGSAKU_Siswa/Beli',
-	'SISWA/Riwayat'				=> 'UANGSAKU_Siswa/Riwayat',
-	'SISWA/Detail_riwayat'		=> 'UANGSAKU_Siswa/Detail_riwayat',
-	'SISWA/Topup'				=> 'UANGSAKU_Siswa/Tips',
+	'SISWA'							=> 'UANGSAKU_Siswa',
+	'SISWA/Profile'					=> 'UANGSAKU_Siswa/Profile',
+	'SISWA/Pembayaran'				=> 'UANGSAKU_Siswa/Pembayaran',
+	'SISWA/Bayar'					=> 'UANGSAKU_Siswa/Bayar',
+	'SISWA/Beli'					=> 'UANGSAKU_Siswa/Beli',
+	'SISWA/cari_beli'				=> 'UANGSAKU_Siswa/cari_beli',
+	'SISWA/Riwayat'					=> 'UANGSAKU_Siswa/Riwayat',
+	'SISWA/Detail_riwayat'			=> 'UANGSAKU_Siswa/Detail_riwayat',
+	'SISWA/Topup'					=> 'UANGSAKU_Siswa/Tips',
+	'SISWA/Notifikasi'				=> 'UANGSAKU_Siswa/Notifikasi',
+	'SISWA/Notifikasi/Pembayaran'	=> 'UANGSAKU_Siswa/Detail_notifikasi',
+	'SISWA/Tentang'					=> 'UANGSAKU_Siswa/Detail_profile',
 
+	// MITRA
+	'MITRA'						=> 'UANGSAKU_mitra',
+	'MITRA/Profile'				=> 'UANGSAKU_mitra/Profile',
+	'MITRA/Info'				=> 'UANGSAKU_mitra/Info',
+	'MITRA/Order'				=> 'UANGSAKU_mitra/Order',
 );
 
 /*

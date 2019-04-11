@@ -53,10 +53,14 @@
 #DIV-BTN-MASUK-LOGIN{
 	margin-top: 30px;
 }
-#masuk{
+#BTN-LOGIN{
+	width:100%;
+	border-radius: 25px;
+}
+/*DAFTAR*/
+#BTN-DAFTAR{
 	width:100%;
 	border-radius: 25px; 
-	box-shadow: none;
 }
 /*KONFIRMASI EMAIL*/
 #KONFIRMASI-EMAIL{

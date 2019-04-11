@@ -87,6 +87,14 @@ class UANGSAKU_orangtua extends CI_Controller {
 		$var['judul']  = 'UANGSAKU';
 		$this->load->view('template',$var);		
 	}
+	public function Detail_profile()
+	{
+		$var['header'] = 'user/main_view/orangtua/sub_header_orang_tua';
+		$var['konten'] = 'user/view/orangtua/page/Detail_profile';
+		$var['footer'] = 'user/main_view/orangtua/sub_footer_orang_tua';
+		$var['judul']  = 'TENTANG';
+		$this->load->view('template',$var);		
+	}
 
 }
 

@@ -8,6 +8,11 @@ html{
 	overflow-x: hidden;
     overflow-y: scroll;
 }
+#isi-sub{
+	height: 89.5%;
+	overflow-x: hidden;
+    overflow-y: scroll;	
+}
 #ul-navbar, 
 #ul-navbar li,
 #ul-navbar li a, 
@@ -41,6 +46,16 @@ html{
 .big-side-nav i {
 	height: 100%;
 	margin-top: -6px;	
+}
+.icon-navbar{
+	margin-top: 10px;
+	margin-right: 34px;
+	height: 24px!important;
+	width: 24px!important;
+}
+.icon-side-navbar{
+	height: 24px!important;
+	width: 24px!important;
 }
 /*side navbar*/
 #side-navbar{
@@ -140,6 +155,14 @@ html{
 	font-size: 15px;
 }
 /*BELI*/
+#BUNGKUS-TOKO{
+	margin-top: 20px;
+}
+.judul-mitra{
+	border-bottom: 2px solid #f3c60e;
+	margin-top: 20px;
+	margin-left: 10px!important;
+}
 .btn-cari-toko{
 	margin-top: 20px;
 	border-radius: 25px;
@@ -148,7 +171,17 @@ html{
 	margin-bottom: 0!important;
 }
 #CARD-TOKO{
-	height: 275px!important;
+	padding: 10px!important;
+	height: 220px!important;
+}
+#TOKO{
+	margin-left:10px;
+}
+#TOKO #INFO-TOKO{
+	padding: 0!important;
+}
+#BAYAR{
+	border-radius: 25px;
 }
 /*BAYAR KEBUTUHAN SEKOLAH*/
 #CARD-BAYAR-KEBUTUHAN-SEKOLAH{
@@ -192,6 +225,32 @@ html{
 	margin-top: 10px;
 	border-top: 1px solid #eee;
 }
+/*NOTIFIKASI*/
+.judul-notifikasi{
+	border-bottom: 2px solid #f3c60e;
+	margin-top: 20px;
+	margin-left: 10px!important;
+}
+#BUNGKUS-NOTIFIKASI{
+	margin-top: 10px;
+	padding: 0;
+}
+#CARD-NOTIFIKASI{
+	height:70px!important;
+	overflow: hidden;padding: 5px;
+	border-bottom: 2px solid #eee;
+}
+#JUDUL-NOTIFIKASI{
+	max-height: 47px;
+}
+/*DETAIL NOTIFIKASI*/
+#ISI-NOTIFIKASI p{
+	margin:0!important;
+}
+/*PADDING*/
+.P-0{
+	padding: 0!important;
+}
 /*SUB HEADER*/
 #LINK-KEMBALI{
 	height: 35px;
@@ -223,7 +282,68 @@ html{
 	text-align: center;
 	padding: 4px;
 }
-
+/*PROFILE*/
+#DIV-FOTO-PROFILE{
+	margin-top: 50px;
+}
+#CIRCLE-FOTO-PROFIL{
+	overflow: hidden;
+	height: 150px;
+	width: 150px;
+	margin: auto;
+	border: 6px solid #FFC107;
+}
+#MENU-PROFILE{
+	border-bottom: 1px solid #eee;
+}
+#ICON-MENU-PROFILE img{
+	height: 28px;
+	margin-top: 15px;
+	margin-bottom: 4px;
+}
+#JUDUL-MENU-PROFILE,
+#LINK-MENU-PROFILE{
+	padding-top: 15px;
+}
+/*DETAIL PROFILE*/
+#BUNGKUS-TENTANG-PROFILE{
+	margin-top: 20px;
+}
+#CARD-TENTANG-PROFILE-INFO{
+	height: 415px;
+}
+#JUDUL-TENTANG-PROFILE{
+	border-bottom: 1px solid #eee;
+}
+#ICON-TENTANG-PROFILE img{
+	height:35px;
+	width: 35px;
+}
+#CARD-TENTANG-PROFILE-KONTAK{
+	height:200px;
+}
+#CARD-TENTANG-PROFILE-PRIVASI{
+	height: 130px;
+}
+/*PROFILE BERANDA*/
+#BUNGKUS-PROFILE-BERANDA{
+	height: 145px;
+	border-radius: 5px;
+}
+#BUNGKUS-IMG-SALDO img{
+	width: 100px;
+}
+#BUNGKUS-SALDO-BERANDA{
+	height: 70px;
+    padding: 10px;
+    border-radius: 5px;
+}
+#TEKS-SALDO h6{
+	margin-top: 17px;
+}
+#ISI-SALDO h6{
+	margin-top: 17px;
+}
 /*RESPONSIVE*/
 @media only screen and (min-width: 1000px){
 	#TIPS-BERANDA #JUDUL-TIPS-BERANDA{

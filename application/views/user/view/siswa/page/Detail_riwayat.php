@@ -1,4 +1,4 @@
-<div class="col s12 m12 l12">
+<div class="col s12 m12 l12" id="isi-sub">
 	<div class="container">
 		<div class="row">
 			<div class="col s12 m12 l12">
@@ -8,10 +8,10 @@
 				        <!-- form -->
 				        <div class="row">
 					        <div class="col s4 m3 l3 center">
-					            <img src="<?= base_url('assets/img/app/icon/pembayaran_100.png') ?>" width="100%">
+					            <img src="<?= base_url('assets/img/app/icon/pembayaran.png') ?>" width="100%">
 					        </div>
 					        <div class="col s8 m9 l9" id="INFO-BAYAR-KEBUTUHAN-SEKOLAH">
-					          	<h6 class="grey-text"><b>NASI GORENG</b></h6>
+					          	<h6 class="blue-text"><b>NASI GORENG</b></h6>
 					          	<h6 class="grey-text">KANTIN SEKOLAH</h6>
 					        </div>
 					        <div class="col s12 m12 l12">
