@@ -57,9 +57,14 @@
 							if (response == 1) {
 								$("#flash").css('display','block');
 								$("#flash").text('email sudah terdaftar');
-							}else{
+							}else if(response == 2){
 								$("#flash").css('display','block');
-								$("#flash").text(response);
+								$("#flash").text('npsn sudah terdaftar');
+							}else if(response == 3 || response == 5){
+								$("#flash").css('display','block');
+								$("#flash").text('gagal daftar');
+							}else if(response == 4){
+								location.href="<?= site_url('UANGSAKU/konfirmasi_email_sekolah') ?>";
 							}
 						}
 					});

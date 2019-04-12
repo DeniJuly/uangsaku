@@ -51,14 +51,54 @@ class UANGSAKU extends CI_controller
 		$email = $this->input->post('email');
 		$pass  = $this->input->post('pass');
 
-		$data_cek_email = array(
-			'EMAIL' 		=> $email 
-		);
+		$data_cek_email = array('EMAIL' => $email );
 		$cek_email = $this->M_user->some($data_cek_email)->num_rows();
 		if ($cek_email == 1) {
 			echo 1;
 		}else{
-			echo 2;
+			$data_cek_npsn = array('NPSN' => $npsn);
+			$cek_npsn      = $this->M_sekolah->some($data_cek_npsn)->num_rows();
+			if ($cek_npsn == 1) {
+				echo 2;
+			}else{
+				$kode = $this->kode_verifikasi(6);
+				
+				$data_ins_user = array(
+					'JENIS_USER' 		=> 'sekolah',
+					'EMAIL'				=> $email,
+					'USERNAME'			=> $nama,
+					'PASSWORD'			=> $pass,
+					'STATUS_LOGIN'		=> 'offline',
+					'KODE_VERIFIKASI'	=> $kode
+				);
+				$ins_user = $this->M_user->ins($data_ins_user);
+				if ($ins_user == 1) {
+					$data_get_user = array('EMAIL'	=> $email);
+					$get_data_user = $this->M_user->some($data_get_user)->row();
+					$data_ins_sekolah = array(
+						'ID_USER'		=> $get_data_user->ID_USER,
+						'NPSN'			=> $npsn,
+						'EMAIL'			=> $get_data_user->EMAIL,
+						'NAMA'			=> $get_data_user->USERNAME,
+						'PASSWORD'		=> $get_data_user->PASSWORD
+					);
+					$ins_sekolah = $this->M_sekolah->ins($data_ins_sekolah);
+					if ($ins_sekolah == 1) {
+						$session = array(
+							'ID_USER' 			=> $get_data_user->ID_USER,
+							'KODE_VERIFIKASI'	=> $get_data_user->KODE_VERIFIKASI
+						);
+						
+						$this->session->set_userdata( $session );
+						echo 4;
+					}else{
+						$del = $this->M_user->del($data_get_user);
+						echo 5;
+					}
+				}else{
+					echo 3;
+				}
+			}
 		}
 	}
 	// daftar siswa
@@ -112,5 +152,16 @@ class UANGSAKU extends CI_controller
 		$var['footer']	= 'user/main_view/footer';
 		$var['judul']   = 'Daftar';
 		$this->load->view('template',$var);	
+	}
+	public function kode_verifikasi($jml) { 
+	    $characters = '0123456789'; 
+	    $randomString = ''; 
+	  
+	    for ($i = 0; $i < $jml; $i++) { 
+	        $index = rand(0, strlen($characters) - 1); 
+	        $randomString .= $characters[$index]; 
+	    } 
+	  
+	    return $randomString; 
 	}
 }
