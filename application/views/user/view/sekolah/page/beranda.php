@@ -20,30 +20,20 @@
 
 			<div class="col s12 m12">
 
-				<!-- JIKA SUDAH TERKAIT -->
-				<div class="col s4 m2 l2 offset-s1  offset-m2 offset-l3">
+				<div class="col s5 m2 l2  offset-m2 offset-l3">
 					<a href="<?= site_url('SEKOLAH/Pembayaran') ?>">
 						<div class="card-panel center">
 							<img src="<?php echo base_url('assets/img/app/icon/bayar_beranda.png') ?>" width="24px">
 						</div>
 					</a>
 				</div>
-				<div class="col s4 m2 l2 offset-s1 offset-l2 m2">
+				<div class="col s5 m2 l2 offset-s2 offset-l2 offset-m2">
 					<a href="<?= site_url('SEKOLAH/Siswa') ?>">
 						<div class="card-panel center">
 							<img src="<?php echo base_url('assets/img/app/icon/siswa_beranda.png') ?>" width="24px">
 						</div>
 					</a>
 				</div>
-
-				<!-- JIKA BELUM TERKAIT -->
-				<!-- <div class="col s4 m2 l2 offset-s4 offset-m5 offset-l5">
-					<a href="<?= site_url('UangSaku/spp') ?>">
-						<div class="card-panel center">
-							<img src="<?php echo base_url('assets/img/app/icon/pembelian.png') ?>" width="24px">
-						</div>
-					</a>
-				</div> -->
 
 			</div>			
 		</div>

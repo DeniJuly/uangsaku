@@ -21,14 +21,14 @@
 			<div class="col s12 m12">
 
 				<!-- JIKA SUDAH TERKAIT -->
-				<div class="col s4 m2 l2 offset-s1  offset-m2 offset-l3">
+				<div class="col s5 m2 l2 offset-m2 offset-l3">
 					<a href="<?= site_url('SISWA/Pembayaran') ?>">
 						<div class="card-panel center">
 							<img src="<?php echo base_url('assets/img/app/icon/pembayaran.png') ?>" width="24px">
 						</div>
 					</a>
 				</div>
-				<div class="col s4 m2 l2 offset-s1 offset-l2 m2">
+				<div class="col s5 m2 l2 offset-s2 offset-l2 m2">
 					<a href="<?= site_url('SISWA/Beli') ?>">
 						<div class="card-panel center">
 							<img src="<?php echo base_url('assets/img/app/icon/pembelian.png') ?>" width="24px">

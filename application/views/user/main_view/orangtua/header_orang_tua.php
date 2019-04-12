@@ -50,7 +50,7 @@
               <img src="<?php echo base_url('assets/img/app/icon/anak.png') ?>" style="margin-right: 34px;margin-top: 10px;" class="responsive-img left">ANAK</a>
             </li>
             <li>
-              <a href="<?php echo site_url('ORANGTUA') ?>">
+              <a href="<?php echo site_url('ORANGTUA/Beli') ?>">
               <img src="<?php echo base_url('assets/img/app/icon/beli.png') ?>" style="margin-right: 34px;margin-top: 10px;" class="responsive-img left">BELI</a>
             </li>
             <li>
