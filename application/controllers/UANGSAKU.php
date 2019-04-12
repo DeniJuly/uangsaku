@@ -116,6 +116,19 @@ class UANGSAKU extends CI_controller
 
 	public function proses_daftar_orangtua()
 	{
-		# code...
+		$nama = $this->input->post('nama');
+		$email = $this->input->post('email');
+		$nik = $this->input->post('nik');
+		$password = $this->input->post('password');
+
+		$data = array(
+	       		'NAMA' => $nama,
+	       		'EMAIL'=> $email,
+	       		'NIK_ORANG_TUA'=> $nik,
+	       		'PASSWORD'=>$password
+	       		);
+	        $this->load->model('M_orangtua');
+	        $result= $this->M_orangtua->some($data);
+	        echo 'berhasil';
 	}
 }
