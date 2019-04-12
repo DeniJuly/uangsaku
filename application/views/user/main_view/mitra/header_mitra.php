@@ -4,21 +4,31 @@
 
       <link href="<?php echo base_url('assets/css/icon.css')  ?> " rel="stylesheet">
       <link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/css/materialize.min.css') ?>"  media="screen,projection"/>
-      <!-- <link rel="stylesheet" href="<?php echo base_url('assets/css/style_uangsaku_sekolah.css') ?>"> -->
+      <link rel="stylesheet" href="<?php echo base_url('assets/css/style_uangsaku_sekolah.css') ?>">
+      <link rel="stylesheet" href="<?php echo base_url('assets/css/style_uangsaku_sekolah.css') ?>">
       <link rel="stylesheet" href="<?php echo base_url('assets/css/style_all.css') ?>">
       <link rel="stylesheet" href="<?php echo base_url('assets/css/style_all_ui_user.css') ?>">
       <link rel="shortcut icon" href="<?php echo base_url('assets/img/app/logo/logo_32.png') ?>">
 
       <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo base_url('assets/js/tooltip.js') ?>"></script>
       <script type="text/javascript" src="<?php echo base_url('assets/js/materialize.min.js') ?>"></script>
       <script type="text/javascript" src="<?php echo base_url('assets/js/materialize_initialization.js') ?>"></script>
 
-      <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <title><?php echo $judul; ?></title>
     </head>
 
     <body>
+
+      <nav class="white" id="nav-navbar">
+        <div class="nav-wrapper">
+          <a href="#" data-activates="mobile-demo" class="grey-text button-collapse"><i class="material-icons">menu</i></a>
+          <a class="big-side-nav left hide-on-small-only grey-text circle" id="btn-big-side-nav-small"><i class="center material-icons">menu</i></a>
+          <a class="big-side-nav left hide-on-small-only grey-text circle" id="btn-big-side-nav-big"><i class="center material-icons">menu</i></a>
+          <a href="#" class="brand-logo navbar-logo hide-on-small-only">
+            <img src="<?php echo base_url('assets/img/app/logo/logo_64.png') ?>" class="responsive-img">
+          </a>
 
     <nav class="white" id="nav-navbar">
         <div class="nav-wrapper">
@@ -42,6 +52,39 @@
               <p class="blue-text">UANGSAKU</p>
             </li>
             <li>
+              <a href="<?php echo site_url('UANGSAKU_mitra/profile') ?>" class="<?php if ($this->uri->segment(2)=='profile') {
+                echo"active-side-navbar";
+              } ?>">
+                <i class="material-icons">person</i>
+                <label id="label-side-navbar">Profile</label>
+              </a>
+            </li>
+
+            <li>
+              <a href="<?php echo site_url('UANGSAKU_mitra/info') ?>" class="<?php if ($this->uri->segment(2)=='info') {
+                echo"active-side-navbar";
+              } ?>">
+                <i class="material-icons">info</i>
+                <label id="label-side-navbar2">Info</label>
+              </a>
+            </li>
+
+            <li>
+              <a href="<?php echo site_url('UANGSAKU_mitra/produk') ?>" class="<?php if ($this->uri->segment(2)=='produk') {
+                echo"active-side-navbar";
+              } ?>">
+                <i class="material-icons">shopping_basket</i>
+                <label id="label-side-navbar3">Produk</label>
+              </a>
+            </li>
+
+            <li>
+              <a href="<?php echo site_url('UANGSAKU_mitra/transaksi') ?>" class="<?php if ($this->uri->segment(2)=='transaksi') {
+                echo"active-side-navbar";
+              } ?>">
+                <i class="material-icons">compare_arrows</i>
+                <label id="label-side-navbar4">Transaksi</label>
+              </a>
               <a href="<?php echo site_url('MITRA') ?>">
               <img src="<?php echo base_url('assets/img/app/icon/beranda.png') ?>" class="icon-navbar responsive-img left">BERANDA</a>
             </li>
@@ -70,6 +113,15 @@
       </nav>
 
       <div class="row" style="height: 89.5%">
+        <div class="hide-on-small-only col m2 l2" id="side-navbar">
+          <ul id="ul-side-navbar">
+
+            <li id="li-side-navbar">
+              <a href="<?php echo site_url('UANGSAKU_mitra/profile') ?>" id="link-side-navbar" class="<?php if ($this->uri->segment(2)=='profile') {
+                echo"active-side-navbar";
+              } ?>">
+                <i class="material-icons">person</i>
+                <label id="label-side-navbar">Profile</label>
         <div class="hide-on-med-and-down col m2 l2" id="side-navbar">
           <ul id="ul-side-navbar">
 
@@ -83,6 +135,11 @@
             </li>
 
             <li id="li-side-navbar2">
+              <a href="<?php echo site_url('UANGSAKU_mitra/info') ?>" id="link-side-navbar2" class="<?php if ($this->uri->segment(2)=='info') {
+                echo"active-side-navbar";
+              } ?>">
+                <i class="material-icons">info</i>
+                <label id="label-side-navbar2">Info</label>
               <a href="<?php echo site_url('MITRA/Profile') ?>" id="link-side-navbar2" class="<?php if ($this->uri->segment(2)=='Profile') {
                 echo"active-side-navbar";
               } ?>">
@@ -92,6 +149,11 @@
             </li>
 
             <li id="li-side-navbar3">
+              <a href="<?php echo site_url('UANGSAKU_mitra/produk') ?>" id="link-side-navbar3" class="<?php if ($this->uri->segment(2)=='produk') {
+                echo"active-side-navbar";
+              } ?>">
+                <i class="material-icons">shopping_basket</i>
+                <label id="label-side-navbar3">Produk</label>
               <a href="<?php echo site_url('MITRA/Info') ?>" id="link-side-navbar3" class="<?php if ($this->uri->segment(2)=='Info') {
                 echo"active-side-navbar";
               } ?>">
@@ -101,6 +163,11 @@
             </li>
 
             <li id="li-side-navbar4">
+              <a href="<?php echo site_url('UANGSAKU_mitra/transaksi') ?>" id="link-side-navbar4" class="<?php if ($this->uri->segment(2)=='transaksi') {
+                echo"active-side-navbar";
+              } ?>">
+                <i class="material-icons">compare_arrows</i>
+                <label id="label-side-navbar4">Transaksi</label>
               <a href="<?php echo site_url('MITRA/Notifikasi') ?>" id="link-side-navbar4" class="<?php if ($this->uri->segment(2)=='Notifikasi') {
                 echo"active-side-navbar";
               } ?>">
