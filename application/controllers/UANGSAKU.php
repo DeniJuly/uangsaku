@@ -51,8 +51,15 @@ class UANGSAKU extends CI_controller
 		$email = $this->input->post('email');
 		$pass  = $this->input->post('pass');
 
-		$data_cek_email = array('email' => $email );
+		$data_cek_email = array(
+			'EMAIL' 		=> $email 
+		);
 		$cek_email = $this->M_user->some($data_cek_email)->num_rows();
+		if ($cek_email == 1) {
+			echo 1;
+		}else{
+			echo 2;
+		}
 	}
 	// daftar siswa
 	public function daftar_siswa()
