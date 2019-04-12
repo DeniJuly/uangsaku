@@ -12,7 +12,7 @@
 		          <input placeholder="Email" id="EMAIL_ORANGTUA" type="email" class="validate" autocomplete="off" autofocus="on">
 		        </div>
 		        <div class="input-field col s12">
-		          <input placeholder="NIK" id="NIK" type="text" class="validate" autocomplete="off">
+		          <input placeholder="NIK" id="NIK" type="number" class="validate" autocomplete="off">
 		        </div>
 		        <div class="input-field col s12">
 		          <input placeholder="Password" id="PASSWORD_ORANGTUA" type="password" class="validate">
