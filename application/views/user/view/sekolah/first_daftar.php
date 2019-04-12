@@ -55,9 +55,11 @@
 						data : {nama:nama,email:email,npsn:npsn,pass:pass,v_pass:v_pass},
 						success:function(response){
 							if (response == 1) {
-								
+								$("#flash").css('display','block');
+								$("#flash").text('email sudah terdaftar');
 							}else{
-								
+								$("#flash").css('display','block');
+								$("#flash").text(response);
 							}
 						}
 					});
