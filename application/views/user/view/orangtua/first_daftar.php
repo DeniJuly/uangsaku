@@ -27,3 +27,31 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	$("#BTN-DAFTAR")click(function() {
+		var nama = $("#NAMA_ORANGTUA").val();
+		var email = $("#EMAIL_ORANGTUA").val();
+		var nik = $("#NIK").val();
+		var password = $("#PASSWORD_ORANGTUA").val();
+		var vrf_pass = $("#VERIFIKASI_PASSWORD_ORANGTUA").val();
+
+		if (password != vrf_pass) {
+			$("#flash").css('display','block');
+			$("#flash").text("PASSWORD TIDAK SAMA");
+		}else{
+			if (nik < 16) {
+				$("#flash").css('display','block');
+				$("#flash").text("NIK ANDA SALAH");
+			}else{
+				$.ajax({
+						url  : '<?php echo site_url('UANGSAKU/proses_daftar_orangtua') ?>',
+						type : 'post',
+						data : {nama:nama,email:email,nik:nik,password:password,vrf_pass:vrf_pass},
+						success:function(data){
+							console.log(data);
+						}
+				});
+			}
+		}
+	});
+</script>

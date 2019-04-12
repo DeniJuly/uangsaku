@@ -44,7 +44,16 @@ class UANGSAKU extends CI_controller
 		$var['judul']   = 'Daftar';
 		$this->load->view('template',$var);	
 	}
+	public function proses_daftar_sekolah()
+	{
+		$nama  = $this->input->post('nama');
+		$npsn  = $this->input->post('npsn');
+		$email = $this->input->post('email');
+		$pass  = $this->input->post('pass');
 
+		$data_cek_email = array('email' => $email );
+		$cek_email = $this->M_user->some($data_cek_email)->num_rows();
+	}
 	// daftar siswa
 	public function daftar_siswa()
 	{
@@ -96,5 +105,10 @@ class UANGSAKU extends CI_controller
 		$var['footer']	= 'user/main_view/footer';
 		$var['judul']   = 'Daftar';
 		$this->load->view('template',$var);	
+	}
+
+	public function proses_daftar_orangtua()
+	{
+		# code...
 	}
 }
