@@ -21,7 +21,7 @@
 
           <div class="col s10 center offset-s1" id="DIV-BTN-MASUK-LOGIN">
             <button class="waves-effect waves-light btn yellow darken-2" id="BTN-LOGIN">masuk</button>
-            <button class="waves-effect waves-light btn" id="BTN-DISABLE" disabled style="margin-top: 0!important">
+            <button class="waves-effect waves-light btn" id="BTN-DISABLE" disabled style="margin-top: 0!important; width: 100%; border-radius: 25px; display: none;">
               <img src="<?php echo base_url('assets\img\app\icon/loading.gif') ?>">
             </button>
           </div>

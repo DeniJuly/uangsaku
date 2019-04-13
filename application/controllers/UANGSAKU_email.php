@@ -5,6 +5,7 @@ class UANGSAKU_email extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('M_orangtua');
 		$STATUS_EMAIL	 = $this->session->userdata('STATUS_EMAIL');
 		if($STATUS_EMAIL == null){
 			redirect(base_url());

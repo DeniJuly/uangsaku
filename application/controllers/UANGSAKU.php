@@ -80,7 +80,6 @@ class UANGSAKU extends CI_controller
 					'JENIS_USER' 		=> 'sekolah',
 					'EMAIL'				=> $email,
 					'USERNAME'			=> $nama,
-					'PASSWORD'			=> $pass,
 					'STATUS_USER'		=> 'offline',
 					'KODE_VERIFIKASI'	=> $kode,
 					'PASSWORD'			=> md5($pass),
@@ -215,6 +214,7 @@ class UANGSAKU extends CI_controller
 		$var['judul']   = 'Daftar';
 		$this->load->view('template',$var);	
 	}
+
 	public function kirim_email($to,$kode,$nama) {
         $config = Array(
 	         'protocol'  	=> 'smtp',
@@ -282,10 +282,10 @@ class UANGSAKU extends CI_controller
 	{
 		$this->load->model('M_orangtua');
 
-		$nama = $this->input->post('nama');
+		$nama  = $this->input->post('nama');
+		$nik  = $this->input->post('nik');
 		$email = $this->input->post('email');
-		$nik = $this->input->post('nik');
-		$password = $this->input->post('password');
+		$pass  = $this->input->post('password');
 
 		$data_cek_email = array('EMAIL' => $email );
 		$cek_email = $this->M_user->some($data_cek_email)->num_rows();
@@ -303,10 +303,11 @@ class UANGSAKU extends CI_controller
 					'JENIS_USER' 		=> 'orang_tua',
 					'EMAIL'				=> $email,
 					'USERNAME'			=> $nama,
-					'PASSWORD'			=> $password,
+					'KODE_VERIFIKASI'	=> $kode,
+					'PASSWORD'			=> md5($pass),
 					'STATUS_USER'		=> 'offline',
-					'STATUS_EMAIL'		=> 'offline',
-					'KODE_VERIFIKASI'	=> $kode
+					'KODE_VERIFIKASI'	=> $kode,
+					'STATUS_EMAIL'		=> 'offline'
 				);
 				$ins_user = $this->M_user->ins($data_ins_user);
 				if ($ins_user == 1) {
@@ -314,7 +315,7 @@ class UANGSAKU extends CI_controller
 					$get_data_user = $this->M_user->some($data_get_user)->row();
 					$data_ins_orangtua = array(
 						'ID_USER'		=> $get_data_user->ID_USER,
-						'NIK_ORANG_TUA'			=> $nik,
+						'NIK_ORANG_TUA'	=> $nik,
 						'EMAIL'			=> $get_data_user->EMAIL,
 						'NAMA'			=> $get_data_user->USERNAME,
 						'PASSWORD'		=> $get_data_user->PASSWORD
@@ -323,10 +324,16 @@ class UANGSAKU extends CI_controller
 					if ($ins_orangtua == 1) {
 						$session = array(
 							'ID_USER' 			=> $get_data_user->ID_USER,
-							'KODE_VERIFIKASI'	=> $get_data_user->KODE_VERIFIKASI
+							'KODE_VERIFIKASI'	=> $get_data_user->KODE_VERIFIKASI,
+							'JENIS_USER'		=> $get_data_user->JENIS_USER,
+							'STATUS_EMAIL'		=> $get_data_user->STATUS_EMAIL,
+							'STATUS_USER'		=> $get_data_user->STATUS_USER,
+							'EMAIL'				=> $get_data_user->EMAIL,
+							'USERNAME'			=> $get_data_user->USERNAME
 						);
 						
 						$this->session->set_userdata( $session );
+						$this->kirim_email($get_data_user->EMAIL,$get_data_user->KODE_VERIFIKASI,$get_data_user->USERNAME);
 						echo 4;
 					}else{
 						$del = $this->M_user->del($data_get_user);
@@ -350,6 +357,7 @@ class UANGSAKU extends CI_controller
 	  
 	    return $randomString; 
 	}
+
 	public function del_session()
 	{
 		$this->session->sess_destroy();

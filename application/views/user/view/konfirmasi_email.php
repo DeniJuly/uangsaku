@@ -30,7 +30,7 @@
 					<div class="card-panel card-konfirmasi-email">
 						<div id="KONFIRMASI-EMAIL">
 							<small class="red-text" id="flash">tolong isi formnya</small>
-					        <p>kami telah mengirim kode verifikasi ke email <?php echo $this->session->userdata('EMAIL') ?>
+					        <p>kami telah mengirim kode verifikasi ke email <?php echo $this->session->userdata('EMAIL') ?> <?php echo $this->session->userdata('KONFIRMASI_EMAIL') ?>
 					        	<a class="modal-trigger" href="#ubah_email">ubah email</a>
 					        </p>
 					        <div class="input-field col s12">
@@ -38,12 +38,12 @@
 					        </div>
 					        <div class="input-field col s12 center">
 					        	<button class="waves-effect waves-light btn yellow darken-3" id="BTN-KONFIRMASI" style="margin: auto;">KONFIRMASI</button>
-					        	<button class="waves-effect waves-light btn" id="BTN-DISABLE" style="width: 152px!important;margin: auto;" disabled>
+					        	<button class="waves-effect waves-light btn" id="BTN-DISABLE" style="width: 152px!important;margin: auto; display: none;" disabled>
 						          	<img src="<?php echo base_url('assets\img\app\icon/loading.gif') ?>">
 						        </button>
 					          	<button class="waves-effect waves-light btn blue lighten-1" id="btn-time" disabled style="width: 72px;">30</button>
 					          	<button class="waves-effect waves-light btn blue lighten-1" id="btn-kode" style="display: none;margin:auto;margin-top: 5px;">KIRIM ULANG</button>
-					          	<button class="waves-effect waves-light btn" id="BTN-DISABLE" style="width: 152px!important;margin: auto;" disabled>
+					          	<button class="waves-effect waves-light btn" id="BTN-DISABLE" style="width: 152px!important;margin: auto; display: none;" disabled>
 					              <img src="<?php echo base_url('assets\img\app\icon/loading.gif') ?>">
 					            </button>
 					        </div>
@@ -95,7 +95,7 @@ $(document).ready(function(){
 				data : {kode:kode},
 				success:function(response){
 					if (response == 1) {
-						location.href="<?php echo site_url('UANGSAKU') ?>";
+						location.href="<?php echo base_url() ?>";
 					}else if(response == 2){
 						$("#BTN-KONFIRMASI").show();
 						$("#BTN-DISABLE").css('display','none');
