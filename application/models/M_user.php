@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_user extends CI_Model {
 
 	public $table = 'user';
-	public $pk    = 'id_user';
+	public $pk    = 'ID_USER';
 
 	public function some($where)
 	{

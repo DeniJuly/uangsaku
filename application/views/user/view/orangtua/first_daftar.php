@@ -40,11 +40,7 @@
 		             cache:false,
 		             async:false,
 		              success: function(data){
-		              	if (data='berhasil') {
-		              		location.href = 'konfirmasi_email_orangtua';
-		              	}else{
-		              		print('gagal');
-		              	}
+		              		location.href = 'konfirmasi_email';
 		           }
 		         });
 		    });
