@@ -20,6 +20,7 @@ class M_user extends CI_Model {
 		$this->db->where($where);
 		return $this->db->del($this->table);
 	}
+
 	public function upd($where,$data)
 	{
 		$this->db->where($where);
@@ -27,6 +28,3 @@ class M_user extends CI_Model {
 	}
 
 }
-
-/* End of file M_user.php */
-/* Location: ./application/models/M_user.php */
