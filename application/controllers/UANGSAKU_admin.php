@@ -65,4 +65,9 @@ class UANGSAKU_admin extends CI_Controller {
 		$var['judul']  = 'Feedback | Uangsaku';
 		$this->load->view('template',$var);			
 	}
+	public function get_data_sekolah()
+	{
+		$get = $this->M_sekolah->all()->result();
+		echo json_encode($get);
+	}
 }

@@ -95,7 +95,7 @@ $(document).ready(function(){
 				data : {kode:kode},
 				success:function(response){
 					if (response == 1) {
-						location.href="<?php echo site_url('UANGSAKU') ?>";
+						location.href="<?php echo base_url() ?>";
 					}else if(response == 2){
 						$("#BTN-KONFIRMASI").show();
 						$("#BTN-DISABLE").css('display','none');
@@ -117,25 +117,22 @@ $(document).ready(function(){
 </script>
 <script type="text/javascript">
 $(document).ready(function(){
-	timer();
-	var seconds = 30;
-	function timer(){
+	timer(5);
+	function timer(seconds){
 		var id;
+		var det = seconds;
 		id = setInterval(function(){
-			if (seconds < 1) {
+			if (det < 1) {
 				clearInterval(id);
 				$("#btn-time").hide();
 				$("#btn-time").text('30');
 				$("#btn-kode").css('display','block');
 			}else{
-				var detik = --seconds;
+				var detik = --det;
 				$("#btn-time").text(detik);
 			}
 		},1000);
 	}
-});
-</script>
-<script>
 	$("#btn-kode").click(function(){
 		$(this).hide();
 		$("#BTN-DISABLE").css('display','block');
@@ -144,23 +141,10 @@ $(document).ready(function(){
 			type : 'post',
 			success : function(response){
 				if (response == 1) {
+					$("#BTN-DISABLE").css('display','none');
 					$("#btn-time").show();
 					$("#btn-kode").css('display','none');
-					timer();
-					var seconds2 = 30;
-					function timer(){
-						var id2;
-						id2 = setInterval(function(){
-							if (seconds2 < 1) {
-								clearInterval(id);
-								$("#btn-time").hide();
-								$("#btn-kode").css('display','block');
-							}else{
-								var detik2 = --seconds2;
-								$("#btn-time").text(detik2);
-							}
-						},1000);
-					}
+					timer(5);
 				}else if(response == 2){
 					$("#flash").css('display','block');
 					$("flash").text('gagal mengirim email');
@@ -168,6 +152,7 @@ $(document).ready(function(){
 			}
 		});
 	});
+});
 </script>
 <script>
 $(document).ready(function(){
