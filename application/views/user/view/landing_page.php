@@ -18,7 +18,7 @@
 				<p></p>
 				<a href="<?php echo site_url('daftar_sekolah') ?>" class="waves-effect waves-light btn white blue-text left" id="btn_pra_daftar">SEKOLAH</a>
 				<a href="<?php echo site_url('daftar_siswa') ?>" class="waves-effect waves-light btn white blue-text left" id="btn_pra_daftar">SISWA</a>
-				<a href="<?php echo site_url('daftar_orangtua') ?>" class="waves-effect waves-light btn white blue-text left" id="btn_pra_daftar">ORANG TUA</a>
+				<a href="<?php echo site_url('daftar_orangtua') ?>" class="waves-effect waves-light btn white blue-text left" id="btn_pra_daftar">ORANGTUA</a>
 				<a href="<?php echo site_url('daftar_mitra') ?>" class="waves-effect waves-light btn white blue-text left" id="btn_pra_daftar">MITRA</a>
 			</div>
 		</div>

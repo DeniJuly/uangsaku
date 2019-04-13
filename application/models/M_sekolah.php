@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_user extends CI_Model {
+class M_sekolah extends CI_Model {
 
-	public $table = 'user';
-	public $pk    = 'id_user';
+	public $table = 'sekolah';
+	public $pk    = 'id_sekolah';
 
 	public function some($where)
 	{
@@ -15,12 +15,6 @@ class M_user extends CI_Model {
 	{
 		return $this->db->insert($this->table,$data);
 	}
-	public function del($where)
-	{
-		$this->db->where($where);
-		return $this->db->del($this->table);
-	}
-
 	public function upd($where,$data)
 	{
 		$this->db->where($where);
@@ -28,3 +22,6 @@ class M_user extends CI_Model {
 	}
 
 }
+
+/* End of file M_sekolah.php */
+/* Location: ./application/models/M_sekolah.php */
