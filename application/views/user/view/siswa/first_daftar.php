@@ -6,6 +6,7 @@
             </div>
 			<div id="FORM-DAFTAR-SEKOLAH">
 				<div class="input-field col s12">
+				<small id="flash" class="red-text"></small>
 		          <input placeholder="Nama" id="NAMA_SISWA" type="text" class="validate" autocomplete="off" autofocus="on">
 		        </div>
 		        <div class="input-field col s12">
@@ -57,7 +58,7 @@ $("#BTN-DAFTAR").click(function(){
 				$("#flash").css('display','block');
 				$("#flash").text("password tidak sama");
 			}else{
-				if (nisn.length < 16) {
+				if (nisn.length < 10) {
 					$("#BTN-DISABLE").css('display','none');
 					$("#BTN-DAFTAR").show();
 

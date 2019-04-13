@@ -3,10 +3,10 @@
 		<div class="col s10 m4 l4 offset-s1 offset-m4 offset-l4">
 			<div class="col s6 offset-s3">
                 <img src="<?= base_url('assets/img/app/logo/logo_120.png') ?>" id="LOGO-DAFTAR">
-                <small id="flash" class="red-text"></small>
             </div>
 			<div id="FORM-DAFTAR-SEKOLAH">
 				<div class="input-field col s12">
+				<small id="flash" class="red-text"></small>
 		          <input placeholder="Nama" id="NAMA_ORANGTUA" type="text" class="validate" autocomplete="off" autofocus="on" name="nama" requiredS>
 		        </div>
 		        <div class="input-field col s12">

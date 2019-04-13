@@ -2,7 +2,18 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class UANGSAKU_Siswa extends CI_Controller {
-
+	public function __construct()
+	{
+		parent::__construct();
+		$JENIS_USER		= $this->session->userdata('JENIS_USER');
+		$STATUS_USER	= $this->session->userdata('STATUS_USER');
+		if ($JENIS_USER != 'siswa') {
+			redirect(base_url());
+		}
+		if ($STATUS_USER == 'offline') {
+			redirect('Status_akun');
+		}
+	}
 	public function index()
 	{
 		$var['header'] = 'user/main_view/siswa/header_siswa';
