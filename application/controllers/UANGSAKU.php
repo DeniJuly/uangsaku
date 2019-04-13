@@ -16,7 +16,7 @@ class UANGSAKU extends CI_controller
 					redirect('SEKOLAH');
 				}elseif ($JENIS_USER == 'siswa') {
 					redirect('SISWA');
-				}elseif ($JENIS_USER == 'orangtua') {
+				}elseif ($JENIS_USER == 'orang_tua') {
 					redirect('ORANGTUA');
 				}elseif ($JENIS_USER == 'mitra') {
 					redirect('MITRA');
@@ -228,7 +228,7 @@ class UANGSAKU extends CI_controller
       	);
 		      $this->load->library('email', $config);
 		      $this->email->set_newline("\r\n");
-		      $this->email->from('denijuli112@gmail.com','UANGSAKU');
+		      $this->email->from('go.uangsaku.id@gmail.com','UANGSAKU');
 		      $this->email->to($to);
 
 		      $message  = "<div style='width: 100%'>";

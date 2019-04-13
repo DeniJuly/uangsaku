@@ -99,7 +99,7 @@ class UANGSAKU_email extends CI_Controller {
     			$model	= 'M_sekolah';	
     		}elseif ($this->session->userdata('JENIS_USER') == 'siswa') {
     			$model	= 'M_siswa';	
-    		}elseif ($this->session->userdata('JENIS_USER') == 'orangtua') {
+    		}elseif ($this->session->userdata('JENIS_USER') == 'orang_tua') {
     			$model	= 'M_orangtua';	
     		}elseif ($this->session->userdata('JENIS_USER') == 'mitra') {
     			$model	= 'M_mitra';	
