@@ -11,5 +11,14 @@ class M_user extends CI_Model {
 		$this->db->where($where);
 		return $this->db->get($this->table);
 	}
+	public function ins($data)
+	{
+		return $this->db->insert($this->table,$data);
+	}
+	public function del($where)
+	{
+		$this->db->where($where);
+		return $this->db->del($this->table);
+	}
 
 }

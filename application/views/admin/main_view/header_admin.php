@@ -10,8 +10,6 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/admin/vendors/css/vendor.bundle.base.css') ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/admin/vendors/css/vendor.bundle.addons.css') ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/admin/css/style.css') ?>">
-  <link rel="stylesheet" href="<?php echo base_url('assets/admin/css/jquery.dataTables.css') ?>">
-  <link rel="stylesheet" href="<?php echo base_url('assets/admin/css/dataTables.bootstrap4.css') ?>">
 
   <link rel="shortcut icon" href="<?php echo base_url('assets/img/app/logo/logo_32.png') ?>">
 
