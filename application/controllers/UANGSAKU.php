@@ -122,14 +122,6 @@ class UANGSAKU extends CI_controller
 			}
 		}
 	}
-	public function offline_sekolah()
-	{
-		$var['header']	= 'user/main_view/header';
-		$var['konten']	= 'user/view/sekolah/offline';
-		$var['footer']	= 'user/main_view/footer';
-		$var['judul']   = 'UANGSAKU';
-		$this->load->view('template',$var);	
-	}
 	// daftar siswa
 	public function daftar_siswa()
 	{
@@ -138,6 +130,70 @@ class UANGSAKU extends CI_controller
 		$var['footer']	= 'user/main_view/footer';
 		$var['judul']   = 'Daftar';
 		$this->load->view('template',$var);	
+	}
+	public function proses_daftar_sekolah()
+	{
+		$nama  = $this->input->post('nama');
+		$nisn  = $this->input->post('nisn');
+		$email = $this->input->post('email');
+		$pass  = $this->input->post('pass');
+
+		$data_cek_email = array('EMAIL' => $email );
+		$cek_email = $this->M_user->some($data_cek_email)->num_rows();
+		if ($cek_email == 1) {
+			echo 1;
+		}else{
+			$data_cek_npsn = array('NISN' => $nisn);
+			$cek_npsn      = $this->M_sekolah->some($data_cek_npsn)->num_rows();
+			if ($cek_npsn == 1) {
+				echo 2;
+			}else{
+				$kode = $this->kode_verifikasi(6);
+				
+				$data_ins_user = array(
+					'JENIS_USER' 		=> 'siswa',
+					'EMAIL'				=> $email,
+					'USERNAME'			=> $nama,
+					'PASSWORD'			=> md5($pass),
+					'STATUS_USER'		=> 'offline',
+					'KODE_VERIFIKASI'	=> $kode,
+					'STATUS_EMAIL'		=> 'offline'
+				);
+				$ins_user = $this->M_user->ins($data_ins_user);
+				if ($ins_user == 1) {
+					$data_get_user = array('EMAIL'	=> $email);
+					$get_data_user = $this->M_user->some($data_get_user)->row();
+					$data_ins_sekolah = array(
+						'ID_USER'		=> $get_data_user->ID_USER,
+						'NISN'			=> $nisn,
+						'EMAIL'			=> $get_data_user->EMAIL,
+						'NAMA'			=> $get_data_user->USERNAME,
+						'PASSWORD'		=> $get_data_user->PASSWORD
+					);
+					$ins_sekolah = $this->M_siswa->ins($data_ins_sekolah);
+					if ($ins_sekolah == 1) {
+						$session = array(
+							'ID_USER' 			=> $get_data_user->ID_USER,
+							'KODE_VERIFIKASI'	=> $get_data_user->KODE_VERIFIKASI,
+							'JENIS_USER'		=> $get_data_user->JENIS_USER,
+							'STATUS_EMAIL'		=> $get_data_user->STATUS_EMAIL,
+							'STATUS_USER'		=> $get_data_user->STATUS_USER,
+							'EMAIL'				=> $get_data_user->EMAIL,
+							'USERNAME'			=> $get_data_user->USERNAME
+						);
+						
+						$this->session->set_userdata( $session );
+						$this->kirim_email($get_data_user->EMAIL,$get_data_user->KODE_VERIFIKASI,$get_data_user->USERNAME);
+						echo 4;
+					}else{
+						$del = $this->M_user->del($data_get_user);
+						echo 5;
+					}
+				}else{
+					echo 3;
+				}
+			}
+		}
 	}
 	// daftar mitra
 	public function daftar_mitra()

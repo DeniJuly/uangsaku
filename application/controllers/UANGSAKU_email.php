@@ -95,7 +95,15 @@ class UANGSAKU_email extends CI_Controller {
     	$upd 		= $this->M_user->upd($where,$data);
     	if ($upd == 1) {
     		$data2	= array('EMAIL'	=> $EMAIL);
-    		$upd2	= $this->M_sekolah->upd($where,$data2);
+    		if ($this->session->userdata('JENIS_USER') == 'sekolah') {
+    			$upd2	= $this->M_sekolah->upd($where,$data2);	
+    		}elseif ($this->session->userdata('JENIS_USER') == 'siswa') {
+    			$upd2	= $this->M_siswa->upd($where,$data2);	
+    		}elseif ($this->session->userdata('JENIS_USER') == 'orangtua') {
+    			$upd2	= $this->M_orangtua->upd($where,$data2);	
+    		}elseif ($this->session->userdata('JENIS_USER') == 'mitra') {
+    			$upd2	= $this->M_mitra->upd($where,$data2);	
+    		}
     		if ($upd2 == 1) {
     			$get_data_user = $this->M_user->some($where)->row();
 	    		$session = array(
