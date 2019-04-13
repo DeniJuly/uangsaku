@@ -2,6 +2,18 @@
 
 class UANGSAKU_Sekolah extends CI_controller
 {
+	public function __construct()
+	{
+		parent::__construct();
+		$JENIS_USER		= $this->session->userdata('JENIS_USER');
+		$STATUS_USER	= $this->session->userdata('STATUS_USER');
+		if ($JENIS_USER != 'sekolah') {
+			redirect(base_url());
+		}
+		if ($STATUS_USER == 'offline') {
+			redirect('Status_akun');
+		}
+	}
 	
 	public function index()
 	{

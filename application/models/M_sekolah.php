@@ -15,6 +15,11 @@ class M_sekolah extends CI_Model {
 	{
 		return $this->db->insert($this->table,$data);
 	}
+	public function upd($where,$data)
+	{
+		$this->db->where($where);
+		return $this->db->update($this->table,$data);
+	}
 
 }
 

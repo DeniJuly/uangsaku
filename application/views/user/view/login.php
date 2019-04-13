@@ -20,7 +20,10 @@
           </div>
 
           <div class="col s10 center offset-s1" id="DIV-BTN-MASUK-LOGIN">
-            <button class="waves-effect waves-light btn yellow darken-2" id="BTN-LOGIN">masuk</button><br>
+            <button class="waves-effect waves-light btn yellow darken-2" id="BTN-LOGIN">masuk</button>
+            <button class="waves-effect waves-light btn" id="BTN-DISABLE" disabled style="margin-top: 0!important">
+              <img src="<?php echo base_url('assets\img\app\icon/loading.gif') ?>">
+            </button>
           </div>
         </div>
               <!-- end form -->
@@ -29,3 +32,30 @@
   </div>
 </div>
 <script type="text/javascript" src="<?= base_url('assets/js/hide-show.js') ?>"></script>
+<script>
+  $("#BTN-LOGIN").click(function(){
+    $(this).hide();
+    $("#BTN-DISABLE").css('display','block');
+    var EMAIL   = $("#EMAIL").val();
+    var PASSWORD= $("#PASSWORD").val();
+    if (EMAIL == '' || PASSWORD == '') {
+      $("#flash").css('display','block');
+    }else{
+      $.ajax({
+        url : '<?php echo site_url('UANGSAKU/proses_masuk') ?>',
+        type : 'post',
+        data : {EMAIL : EMAIL , PASS : PASSWORD},
+        success : function(response){
+          if (response == 1) {
+            location.href= '<?php site_url('UANGSAKU') ?>'
+          }else if (response == 2) {
+            $("#BTN-DISABLE").css('display','none');
+            $("#BTN-LOGIN").show();
+            $("#flash").css('display','block');
+            $("#flash").text('username atau password salah');
+          }
+        }
+      });
+    }
+  });
+</script>
