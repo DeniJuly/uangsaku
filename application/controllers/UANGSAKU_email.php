@@ -75,7 +75,7 @@ class UANGSAKU_email extends CI_Controller {
 			  $message .= "</div>";
 		      $this->email->subject('UANGSAKU | VERIFIKASI EMAIL');
 		      $this->email->message($message);
-		      if($this->email->send()){
+		      if ($this->email->send()) {
 		      	echo 1;
 		      }else{
 		      	echo 2;
@@ -96,14 +96,15 @@ class UANGSAKU_email extends CI_Controller {
     	if ($upd == 1) {
     		$data2	= array('EMAIL'	=> $EMAIL);
     		if ($this->session->userdata('JENIS_USER') == 'sekolah') {
-    			$upd2	= $this->M_sekolah->upd($where,$data2);	
+    			$model	= 'M_sekolah';	
     		}elseif ($this->session->userdata('JENIS_USER') == 'siswa') {
-    			$upd2	= $this->M_siswa->upd($where,$data2);	
+    			$model	= 'M_siswa';	
     		}elseif ($this->session->userdata('JENIS_USER') == 'orangtua') {
-    			$upd2	= $this->M_orangtua->upd($where,$data2);	
+    			$model	= 'M_orangtua';	
     		}elseif ($this->session->userdata('JENIS_USER') == 'mitra') {
-    			$upd2	= $this->M_mitra->upd($where,$data2);	
+    			$model	= 'M_mitra';	
     		}
+    		$upd2	= $this->$model->upd($where,$data2);
     		if ($upd2 == 1) {
     			$get_data_user = $this->M_user->some($where)->row();
 	    		$session = array(
@@ -118,13 +119,12 @@ class UANGSAKU_email extends CI_Controller {
 							
 				$this->session->set_userdata( $session );
 				$this->kirim_email();
-				echo 1;	
     		}else{
     			$EMAIL_OLD 	= $this->session->userdata('EMAIL');
     			$KODE_VERIFIKASI = $this->session->userdata('KODE_VERIFIKASI');
     			$data_old	= array('EMAIL'	=> $EMAIL_OLD,'KODE_VERIFIKASI'	=> $KODE_VERIFIKASI);
     			$upd3		= $this->M_user->upd($where,$data_old);
-    			echo 2;
+    			echo 3;
     		}
     	}else{
     		echo 2;

@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_sekolah extends CI_Model {
 
 	public $table = 'sekolah';
-	public $pk    = 'id_sekolah';
+	public $pk    = 'ID_SEKOLAH';
 
 	public function some($where)
 	{
@@ -19,6 +19,10 @@ class M_sekolah extends CI_Model {
 	{
 		$this->db->where($where);
 		return $this->db->update($this->table,$data);
+	}
+	public function all()
+	{
+		return $this->db->get($this->table);
 	}
 
 }

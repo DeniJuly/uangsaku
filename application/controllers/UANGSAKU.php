@@ -76,16 +76,13 @@ class UANGSAKU extends CI_controller
 				echo 2;
 			}else{
 				$kode = $this->kode_verifikasi(6);
-				
 				$data_ins_user = array(
 					'JENIS_USER' 		=> 'sekolah',
 					'EMAIL'				=> $email,
 					'USERNAME'			=> $nama,
-
 					'PASSWORD'			=> $pass,
-					'STATUS_LOGIN'		=> 'offline',
-					'KODE_VERIFIKASI'	=> $kode
-
+					'STATUS_USER'		=> 'offline',
+					'KODE_VERIFIKASI'	=> $kode,
 					'PASSWORD'			=> md5($pass),
 					'STATUS_USER'		=> 'offline',
 					'KODE_VERIFIKASI'	=> $kode,
@@ -106,12 +103,6 @@ class UANGSAKU extends CI_controller
 					if ($ins_sekolah == 1) {
 						$session = array(
 							'ID_USER' 			=> $get_data_user->ID_USER,
-
-							'KODE_VERIFIKASI'	=> $get_data_user->KODE_VERIFIKASI
-						);
-						
-						$this->session->set_userdata( $session );
-
 							'KODE_VERIFIKASI'	=> $get_data_user->KODE_VERIFIKASI,
 							'JENIS_USER'		=> $get_data_user->JENIS_USER,
 							'STATUS_EMAIL'		=> $get_data_user->STATUS_EMAIL,
@@ -142,7 +133,7 @@ class UANGSAKU extends CI_controller
 		$var['judul']   = 'Daftar';
 		$this->load->view('template',$var);	
 	}
-	public function proses_daftar_sekolah()
+	public function proses_daftar_siswa()
 	{
 		$nama  = $this->input->post('nama');
 		$nisn  = $this->input->post('nisn');
@@ -224,17 +215,6 @@ class UANGSAKU extends CI_controller
 		$var['judul']   = 'Daftar';
 		$this->load->view('template',$var);	
 	}
-	public function kode_verifikasi($jml) { 
-	    $characters = '0123456789'; 
-	    $randomString = ''; 
-	  
-	    for ($i = 0; $i < $jml; $i++) { 
-	        $index = rand(0, strlen($characters) - 1); 
-	        $randomString .= $characters[$index]; 
-	    } 
-	  
-	    return $randomString; 
-	}
 	public function kirim_email($to,$kode,$nama) {
         $config = Array(
 	         'protocol'  	=> 'smtp',
@@ -298,9 +278,6 @@ class UANGSAKU extends CI_controller
 		$var['judul']   = 'KONFIRMASI EMAIL';
 		$this->load->view('template',$var);	
 	}
-
-
-
 	public function proses_daftar_orangtua()
 	{
 		$this->load->model('M_orangtua');
@@ -361,8 +338,8 @@ class UANGSAKU extends CI_controller
 			}
 		}
 	}
-
-	public function kode_verifikasi($jml) { 
+	public function Kode_verifikasi($jml)
+	{ 
 	    $characters = '0123456789'; 
 	    $randomString = ''; 
 	  
@@ -373,21 +350,6 @@ class UANGSAKU extends CI_controller
 	  
 	    return $randomString; 
 	}
-
-	public function proses_konfirmasi_email_orangtua()
-	{
-		$this->load->model('M_orangtua');
-
-		$kode = $this->input->post('kode');
-		$id = $this->session->userdata('ID_USER');
-		$cek = $this->M_orangtua->cek_kode($kode, $id);
-
-		if ($cek) {
-			
-		}else{
-			alert('salah');
-		}
-
 	public function del_session()
 	{
 		$this->session->sess_destroy();

@@ -1,6 +1,6 @@
     <div class="main-panel">
       <div class="content-wrapper">
-        <div class="row" ">
+        <div class="row">
           <div class="col-lg-12 grid-margin stretch-card">
             <!--weather card-->
             <div class="card card-weather">
