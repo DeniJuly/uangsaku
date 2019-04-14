@@ -144,9 +144,9 @@ class UANGSAKU extends CI_controller
 		if ($cek_email == 1) {
 			echo 1;
 		}else{
-			$data_cek_npsn = array('NISN' => $nisn);
-			$cek_npsn      = $this->M_sekolah->some($data_cek_npsn)->num_rows();
-			if ($cek_npsn == 1) {
+			$data_cek_nisn = array('NISN' => $nisn);
+			$cek_nisn      = $this->M_siswa->some($data_cek_nisn)->num_rows();
+			if ($cek_nisn == 1) {
 				echo 2;
 			}else{
 				$kode = $this->kode_verifikasi(6);
