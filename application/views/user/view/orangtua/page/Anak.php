@@ -1,5 +1,5 @@
 <div class="col s12 m10 l10" id="isi">
-	<div class="container">
+	<div class="container" id="BODY">
 		<div class="row">
 
 			<div class="col s8 m4 l4 right" id="BUNGKUS-ADD-ANAK">
@@ -99,8 +99,3 @@
 		 </div>
 	 </div>
 </div>
-<script>
-	$(document).ready(function() {
-	    $('select').material_select();
-	  });
-</script>

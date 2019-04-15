@@ -14,31 +14,8 @@
 				</div>
 				<div class="col s12 m12 l12">
 					<table>
-				        <tbody>
-				          <tr>
-				            <th>NAMA</th>
-				            <td>Deni Juli Setiawan</td>
-				          </tr>
-				          <tr>
-				            <th>NISN</th>
-				            <td>12121212</td>
-				          </tr>
-				          <tr>
-				            <th>TANGGAL LAHIR</th>
-				            <td>Denijuli112@gmail.com</td>
-				          </tr>
-				          <tr>
-				            <th>JENIS KELAMIN</th>
-				            <td>121212121</td>
-				          </tr>
-				          <tr>
-				          	<th>ALAMAT</th>
-				          	<td>BANJNGAN</td>
-				          </tr>
-				          <tr>
-				          	<th>KELAS</th>
-				          	<td>11</td>
-				          </tr>
+				        <tbody id="INFO_UMUM">
+				          
 				        </tbody>
 				      </table>
 				</div>
@@ -57,15 +34,8 @@
 				</div>
 				<div class="col s12 m12 l12">
 					<table>
-				        <tbody>
-				          <tr>
-				            <th>EMAIL</th>
-				            <td>Denijuli112@gmail.com</td>
-				          </tr>
-				          <tr>
-				            <th>NO TELEPHON</th>
-				            <td>083116247728</td>
-				          </tr>
+				        <tbody id="KONTAK">
+				          
 				        </tbody>
 				      </table>
 				</div>
@@ -79,16 +49,13 @@
 						<img src="<?= base_url('assets/img/app/icon/privasi.png') ?>" style="height:35px;width: 35px;">
 					</div>
 					<div class="col s8 m8 l9" id="JUDUL-MENU-PROFILE">
-						<h6>KONTAK</h6>
+						<h6>Data Pribadi</h6>
 					</div>
 				</div>
 				<div class="col s12 m12 l12">
 					<table>
-				        <tbody>
-				          <tr>
-				            <th>NIK</th>
-				            <td>1212121212</td>
-				          </tr>
+				        <tbody id="DATA_PRIBADI">
+				          
 				        </tbody>
 				      </table>
 				</div>
@@ -98,3 +65,90 @@
 	</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$.ajax({
+			url : '<?php echo base_url();?>index.php/UANGSAKU_orangtua/show_profile',
+			type : "post",
+			dataType : 'json',
+			success : function (data){
+				var hasil = '';
+				var i;
+				for (i = 0 ; i < data.length ; i++) {
+				hasil += '<tr>'+
+				            '<th>NAMA</th>'+
+				            '<td><?php echo $this->session->userdata('USERNAME'); ?></td>'+
+				          '</tr>'+
+				          '<tr>'+
+				            '<th>NISN</th>'+
+				            '<td>'+data[i].NISN+'</td>'+
+				          '</tr>'+
+				          '<tr>'+
+				            '<th>TANGGAL LAHIR</th>'+
+				            '<td>'+data[i].TANGGAL_LAHIR+'</td>'+
+				          '</tr>'+
+				          '<tr>'+
+				            '<th>JENIS KELAMIN</th>'+
+				            '<td>'+data[i].JENIS_KELAMIN+'</td>'+
+				          '</tr>'+
+				          '<tr>'+
+				          	'<th>ALAMAT</th>'+
+				          	'<td>'+data[i].ALAMAT+'</td>'+
+				          '</tr>'+
+				          '<tr>'+
+				          	'<th>KELAS</th>'+
+				          	'<td></td>'+
+				          '</tr>';
+				$("#INFO_UMUM").html(hasil);
+				}
+			}
+		})	
+	});
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$.ajax({
+			url : '<?php echo base_url();?>index.php/UANGSAKU_orangtua/show_profile',
+			type : "post",
+			dataType : 'json',
+			success : function (data){
+				var hasil = '';
+				var i;
+				for (i = 0 ; i < data.length ; i++) {
+				hasil += '<tr>'+
+				            '<th>EMAIL</th>'+
+				            '<td><?php echo $this->session->userdata('EMAIL'); ?></td>'+
+				          '</tr>'+
+				          '<tr>'+
+				            '<th>NO TELEPHON</th>'+
+				            '<td>'+data[i].NO_TELP+'</td>'+
+				          '</tr>';
+				$("#KONTAK").html(hasil);
+				}
+			}
+		})	
+	});
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$.ajax({
+			url : '<?php echo base_url();?>index.php/UANGSAKU_orangtua/show_profile',
+			type : "post",
+			dataType : 'json',
+			success : function (data){
+				var hasil = '';
+				var i;
+				for (i = 0 ; i < data.length ; i++) {
+				hasil += '<tr>'+
+				            '<th>NIK</th>'+
+				            '<td>'+data[i].NIK_ORANG_TUA+'</td>'+
+				          '</tr>';
+				$("#DATA_PRIBADI").html(hasil);
+				}
+			}
+		})	
+	});
+</script>
