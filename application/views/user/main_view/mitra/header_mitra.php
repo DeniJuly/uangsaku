@@ -4,8 +4,6 @@
 
       <link href="<?php echo base_url('assets/css/icon.css')  ?> " rel="stylesheet">
       <link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/css/materialize.min.css') ?>"  media="screen,projection"/>
-      <link rel="stylesheet" href="<?php echo base_url('assets/css/style_uangsaku_sekolah.css') ?>">
-      <link rel="stylesheet" href="<?php echo base_url('assets/css/style_uangsaku_sekolah.css') ?>">
       <link rel="stylesheet" href="<?php echo base_url('assets/css/style_all.css') ?>">
       <link rel="stylesheet" href="<?php echo base_url('assets/css/style_all_ui_user.css') ?>">
       <link rel="shortcut icon" href="<?php echo base_url('assets/img/app/logo/logo_32.png') ?>">
@@ -20,15 +18,6 @@
     </head>
 
     <body>
-
-      <nav class="white" id="nav-navbar">
-        <div class="nav-wrapper">
-          <a href="#" data-activates="mobile-demo" class="grey-text button-collapse"><i class="material-icons">menu</i></a>
-          <a class="big-side-nav left hide-on-small-only grey-text circle" id="btn-big-side-nav-small"><i class="center material-icons">menu</i></a>
-          <a class="big-side-nav left hide-on-small-only grey-text circle" id="btn-big-side-nav-big"><i class="center material-icons">menu</i></a>
-          <a href="#" class="brand-logo navbar-logo hide-on-small-only">
-            <img src="<?php echo base_url('assets/img/app/logo/logo_64.png') ?>" class="responsive-img">
-          </a>
 
     <nav class="white" id="nav-navbar">
         <div class="nav-wrapper">
@@ -113,15 +102,6 @@
       </nav>
 
       <div class="row" style="height: 89.5%">
-        <div class="hide-on-small-only col m2 l2" id="side-navbar">
-          <ul id="ul-side-navbar">
-
-            <li id="li-side-navbar">
-              <a href="<?php echo site_url('UANGSAKU_mitra/profile') ?>" id="link-side-navbar" class="<?php if ($this->uri->segment(2)=='profile') {
-                echo"active-side-navbar";
-              } ?>">
-                <i class="material-icons">person</i>
-                <label id="label-side-navbar">Profile</label>
         <div class="hide-on-med-and-down col m2 l2" id="side-navbar">
           <ul id="ul-side-navbar">
 
@@ -205,21 +185,18 @@
         $("#side-navbar").addClass("m1 l1");
         $("#isi").removeClass("m10 l10");
         $("#isi").addClass("m11 l11");
-
         $("#li-side-navbar").addClass("li-side-navbar-small");
         $("#li-side-navbar2").addClass("li-side-navbar-small");
         $("#li-side-navbar3").addClass("li-side-navbar-small");
         $("#li-side-navbar4").addClass("li-side-navbar-small");
         $("#li-side-navbar5").addClass("li-side-navbar-small");
         $("#li-side-navbar6").addClass("li-side-navbar-small");
-
         $("#label-side-navbar").hide();
         $("#label-side-navbar2").hide();
         $("#label-side-navbar3").hide();
         $("#label-side-navbar4").hide();
         $("#label-side-navbar5").hide();
         $("#label-side-navbar6").hide();
-
         $("#link-side-navbar").css("padding-left","0");
         $("#link-side-navbar2").css("padding-left","0");
         $("#link-side-navbar3").css("padding-left","0");
@@ -234,27 +211,24 @@
         $("#side-navbar").addClass("m2 l2");
         $("#isi").removeClass("m11 l11");
         $("#isi").addClass("m10 l10");
-
         $("#li-side-navbar").removeClass("li-side-navbar-small");
         $("#li-side-navbar2").removeClass("li-side-navbar-small");
         $("#li-side-navbar3").removeClass("li-side-navbar-small");
         $("#li-side-navbar4").removeClass("li-side-navbar-small");
         $("#li-side-navbar5").removeClass("li-side-navbar-small");
         $("#li-side-navbar6").removeClass("li-side-navbar-small");
-
         $("#label-side-navbar").show();
         $("#label-side-navbar2").show();
         $("#label-side-navbar3").show();
         $("#label-side-navbar4").show();
         $("#label-side-navbar5").show();
         $("#label-side-navbar6").show();
-
         $("#link-side-navbar").css("padding-left","25px");
         $("#link-side-navbar2").css("padding-left","25px");
         $("#link-side-navbar3").css("padding-left","25px");
         $("#link-side-navbar4").css("padding-left","25px");
         $("#link-side-navbar5").css("padding-left","25px");
         $("#link-side-navbar6").css("padding-left","25px");
-    });
+  });
   });
 </script>
