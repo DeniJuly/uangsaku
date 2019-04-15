@@ -20,6 +20,11 @@ class M_orangtua extends CI_Model {
 		$this->db->where($where);
 		return $this->db->update($this->table,$data);
 	}
+	public function get_pembayaran($where)
+	{
+		$this->db->where($where);
+		return $this->db->get('pemmbayaran');
+	}
 
 }
 

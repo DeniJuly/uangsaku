@@ -91,14 +91,18 @@
 			success : function (data){
 				var hasil = '';
 				var i;
+				var bilangan = data[0].TOTAL_SALDO_SISWA;
+				var reserve = bilangan.toString().split('').reserve().join(''),
+					ribuan = reserve.match(/\d{1,3}/g);
+					ribuan = ribuan.join('.').split('').reserve().join('');
 				for (i = 0 ; i < data.length ; i++) {
-				if (data[i].ID_SISWA = '' || data[i].ID_SISWA == null) {
+				if (data[i].ID_SISWA == '' || data[i].ID_SISWA == null) {
 					hasil += '<p class="left">'+
 					'<a href="<?php echo base_url('UANGSAKU_orangtua/profile') ?>">'+
 					'Kaitkan Akun Anda Dengan Anak Anda Dulu!'+'</p>'+
 					'</a>'
 				}else{
-					hasil += '<h5 class="left">'+data[i].TOTAL_SALDO_SISWA+'</h5>'
+					hasil += '<h5 class="left blue-text lighten-1"><sup>Rp. </sup>'+data[i].TOTAL_SALDO_SISWA+'</h5>'
 				}
 				$("#SALDO").html(hasil);
 				}
@@ -130,16 +134,6 @@
 					'</a>'+
 				'</div>'+
 				'</div>'
-				}else{
-					hasil +=
-					'<div class="col s4 m2 l2 offset-l4">'+
-					'<a href="<?= site_url('ORANGTUA/Beli') ?>" title="Beli Sesuatu">'+
-						'<div class="card-panel center">'+
-							'<img src="<?php echo base_url('assets/img/app/icon/pembelian.png') ?>" width="24px">'+
-						'</div>'+
-					'</a>'+
-					'</div>'
-				
 				}
 				$("#MENU_FITUR").html(hasil);
 				}
