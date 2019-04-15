@@ -104,6 +104,29 @@ class UANGSAKU_Siswa extends CI_Controller {
 		$var['judul']  = 'TENTANG';
 		$this->load->view('template',$var);	
 	}
+	public function saldo()
+	{
+		$ID_USER 	= $this->session->userdata('ID_USER');
+		$where 		= array('ID_USER'=> $ID_USER);
+		$get_data_siswa = $this->M_siswa->some($where)->row();
+		if ($get_data_siswa) {
+			$where_id  = array('ID_SISWA'=>$get_data_siswa->ID_SISWA);
+			$get_saldo = $this->M_saldo_dana_siswa->saldo($where_id)->result();
+			echo json_encode($get_saldo);
+		}
+	}
+	public function get_data_all()
+	{
+		$ID_USER = $this->session->userdata('ID_USER');
+		$where   = array('ID_USER'=>$ID_USER);
+		$get 	 = $this->M_siswa->some($where)->result();
+		echo json_encode($get);
+	}
+	public function keluar()
+	{
+		$this->session->sess_destroy();
+		redirect(base_url());
+	}
 
 }
 

@@ -23,6 +23,13 @@
 		          <input placeholder="Verifikasi Password" id="VERIFIKASI_PASSWORD_SEKOLAH" type="password" class="validate" required>
 		        </div>
 		        <div class="input-field col s12">
+				    <select id="SEKOLAH">
+				      <option value="" disabled selected>JENJANG SEKOLAH</option>
+				      <option value="smp/mts">SMP/Sederajat</option>
+				      <option value="sma/smk">SMA/Sederajat</option>
+				    </select>
+				  </div>
+		        <div class="input-field col s12">
 		          <button class="waves-effect waves-light btn yellow darken-2" id="BTN-DAFTAR">Daftar</button>
 		          <button class="waves-effect waves-light btn" id="BTN-DISABLE" disabled>
 		          	<img src="<?php echo base_url('assets\img\app\icon/loading.gif') ?>">
@@ -42,8 +49,9 @@
 		var npsn   = $("#NPSN").val();
 		var pass   = $("#PASSWORD_SEKOLAH").val();
 		var v_pass = $("#VERIFIKASI_PASSWORD_SEKOLAH").val();
+		var sekolah= $("#SEKOLAH").val();
 
-		if (nama == '' || email == '' || npsn == '' || pass == '' || v_pass == '') {
+		if (nama == '' || email == '' || npsn == '' || pass == '' || v_pass == '' || sekolah == null) {
 			$("#BTN-DISABLE").css('display','none');
 			$("#BTN-DAFTAR").show();
 
@@ -69,7 +77,7 @@
 					$.ajax({
 						url  : '<?php echo site_url('UANGSAKU/proses_daftar_sekolah') ?>',
 						type : 'post',
-						data : {nama:nama,email:email,npsn:npsn,pass:pass,v_pass:v_pass},
+						data : {nama:nama,email:email,npsn:npsn,pass:pass,sekolah:sekolah},
 						success:function(response){
 							if (response == 1) {
 
@@ -104,4 +112,9 @@
 			}
 		}
 	});
+</script>
+<script>
+	$(document).ready(function() {
+	    $('select').material_select();
+	  });
 </script>

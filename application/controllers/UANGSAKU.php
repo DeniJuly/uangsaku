@@ -60,10 +60,11 @@ class UANGSAKU extends CI_controller
 	}
 	public function proses_daftar_sekolah()
 	{
-		$nama  = $this->input->post('nama');
-		$npsn  = $this->input->post('npsn');
-		$email = $this->input->post('email');
-		$pass  = $this->input->post('pass');
+		$nama  		= $this->input->post('nama');
+		$npsn  		= $this->input->post('npsn');
+		$email 		= $this->input->post('email');
+		$pass  		= $this->input->post('pass');
+		$sekolah  	= $this->input->post('sekolah');
 
 		$data_cek_email = array('EMAIL' => $email );
 		$cek_email = $this->M_user->some($data_cek_email)->num_rows();
@@ -96,7 +97,9 @@ class UANGSAKU extends CI_controller
 						'NPSN'			=> $npsn,
 						'EMAIL'			=> $get_data_user->EMAIL,
 						'NAMA'			=> $get_data_user->USERNAME,
-						'PASSWORD'		=> $get_data_user->PASSWORD
+						'PASSWORD'		=> $get_data_user->PASSWORD,
+						'LOGO'			=> 'default.png',
+						'TINGKAT_SEKOLAH'=> $sekolah
 					);
 					$ins_sekolah = $this->M_sekolah->ins($data_ins_sekolah);
 					if ($ins_sekolah == 1) {
@@ -139,18 +142,15 @@ class UANGSAKU extends CI_controller
 		$email = $this->input->post('email');
 		$pass  = $this->input->post('pass');
 
-		$data_cek_email = array('EMAIL' => $email );
-		$cek_email = $this->M_user->some($data_cek_email)->num_rows();
+		$where_email = array('EMAIL' => $email );
+		$cek_email = $this->M_user->some($where_email)->num_rows();
 		if ($cek_email == 1) {
 			echo 1;
 		}else{
-			$data_cek_nisn = array('NISN' => $nisn);
-			$cek_nisn      = $this->M_siswa->some($data_cek_nisn)->num_rows();
+			$where_nisn = array('NISN' => $nisn);
+			$cek_nisn      = $this->M_siswa->some($where_nisn)->num_rows();
 			if ($cek_nisn == 1) {
-				echo 2;
-			}else{
 				$kode = $this->kode_verifikasi(6);
-				
 				$data_ins_user = array(
 					'JENIS_USER' 		=> 'siswa',
 					'EMAIL'				=> $email,
@@ -162,30 +162,38 @@ class UANGSAKU extends CI_controller
 				);
 				$ins_user = $this->M_user->ins($data_ins_user);
 				if ($ins_user == 1) {
+
 					$data_get_user = array('EMAIL'	=> $email);
 					$get_data_user = $this->M_user->some($data_get_user)->row();
-					$data_ins_sekolah = array(
-						'ID_USER'		=> $get_data_user->ID_USER,
-						'NISN'			=> $nisn,
-						'EMAIL'			=> $get_data_user->EMAIL,
-						'NAMA'			=> $get_data_user->USERNAME,
-						'PASSWORD'		=> $get_data_user->PASSWORD
-					);
-					$ins_sekolah = $this->M_siswa->ins($data_ins_sekolah);
-					if ($ins_sekolah == 1) {
-						$session = array(
-							'ID_USER' 			=> $get_data_user->ID_USER,
-							'KODE_VERIFIKASI'	=> $get_data_user->KODE_VERIFIKASI,
-							'JENIS_USER'		=> $get_data_user->JENIS_USER,
-							'STATUS_EMAIL'		=> $get_data_user->STATUS_EMAIL,
-							'STATUS_USER'		=> $get_data_user->STATUS_USER,
-							'EMAIL'				=> $get_data_user->EMAIL,
-							'USERNAME'			=> $get_data_user->USERNAME
+
+					$parent_code = $this->parent_code(8);
+					if ($parent_code) {
+						$data_upd_siswa = array(
+							'ID_USER'		=> $get_data_user->ID_USER,
+							'EMAIL'			=> $get_data_user->EMAIL,
+							'PASSWORD'		=> $get_data_user->PASSWORD,
+							'FOTO'			=> 'default.png',
+							'PARENT_CODE'	=> $parent_code
 						);
-						
-						$this->session->set_userdata( $session );
-						$this->kirim_email($get_data_user->EMAIL,$get_data_user->KODE_VERIFIKASI,$get_data_user->USERNAME);
-						echo 4;
+						$ins_siswa = $this->M_siswa->upd($where_nisn,$data_upd_siswa);
+						if ($ins_siswa == 1) {
+							$session = array(
+								'ID_USER' 			=> $get_data_user->ID_USER,
+								'KODE_VERIFIKASI'	=> $get_data_user->KODE_VERIFIKASI,
+								'JENIS_USER'		=> $get_data_user->JENIS_USER,
+								'STATUS_EMAIL'		=> $get_data_user->STATUS_EMAIL,
+								'STATUS_USER'		=> $get_data_user->STATUS_USER,
+								'EMAIL'				=> $get_data_user->EMAIL,
+								'USERNAME'			=> $get_data_user->USERNAME
+							);
+							
+							$this->session->set_userdata( $session );
+							$this->kirim_email($get_data_user->EMAIL,$get_data_user->KODE_VERIFIKASI,$get_data_user->USERNAME);
+							echo 4;
+						}else{
+							$del = $this->M_user->del($data_get_user);
+							echo 5;
+						}	
 					}else{
 						$del = $this->M_user->del($data_get_user);
 						echo 5;
@@ -193,6 +201,8 @@ class UANGSAKU extends CI_controller
 				}else{
 					echo 3;
 				}
+			}else{
+				echo 2;
 			}
 		}
 	}
@@ -254,15 +264,49 @@ class UANGSAKU extends CI_controller
 
 		if ($cek == 1) {
 			$get = $this->M_user->some($data)->row();
-			$session = array(
-				'ID_USER' 			=> $get->ID_USER,
-				'KODE_VERIFIKASI'	=> $get->KODE_VERIFIKASI,
-				'JENIS_USER'		=> $get->JENIS_USER,
-				'STATUS_EMAIL'		=> $get->STATUS_EMAIL,
-				'STATUS_USER'		=> $get->STATUS_USER,
-				'EMAIL'				=> $get->EMAIL,
-				'USERNAME'			=> $get->USERNAME
-			);
+			if ($get->JENIS_USER == 'sekolah') {
+				$get2 = $this->M_sekolah->some($data)->row();
+				$session = array(
+					'ID_USER' 			=> $get->ID_USER,
+					'KODE_VERIFIKASI'	=> $get->KODE_VERIFIKASI,
+					'JENIS_USER'		=> $get->JENIS_USER,
+					'STATUS_EMAIL'		=> $get->STATUS_EMAIL,
+					'STATUS_USER'		=> $get->STATUS_USER,
+					'EMAIL'				=> $get->EMAIL,
+					'USERNAME'			=> $get->USERNAME,
+					'TINGKAT_SEKOLAH'	=> $get2->TINGKAT_SEKOLAH
+				);
+			}elseif ($get->JENIS_USER == 'siswa') {
+				$session = array(
+					'ID_USER' 			=> $get->ID_USER,
+					'KODE_VERIFIKASI'	=> $get->KODE_VERIFIKASI,
+					'JENIS_USER'		=> $get->JENIS_USER,
+					'STATUS_EMAIL'		=> $get->STATUS_EMAIL,
+					'STATUS_USER'		=> $get->STATUS_USER,
+					'EMAIL'				=> $get->EMAIL,
+					'USERNAME'			=> $get->USERNAME
+				);
+			}elseif ($get->JENIS_USER == 'orangtua') {
+				$session = array(
+					'ID_USER' 			=> $get->ID_USER,
+					'KODE_VERIFIKASI'	=> $get->KODE_VERIFIKASI,
+					'JENIS_USER'		=> $get->JENIS_USER,
+					'STATUS_EMAIL'		=> $get->STATUS_EMAIL,
+					'STATUS_USER'		=> $get->STATUS_USER,
+					'EMAIL'				=> $get->EMAIL,
+					'USERNAME'			=> $get->USERNAME
+				);
+			}elseif ($get->JENIS_USER == 'mitra') {
+				$session = array(
+					'ID_USER' 			=> $get->ID_USER,
+					'KODE_VERIFIKASI'	=> $get->KODE_VERIFIKASI,
+					'JENIS_USER'		=> $get->JENIS_USER,
+					'STATUS_EMAIL'		=> $get->STATUS_EMAIL,
+					'STATUS_USER'		=> $get->STATUS_USER,
+					'EMAIL'				=> $get->EMAIL,
+					'USERNAME'			=> $get->USERNAME
+				);
+			}
 						
 			$this->session->set_userdata( $session );
 			echo 1;
@@ -318,7 +362,8 @@ class UANGSAKU extends CI_controller
 						'NIK_ORANG_TUA'	=> $nik,
 						'EMAIL'			=> $get_data_user->EMAIL,
 						'NAMA'			=> $get_data_user->USERNAME,
-						'PASSWORD'		=> $get_data_user->PASSWORD
+						'PASSWORD'		=> $get_data_user->PASSWORD,
+						'FOTO'			=> 'default.png'
 					);
 					$ins_orangtua = $this->M_orangtua->ins($data_ins_orangtua);
 					if ($ins_orangtua == 1) {
@@ -357,7 +402,18 @@ class UANGSAKU extends CI_controller
 	  
 	    return $randomString; 
 	}
-
+	public function parent_code($jml)
+	{
+		$characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'; 
+	    $randomString = ''; 
+	  
+	    for ($i = 0; $i < $jml; $i++) { 
+	        $index = rand(0, strlen($characters) - 1); 
+	        $randomString .= $characters[$index]; 
+	    } 
+	  
+	    return $randomString; 	
+	}
 	public function del_session()
 	{
 		$this->session->sess_destroy();

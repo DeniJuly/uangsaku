@@ -59,8 +59,7 @@
 
           <div class="modal-content">
            	<h4 class="center">UBAH EMAIL</h4>
-           	<small class="red-text" id="flash-email">tolong ketikan email anda</small>
-
+           	<div id="flash-email"></div>
             <!-- penulis -->
             <div class="input-field col s12 m12">
               <input placeholder="EMAIL" id="EMAIL" type="email" class="validate" name="EMAIL">
@@ -156,15 +155,16 @@ $(document).ready(function(){
 </script>
 <script>
 $(document).ready(function(){
-	$("#flash-email").hide();
 	$("#BTN-UBAH-EMAIL").click(function(){
 		$(this).hide();
 		$("#BTN-DISABLE2").css('display','block');
 		var EMAIL = $("#EMAIL").val();
 		if (EMAIL == '') {
+			var flash = '';
+			flash += '<div class="chip">tolong ketikan email anda<i class="close material-icons">close</i></div>';
+			$("#flash-email").html(flash);
 			$("#BTN-UBAH-EMAIL").show();
 			$("#BTN-DISABLE2").css('display','none');
-			$("#flash-email").show();
 		}else{
 			$.ajax({
 				url: '<?php echo site_url('UANGSAKU_email/ubah_email') ?>',
@@ -172,15 +172,17 @@ $(document).ready(function(){
 				data : {EMAIL : EMAIL},
 				success : function(response){
 					if (response == 1) {
+						var flash = '';
+						flash += '<div class="chip">email anda berhasil diubah kami telah mengirim kode verifikasi baru<i class="close material-icons">close</i></div>';
+						$("#flash-email").html(flash);
 						$("#BTN-UBAH-EMAIL").show();
 						$("#BTN-DISABLE2").css('display','none');
-						$("#flash-email").text("email anda berhasil diubah kami telah mengirim kode verifikasi baru ke email anda");
-						$("#flash-email").show();
 					}else if(response == 2){
+						var flash = '';
+						flash += '<div class="chip">email gagal diubah<i class="close material-icons">close</i></div>';
+						$("#flash-email").html(flash);
 						$("#BTN-UBAH-EMAIL").show();
 						$("#BTN-DISABLE2").css('display','none');
-						$("#flash-email").text("email gagal diubah");
-						$("#flash-email").show();
 					}else{
 						$("#BTN-UBAH-EMAIL").show();
 						$("#BTN-DISABLE2").css('display','none');

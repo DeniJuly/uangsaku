@@ -18,9 +18,8 @@ class M_user extends CI_Model {
 	public function del($where)
 	{
 		$this->db->where($where);
-		return $this->db->del($this->table);
+		return $this->db->delete($this->table);
 	}
-
 	public function upd($where,$data)
 	{
 		$this->db->where($where);

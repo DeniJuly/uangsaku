@@ -19,6 +19,20 @@ class M_siswa extends CI_Model {
 		$this->db->where($where);
 		return $this->db->update($this->table,$data);
 	}
+	public function del($where)
+	{
+		$this->db->where($where);
+		return $this->db->delete($this->table);
+	}
+	public function join_verifikasi()
+	{
+		$this->db->select(
+			'siswa.*,user.ID_USER AS ID_USER, user.STATUS_USER'
+		);
+		$this->db->join('user','siswa.ID_USER = user.ID_USER');
+		$this->db->from('siswa');
+		return $this->db->get();
+	}
 }
 
 /* End of file M_siswa.php */
