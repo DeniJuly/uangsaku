@@ -9,7 +9,7 @@
 						<h6 class="left"><b>SALDO</b></h6><br>
 					</div>
 					<div class="col s12 m12 l12">
-						<h5 id="SALDO" class="left"><sup>Rp</sup>10.000</h5>
+						<h5 id="SALDO" class="left"><sup>Rp</sup></h5>
 					</div>
 				</div>
 				<div class="col s4 m2 l2">
@@ -35,16 +35,6 @@
 						</div>
 					</a>
 				</div>
-
-				<!-- JIKA BELUM TERKAIT -->
-				<!-- <div class="col s4 m2 l2 offset-s4 offset-m5 offset-l5">
-					<a href="<?= site_url('UangSaku/spp') ?>">
-						<div class="card-panel center">
-							<img src="<?php echo base_url('assets/img/app/icon/pembelian.png') ?>" width="24px">
-						</div>
-					</a>
-				</div> -->
-
 			</div>			
 		</div>
 
@@ -100,3 +90,23 @@
 
 	</div>
 </div>
+<script>
+$(document).ready(function() {
+	$.ajax({
+		url : '<?php echo site_url('UANGSAKU_Siswa/saldo') ?>',
+		type : 'post',
+		dataType : 'json',
+		success : function(data){
+			if (data.length != 0) {
+				var bilangan = data[0].TOTAL_SALDO_SISWA;
+		        var reverse = bilangan.toString().split('').reverse().join(''),
+		        ribuan  = reverse.match(/\d{1,3}/g);
+		        ribuan  = ribuan.join('.').split('').reverse().join('');
+		        $("#SALDO").append(ribuan);	
+			}else{
+				$("#SALDO").append(0);
+			}
+		}
+	});
+});
+</script>

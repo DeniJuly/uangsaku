@@ -1,6 +1,6 @@
 	<div class="col s12 m10 l10" id="isi">
 		<div class="col s3 m1 l1" id="tambah-siswa">
-			<a class="waves-effect waves-light btn modal-trigger white" href="#TAMBAH"><i class="material-icons blue-text">add</i></a>
+			<a class="waves-effect waves-light btn modal-trigger white" href="<?php echo site_url('UANGSAKU_sekolah/Tambah_data_siswa') ?>"><i class="material-icons blue-text">add</i></a>
 		</div>
 		<div class="col s12 m9 l9">
 			<div class="input-field col s9 m9 l9">
@@ -11,9 +11,8 @@
 		<div class="col s12 m12 l12">
 			<div class="col s12 m12 l12">
 				<h5 class="left">Data Siswa</h5> 
-				<div class="chip" style="margin-left: 10px;margin-top: 5px;">
-				    100 siswa
-				</div>
+				<div class="chip" style="margin-left: 10px;margin-top: 5px;" id="JML-DATA-SISWA"></div>
+				<div id="flash-siswa" class="right" style="width: max-content"></div>
 			</div>
 			<table class="table table-bordered">
 				<thead>
@@ -25,102 +24,66 @@
 						<th class="center">OPSI</th>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
-						<td class="center">1</td>
-						<td >12111</td>
-						<td>Deni</td>
-						<td>X RPL 2</td>
-						<td class="center" id="OPSI">
-							<a class='dropdown-button' data-activates='dropdown1' style="cursor: pointer;">
-								<i class="material-icons">more_vert</i>
-							</a>
-							<!-- Dropdown Structure -->
-							  <ul id='dropdown1' class='dropdown-content'>
-							    <li class="blue-text">
-							    	<a href="#EDIT" class="blue-text modal-trigger">
-							    		<i class="material-icons center">create</i>EDIT
-							    	</a>
-							    </li>
-							    <li class="blue-text">
-							    	<a href="#!" class="blue-text modal-trigger">
-							    		<i class="material-icons center">delete</i>HAPUS
-							    	</a>
-							    </li>
-							  </ul>
-						</td>
-					</tr>
-					<tr>
-						<td class="center">1</td>
-						<td >12111</td>
-						<td>Deni</td>
-						<td>X RPL 2</td>
-						<td class="center" id="OPSI">
-							<a class='dropdown-button' data-activates='dropdown1' style="cursor: pointer;">
-								<i class="material-icons">more_vert</i>
-							</a>
-							<!-- Dropdown Structure -->
-							  <ul id='dropdown1' class='dropdown-content'>
-							    <li class="blue-text">
-							    	<a href="#EDIT" class="blue-text modal-trigger">
-							    		<i class="material-icons center">create</i>EDIT
-							    	</a>
-							    </li>
-							    <li class="blue-text">
-							    	<a href="#!" class="blue-text modal-trigger">
-							    		<i class="material-icons center">delete</i>HAPUS
-							    	</a>
-							    </li>
-							  </ul>
-						</td>
-					</tr>
+				<tbody id="DATA-SISWA">
 				</tbody>
 			</table>
 		</div>
 	</div>
 </div>
-<!-- Modal edit -->
-  <div id="EDIT" class="modal modal-fixed-footer">
-  	<div class="modal-header">
-  		<h5 class="center">Edit Data Siswa</h5>
-  	</div>
-    <div class="modal-content">
-    	<div class="container">
-	      	<div class="input-field col s12">
-	          <input placeholder="NISN" id="NISN" type="number" class="validate">
-	        </div>
-	        <div class="input-field col s12">
-	          <input placeholder="NAMA" id="NISN" type="number" class="validate">
-	        </div>
-	        <div class="input-field col s12">
-	          <input placeholder="KELAS" id="NISN" type="number" class="validate">
-	        </div>
-        </div>
-    </div>
-    <div class="modal-footer">
-      <a id="btn-simpan-siswa" class="waves-effect btn white blue-text">EDIT</a>
-    </div>
-  </div>
-
-<!-- Modal tambah -->
-  <div id="TAMBAH" class="modal modal-fixed-footer">
-  	<div class="modal-header">
-  		<h5 class="center">Tambah Siswa</h5>
-  	</div>
-    <div class="modal-content">
-    	<div class="container">
-	      	<div class="input-field col s12">
-	          <input placeholder="NISN" id="NISN" type="number" class="validate">
-	        </div>
-	        <div class="input-field col s12">
-	          <input placeholder="NAMA" id="NISN" type="number" class="validate">
-	        </div>
-	        <div class="input-field col s12">
-	          <input placeholder="KELAS" id="NISN" type="number" class="validate">
-	        </div>
-        </div>
-    </div>
-    <div class="modal-footer">
-      <a id="btn-simpan-siswa" class="waves-effect btn white blue-text">SIMPAN</a>
-    </div>
-  </div>
+<script>
+	$(document).ready(function(){
+		$.ajax({
+			url : '<?php echo site_url('UANGSAKU_sekolah/get_data_siswa') ?>',
+			type : 'post',
+			dataType : 'json',
+			success : function(data){
+				var hasil = '';
+				var no 	  = 0;
+				var base = '<?php echo site_url('UANGSAKU_sekolah/Edit_siswa/') ?>';
+				for (var i = 0; i < data.length; i++) {
+					no++;
+					hasil +='<tr>'+
+							'<td class="center">'+no+'</td>'+
+							'<td>'+data[i].NISN+'</td>'+
+							'<td>'+data[i].NAMA+'</td>'+
+							'<td>'+data[i].KELAS+'</td>'+
+							'<td class="center" id="OPSI">'+
+							'<a class="btn-floating btn-small waves-effect waves-light blue lighten-1" href="'+base+data[i].ID_SISWA+'">'+
+							'<i class="material-icons">create</i>'+
+							'</a>'+
+							'<a class="btn-floating btn-small waves-effect waves-light red" onclick="hapus_data('+data[i].ID_SISWA+')">'+
+							'<i class="material-icons">delete</i>'+
+							'</a>'+
+							'</td>'+
+							'</tr>';
+				}
+				$("#JML-DATA-SISWA").text(data.length);
+				$("#DATA-SISWA").html(hasil);
+			}
+		});
+	});
+</script>
+<script>
+$(document).ready(function(){
+	window.hapus_data = function(id){
+		$.ajax({
+			url : '<?php echo site_url('UANGSAKU_sekolah/hapus_data_siswa') ?>',
+			data : {id:id},
+			type : 'post',
+			success : function(respone){
+				if (respone == 1) {
+					var flash  = '<div class="chip">data berhasil dihapus';
+    					flash += '<i class="close material-icons">close</i>';
+  						flash += '</div>';
+  					$("#flash-siswa").html(flash);
+				}else{
+					var flash  = '<div class="chip">data gagal dihapus';
+    					flash += '<i class="close material-icons">close</i>';
+  						flash += '</div>';
+  					$("#flash-siswa").html(flash);
+				}
+			}
+		});
+	}
+});
+</script>

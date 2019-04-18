@@ -28,59 +28,26 @@
             <img src="<?php echo base_url('assets/img/app/logo/logo_64.png') ?>" class="responsive-img">
           </a>
 
-          <ul class="right" id="ul-navbar">
-            <li>
-              <a href="<?php echo site_url('MITRA/Profile') ?>">
-                <img class="circle" src="<?php echo base_url('assets/img/user/coba.jpg') ?>">
-              </a>
-            </li>
-          </ul>
-
           <ul id="mobile-demo" class="side-nav">
             <li class="judul">
               <p class="blue-text">UANGSAKU</p>
             </li>
-            <li>
-              <a href="<?php echo site_url('UANGSAKU_mitra/profile') ?>" class="<?php if ($this->uri->segment(2)=='profile') {
-                echo"active-side-navbar";
-              } ?>">
-                <i class="material-icons">person</i>
-                <label id="label-side-navbar">Profile</label>
-              </a>
-            </li>
 
             <li>
-              <a href="<?php echo site_url('UANGSAKU_mitra/info') ?>" class="<?php if ($this->uri->segment(2)=='info') {
-                echo"active-side-navbar";
-              } ?>">
-                <i class="material-icons">info</i>
-                <label id="label-side-navbar2">Info</label>
-              </a>
-            </li>
-
-            <li>
-              <a href="<?php echo site_url('UANGSAKU_mitra/produk') ?>" class="<?php if ($this->uri->segment(2)=='produk') {
-                echo"active-side-navbar";
-              } ?>">
-                <i class="material-icons">shopping_basket</i>
-                <label id="label-side-navbar3">Produk</label>
-              </a>
-            </li>
-
-            <li>
-              <a href="<?php echo site_url('UANGSAKU_mitra/transaksi') ?>" class="<?php if ($this->uri->segment(2)=='transaksi') {
-                echo"active-side-navbar";
-              } ?>">
-                <i class="material-icons">compare_arrows</i>
-                <label id="label-side-navbar4">Transaksi</label>
-              </a>
               <a href="<?php echo site_url('MITRA') ?>">
               <img src="<?php echo base_url('assets/img/app/icon/beranda.png') ?>" class="icon-navbar responsive-img left">BERANDA</a>
             </li>
+
             <li>
-              <a href="<?php echo site_url('MITRA/Profile') ?>">
+                <a href="<?php echo site_url('MITRA/Profile') ?>">
                 <img src="<?php echo base_url('assets/img/app/icon/profile.png') ?>" class="icon-navbar responsive-img left">PROFILE</a>
             </li>
+
+            <li>
+              <a href="<?php echo site_url('MITRA/produk') ?>">
+                <i class="material-icons">shopping_basket</i>PRODUK</a>
+            </li>
+
             <li>
               <a href="<?php echo site_url('MITRA/Pembayaran') ?>">
                 <img src="<?php echo base_url('assets/img/app/icon/statistik.png') ?>" class="icon-navbar responsive-img left">INFO PENJUALAN</a>
@@ -115,11 +82,6 @@
             </li>
 
             <li id="li-side-navbar2">
-              <a href="<?php echo site_url('UANGSAKU_mitra/info') ?>" id="link-side-navbar2" class="<?php if ($this->uri->segment(2)=='info') {
-                echo"active-side-navbar";
-              } ?>">
-                <i class="material-icons">info</i>
-                <label id="label-side-navbar2">Info</label>
               <a href="<?php echo site_url('MITRA/Profile') ?>" id="link-side-navbar2" class="<?php if ($this->uri->segment(2)=='Profile') {
                 echo"active-side-navbar";
               } ?>">
@@ -134,43 +96,42 @@
               } ?>">
                 <i class="material-icons">shopping_basket</i>
                 <label id="label-side-navbar3">Produk</label>
-              <a href="<?php echo site_url('MITRA/Info') ?>" id="link-side-navbar3" class="<?php if ($this->uri->segment(2)=='Info') {
-                echo"active-side-navbar";
-              } ?>">
-                <img src="<?php echo base_url('assets/img/app/icon/statistik.png') ?>" class="responsive-img icon-side-navbar">
-                <label id="label-side-navbar3">INFO PENJUALAN</label>
               </a>
             </li>
 
             <li id="li-side-navbar4">
-              <a href="<?php echo site_url('UANGSAKU_mitra/transaksi') ?>" id="link-side-navbar4" class="<?php if ($this->uri->segment(2)=='transaksi') {
+              <a href="<?php echo site_url('MITRA/Info') ?>" id="link-side-navbar4" class="<?php if ($this->uri->segment(2)=='Info') {
                 echo"active-side-navbar";
               } ?>">
-                <i class="material-icons">compare_arrows</i>
-                <label id="label-side-navbar4">Transaksi</label>
-              <a href="<?php echo site_url('MITRA/Notifikasi') ?>" id="link-side-navbar4" class="<?php if ($this->uri->segment(2)=='Notifikasi') {
-                echo"active-side-navbar";
-              } ?>">
-                <img src="<?php echo base_url('assets/img/app/icon/notifications.png') ?>" alt="" class="responsive-img icon-side-navbar">
-                <label id="label-side-navbar4">NOTIFIKASI</label>
+                <img src="<?php echo base_url('assets/img/app/icon/statistik.png') ?>" class="responsive-img icon-side-navbar">
+                <label id="label-side-navbar4">INFO PENJUALAN</label>
               </a>
             </li>
 
             <li id="li-side-navbar5">
-              <a href="<?php echo site_url('MITRA/Order') ?>" id="link-side-navbar5" class="<?php if ($this->uri->segment(2)=='Order') {
+              <a href="<?php echo site_url('MITRA/Notifikasi') ?>" id="link-side-navbar5" class="<?php if ($this->uri->segment(2)=='Notifikasi') {
                 echo"active-side-navbar";
               } ?>">
-                <img src="<?php echo base_url('assets/img/app/icon/orderan_on.png') ?>" class="responsive-img icon-side-navbar">
-                <label id="label-side-navbar5">ORDERAN MASUK</label>
+                <img src="<?php echo base_url('assets/img/app/icon/notifications.png') ?>" alt="" class="responsive-img icon-side-navbar">
+                <label id="label-side-navbar5">NOTIFIKASI</label>
               </a>
             </li>
 
             <li id="li-side-navbar6">
-              <a href="<?php echo site_url('MITRA/Riwayat') ?>" id="link-side-navbar6" class="<?php if ($this->uri->segment(2)=='Riwayat') {
+              <a href="<?php echo site_url('MITRA/Order') ?>" id="link-side-navbar6" class="<?php if ($this->uri->segment(2)=='Order') {
+                echo"active-side-navbar";
+              } ?>">
+                <img src="<?php echo base_url('assets/img/app/icon/orderan_on.png') ?>" class="responsive-img icon-side-navbar">
+                <label id="label-side-navbar6">ORDERAN MASUK</label>
+              </a>
+            </li>
+
+            <li id="li-side-navbar7">
+              <a href="<?php echo site_url('MITRA/Riwayat') ?>" id="link-side-navbar7" class="<?php if ($this->uri->segment(2)=='Riwayat') {
                 echo"active-side-navbar";
               } ?>">
                 <img src="<?php echo base_url('assets/img/app/icon/riwayat.png') ?>" class="responsive-img icon-side-navbar">
-                <label id="label-side-navbar6">RIWAYAT</label>
+                <label id="label-side-navbar7">RIWAYAT</label>
               </a>
             </li>
 
@@ -191,18 +152,23 @@
         $("#li-side-navbar4").addClass("li-side-navbar-small");
         $("#li-side-navbar5").addClass("li-side-navbar-small");
         $("#li-side-navbar6").addClass("li-side-navbar-small");
+        $("#li-side-navbar7").addClass("li-side-navbar-small");
+
         $("#label-side-navbar").hide();
         $("#label-side-navbar2").hide();
         $("#label-side-navbar3").hide();
         $("#label-side-navbar4").hide();
         $("#label-side-navbar5").hide();
         $("#label-side-navbar6").hide();
+        $("#label-side-navbar7").hide();
+
         $("#link-side-navbar").css("padding-left","0");
         $("#link-side-navbar2").css("padding-left","0");
         $("#link-side-navbar3").css("padding-left","0");
         $("#link-side-navbar4").css("padding-left","0");
         $("#link-side-navbar5").css("padding-left","0");
         $("#link-side-navbar6").css("padding-left","0");
+        $("#link-side-navbar7").css("padding-left","0");
     });
     $("#btn-big-side-nav-big").click(function(){
         $(this).css("display","none");
@@ -211,24 +177,30 @@
         $("#side-navbar").addClass("m2 l2");
         $("#isi").removeClass("m11 l11");
         $("#isi").addClass("m10 l10");
+
         $("#li-side-navbar").removeClass("li-side-navbar-small");
         $("#li-side-navbar2").removeClass("li-side-navbar-small");
         $("#li-side-navbar3").removeClass("li-side-navbar-small");
         $("#li-side-navbar4").removeClass("li-side-navbar-small");
         $("#li-side-navbar5").removeClass("li-side-navbar-small");
         $("#li-side-navbar6").removeClass("li-side-navbar-small");
+        $("#li-side-navbar7").removeClass("li-side-navbar-small");
+
         $("#label-side-navbar").show();
         $("#label-side-navbar2").show();
         $("#label-side-navbar3").show();
         $("#label-side-navbar4").show();
         $("#label-side-navbar5").show();
         $("#label-side-navbar6").show();
+        $("#label-side-navbar7").show();
+
         $("#link-side-navbar").css("padding-left","25px");
         $("#link-side-navbar2").css("padding-left","25px");
         $("#link-side-navbar3").css("padding-left","25px");
         $("#link-side-navbar4").css("padding-left","25px");
         $("#link-side-navbar5").css("padding-left","25px");
         $("#link-side-navbar6").css("padding-left","25px");
+        $("#link-side-navbar7").css("padding-left","25px");
   });
   });
 </script>

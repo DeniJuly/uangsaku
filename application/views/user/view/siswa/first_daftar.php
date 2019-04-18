@@ -84,7 +84,7 @@ $("#BTN-DAFTAR").click(function(){
 								$("#BTN-DAFTAR").show();
 
 								$("#flash").css('display','block');
-								$("#flash").text('npsn sudah terdaftar');
+								$("#flash").text('nisn anda belum didaftarkan oleh sekolah anda');
 
 							}else if(response == 3 || response == 5){
 

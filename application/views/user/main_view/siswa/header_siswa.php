@@ -32,7 +32,7 @@
           <ul class="right" id="ul-navbar">
             <li>
               <a href="<?php echo site_url('SISWA/Profile') ?>">
-                <img class="circle" src="<?php echo base_url('assets/img/user/coba.jpg') ?>">
+                <img class="circle" src="" id="FOTO-PROFILE-HEADER">
               </a>
             </li>
           </ul>
@@ -64,6 +64,10 @@
             <li>
               <a href="<?php echo site_url('SISWA/Riwayat') ?>">
                 <img src="<?php echo base_url('assets/img/app/icon/riwayat.png') ?>" style="margin-right: 34px;margin-top: 10px;" class="responsive-img left">RIWAYAT</a>
+            </li>
+            <li>
+              <a href="<?php echo site_url('SISWA/Keluar') ?>">
+                <img src="<?php echo base_url('assets/img/app/icon/logout-24.png') ?>" style="margin-right: 34px;margin-top: 10px;" class="responsive-img left">KELUAR</a>
             </li>
           </ul>
         </div>
@@ -126,6 +130,14 @@
                 <label id="label-side-navbar6">RIWAYAT</label>
               </a>
             </li>
+            <li id="li-side-navbar7">
+              <a href="<?php echo site_url('SISWA/Keluar') ?>" id="link-side-navbar7" class="<?php if ($this->uri->segment(2)=='Keluar') {
+                echo"active-side-navbar";
+              } ?>">
+                <img src="<?php echo base_url('assets/img/app/icon/logout-24.png') ?>" class="responsive-img">
+                <label id="label-side-navbar7">KELUAR</label>
+              </a>
+            </li>
 
           </ul>
         </div>
@@ -145,6 +157,7 @@
         $("#li-side-navbar4").addClass("li-side-navbar-small");
         $("#li-side-navbar5").addClass("li-side-navbar-small");
         $("#li-side-navbar6").addClass("li-side-navbar-small");
+        $("#li-side-navbar7").addClass("li-side-navbar-small");
 
         $("#label-side-navbar").hide();
         $("#label-side-navbar2").hide();
@@ -152,6 +165,7 @@
         $("#label-side-navbar4").hide();
         $("#label-side-navbar5").hide();
         $("#label-side-navbar6").hide();
+        $("#label-side-navbar7").hide();
 
         $("#link-side-navbar").css("padding-left","0");
         $("#link-side-navbar2").css("padding-left","0");
@@ -159,6 +173,7 @@
         $("#link-side-navbar4").css("padding-left","0");
         $("#link-side-navbar5").css("padding-left","0");
         $("#link-side-navbar6").css("padding-left","0");
+        $("#link-side-navbar7").css("padding-left","0");
     });
     $("#btn-big-side-nav-big").click(function(){
         $(this).css("display","none");
@@ -174,6 +189,7 @@
         $("#li-side-navbar4").removeClass("li-side-navbar-small");
         $("#li-side-navbar5").removeClass("li-side-navbar-small");
         $("#li-side-navbar6").removeClass("li-side-navbar-small");
+        $("#li-side-navbar7").removeClass("li-side-navbar-small");
 
         $("#label-side-navbar").show();
         $("#label-side-navbar2").show();
@@ -181,6 +197,7 @@
         $("#label-side-navbar4").show();
         $("#label-side-navbar5").show();
         $("#label-side-navbar6").show();
+        $("#label-side-navbar7").show();
 
         $("#link-side-navbar").css("padding-left","25px");
         $("#link-side-navbar2").css("padding-left","25px");
@@ -188,6 +205,7 @@
         $("#link-side-navbar4").css("padding-left","25px");
         $("#link-side-navbar5").css("padding-left","25px");
         $("#link-side-navbar6").css("padding-left","25px");
+        $("#link-side-navbar7").css("padding-left","25px");
     });
   });
 </script>

@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/admin/vendors/css/vendor.bundle.base.css') ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/admin/vendors/css/vendor.bundle.addons.css') ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/admin/css/style.css') ?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/admin/css/style_uangsaku_admin.css') ?>">
 
   <link rel="shortcut icon" href="<?php echo base_url('assets/img/app/logo/logo_32.png') ?>">
 
@@ -108,7 +109,7 @@
           <li class="nav-item">
             <a class="nav-link <?php if ($this->uri->segment(2)=='') {
                 echo"text-primary";
-              } ?>" style="color: black;" href="<?php echo site_url('UANGSAKU_admin'); ?>">
+              } ?>" style="color: black;" href="<?php echo site_url('ADMIN'); ?>">
               <i class="menu-icon mdi mdi-home"></i>
               <span class="menu-title">Home</span>
             </a>
@@ -116,7 +117,7 @@
           <li class="nav-item">
             <a class="nav-link <?php if ($this->uri->segment(2)=='sekolah') {
                 echo"text-primary";
-              } ?>" style="color: black;" href="<?php echo site_url('UANGSAKU_admin/sekolah'); ?>">
+              } ?>" style="color: black;" href="<?php echo site_url('ADMIN/sekolah'); ?>">
               <i class="menu-icon mdi mdi-school"></i>
               <span class="menu-title">Sekolah</span>
             </a>
@@ -124,7 +125,7 @@
           <li class="nav-item">
             <a class="nav-link <?php if ($this->uri->segment(2)=='orang_tua') {
                 echo"text-primary";
-              } ?>" style="color: black;" href="<?php echo site_url('UANGSAKU_admin/orang_tua'); ?>">
+              } ?>" style="color: black;" href="<?php echo site_url('ADMIN/orang_tua'); ?>">
               <i class="menu-icon mdi mdi-account"></i>
               <span class="menu-title">Orang Tua</span>
             </a>
@@ -134,7 +135,7 @@
                 echo"text-primary";
               } ?> <?php if ($this->uri->segment(2)=='list_siswa') {
                 echo"text-primary";
-              } ?>" style="color: black;" href="<?php echo site_url('UANGSAKU_admin/siswa'); ?>">
+              } ?>" style="color: black;" href="<?php echo site_url('ADMIN/siswa'); ?>">
               <i class="menu-icon mdi mdi-chair-school"></i>
               <span class="menu-title">Siswa</span>
             </a>
@@ -142,7 +143,7 @@
           <li class="nav-item">
             <a class="nav-link <?php if ($this->uri->segment(2)=='keuangan') {
                 echo"text-primary";
-              } ?>" style="color: black;" href="<?php echo site_url('UANGSAKU_admin/keuangan'); ?>">
+              } ?>" style="color: black;" href="<?php echo site_url('ADMIN/keuangan'); ?>">
               <i class="menu-icon mdi mdi-credit-card-multiple"></i>
               <span class="menu-title">Keuangan</span>
             </a>
@@ -150,7 +151,7 @@
           <li class="nav-item">
             <a class="nav-link <?php if ($this->uri->segment(2)=='feedback') {
                 echo"text-primary";
-              } ?>" style="color: black;" href="<?php echo site_url('UANGSAKU_admin/feedback'); ?>">
+              } ?>" style="color: black;" href="<?php echo site_url('ADMIN/feedback'); ?>">
               <i class="menu-icon mdi mdi-star-outline"></i>
               <span class="menu-title">Feedback</span>
             </a>

@@ -8,8 +8,8 @@
 			</div>
 		</div>
 		<div class="col s8 m4 l4 offset-s2 offset-m4 offset-l4 center">
-			<h6 class="grey-text"><b>Deni Juli Setiawan @ SMKN 1 Bawang</b></h6>
-			<h6 class="grey-text"><b>parent code : abcdef</b></h6>
+			<h6 class="grey-text" id="NAMA-PROFILE"></h6>
+			<h6 class="grey-text" id="PARENT-CODE-PROFILE"><b></b></h6>
 		</div>
 
 		<div class="col s12 m12 l12" id="MENU-PROFILE">
@@ -44,3 +44,16 @@
 
 	</div>
 </div>
+<script>
+	$(document).ready(function(){
+		$.ajax({
+			url : '<?php echo site_url('UANGSAKU_siswa/get_data_all') ?>',
+			type : 'post',
+			dataType : 'json',
+			success : function(data){
+				$("#NAMA-PROFILE").html('<b>'+data[0].NAMA+'</b>');
+				$("#PARENT-CODE-PROFILE").text('parent code : '+data[0].PARENT_CODE);
+			}
+		});
+	});
+</script>

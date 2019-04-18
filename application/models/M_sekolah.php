@@ -24,6 +24,20 @@ class M_sekolah extends CI_Model {
 	{
 		return $this->db->get($this->table);
 	}
+	public function all_join_user()
+	{
+		$this->db->select('
+          sekolah.*, user.ID_USER AS ID_USER, user.STATUS_USER
+	      ');
+	    $this->db->join('user', 'sekolah.ID_USER = user.ID_USER');
+	    $this->db->from('sekolah');
+	    return $this->db->get();
+	}
+	public function del($where)
+	{
+		$this->db->where($where);
+		return $this->db->delete($this->table);
+	}
 
 }
 

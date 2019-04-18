@@ -9,7 +9,7 @@
 	margin-top: 20px;
 	border-radius: 25px;	
 }
-#btn-simpan-siswa,
+#BTN-TAMBAH-SISWA,
 #btn-edit-siswa{
 	border-radius: 25px!important;
 }
@@ -35,6 +35,11 @@
 #CARD-FORM{
 	height: 600px;
 }
-#BTN-SIMPAN-PEMBIAYAAN{
+#BTN-SIMPAN-PEMBIAYAAN,
+#BTN-EDIT-SISWA{
 	border-radius: 25px;
+}
+/*VERIFIKASI*/
+#verifed{
+	padding: 5px;
 }

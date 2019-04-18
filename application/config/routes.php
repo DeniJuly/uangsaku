@@ -28,6 +28,8 @@ $route = array(
 	'SEKOLAH/detail_data_pembiayaan'	=> 'UANGSAKU_Sekolah/detail_data_pembiayaan',
 	'SEKOLAH/edit_data_pembiayaan'		=> 'UANGSAKU_Sekolah/edit_data_pembiayaan',
 	'SEKOLAH/informasi_pembiayaan_siswa'=> 'UANGSAKU_Sekolah/informasi_pembiayaan_siswa',
+	'SEKOLAH/Keluar'					=> 'UANGSAKU_Sekolah/Keluar',
+	'SEKOLAH/Verifikasi_siswa'			=> 'UANGSAKU_Sekolah/data_verifikasi_siswa',
 
 	// CONTROLLER ORANGTUA
 	'ORANGTUA'					=> 'UANGSAKU_Orangtua',
@@ -54,12 +56,19 @@ $route = array(
 	'SISWA/Notifikasi'				=> 'UANGSAKU_Siswa/Notifikasi',
 	'SISWA/Notifikasi/Pembayaran'	=> 'UANGSAKU_Siswa/Detail_notifikasi',
 	'SISWA/Tentang'					=> 'UANGSAKU_Siswa/Detail_profile',
+	'SISWA/Keluar'					=> 'UANGSAKU_Siswa/Keluar',
 
-	// MITRA
+	// CONTROLLER MITRA
 	'MITRA'						=> 'UANGSAKU_mitra',
 	'MITRA/Profile'				=> 'UANGSAKU_mitra/Profile',
 	'MITRA/Info'				=> 'UANGSAKU_mitra/Info',
 	'MITRA/Order'				=> 'UANGSAKU_mitra/Order',
+
+	// CONTROLLER ADMIN
+	'ADMIN'				=> 'UANGSAKU_admin',
+	'ADMIN/sekolah'		=> 'UANGSAKU_admin/sekolah',
+	'ADMIN/orangtua'	=> 'UANGSAKU_admin/orangtua',
+	'ADMIN/siswa'		=> 'UANGSAKU_admin/siswa',
 );
 
 /*

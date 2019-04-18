@@ -115,14 +115,8 @@ class UANGSAKU_orangtua extends CI_Controller {
 
 	public function show_pemmbayaran()
 	{
-		$this->db->query("SELECT ID_SISWA FROM pembayaran");
-		$id = $this->db->get();
-		$this->db->select('*');
-		$this->db->from('pembayaran');
-		$this->db->join('saldo_dana_siswa', 'saldo_dana_siswa.ID_SISWA = pembayaran.ID_SISWA');
-		$this->db->where('ID_SISWA', $id);
-		$get = $this->db->get()->result();
-		echo json_encode($get);
+		$this->db->get('pembayaran')->result();
+		
 	}
 
 	public function del_session()

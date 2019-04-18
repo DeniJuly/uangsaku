@@ -91,18 +91,23 @@
 			success : function (data){
 				var hasil = '';
 				var i;
-				var bilangan = data[0].TOTAL_SALDO_SISWA;
-				var reserve = bilangan.toString().split('').reserve().join(''),
-					ribuan = reserve.match(/\d{1,3}/g);
-					ribuan = ribuan.join('.').split('').reserve().join('');
 				for (i = 0 ; i < data.length ; i++) {
+				var bilangan = data[i].TOTAL_SALDO_SISWA;
+				var	number_string = bilangan.toString(),
+					sisa 	= number_string.length % 3,
+					rupiah 	= number_string.substr(0, sisa),
+					ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
 				if (data[i].ID_SISWA == '' || data[i].ID_SISWA == null) {
 					hasil += '<p class="left">'+
 					'<a href="<?php echo base_url('UANGSAKU_orangtua/profile') ?>">'+
 					'Kaitkan Akun Anda Dengan Anak Anda Dulu!'+'</p>'+
 					'</a>'
 				}else{
-					hasil += '<h5 class="left blue-text lighten-1"><sup>Rp. </sup>'+data[i].TOTAL_SALDO_SISWA+'</h5>'
+					if (ribuan) {
+						separator = sisa ? '.' : '';
+						hasil += '<h5 class="left blue-text lighten-1"><sup>Rp. </sup>'+separator + ribuan.join('.');+'</h5>'
+					}
+					
 				}
 				$("#SALDO").html(hasil);
 				}

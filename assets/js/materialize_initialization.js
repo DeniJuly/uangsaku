@@ -26,4 +26,6 @@ $(document).ready(function(){
 		    alignment: 'right',
 	    }
 	);
+	// SELECT FORM
+    $('select').material_select();
 });

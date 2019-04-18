@@ -17,11 +17,11 @@ class UANGSAKU_admin extends CI_Controller {
 		$var['header'] = 'admin/main_view/header_admin';
 		$var['konten'] = 'admin/view/sekolah';
 		$var['footer'] = 'admin/main_view/footer_admin';
-		$var['judul']  = 'Siswa | Admin';
+		$var['judul']  = 'sekolah | Admin';
 		$this->load->view('template',$var);			
 	}
 
-	public function orang_tua()
+	public function orangtua()
 	{
 		$var['header'] = 'admin/main_view/header_admin';
 		$var['konten'] = 'admin/view/orang_tua';
@@ -67,7 +67,45 @@ class UANGSAKU_admin extends CI_Controller {
 	}
 	public function get_data_sekolah()
 	{
-		$get = $this->M_sekolah->all()->result();
+		$get = $this->M_sekolah->all_join_user()->result();
 		echo json_encode($get);
+	}
+	public function aktifkan_sekolah()
+	{
+		$id = $this->input->post('id_user');
+		$where = array('ID_USER' => $id);
+		$data  = array('STATUS_USER' => 'online');
+		$upd = $this->M_user->upd($where,$data);
+		if ($upd == 1) {
+			echo 1;
+		}else{
+			echo 2;
+		}
+	}
+	public function nonaktifkan_sekolah()
+	{
+		$id = $this->input->post('id_user');
+		$where = array('ID_USER' => $id);
+		$data  = array('STATUS_USER' => 'offline');
+		$upd = $this->M_user->upd($where,$data);
+		if ($upd == 1) {
+			echo 1;
+		}else{
+			echo 2;
+		}
+	}
+	public function hapus_sekolah()
+	{
+		$id = $this->input->post('id_user');
+		$where = array('ID_USER' => $id);
+		$del = $this->M_user->del($where);
+		if ($del == 1) {
+			$del2 = $this->M_sekolah->del($where);
+			if ($del2 == 1) {
+				echo 1;
+			}else{
+				echo 2;
+			}
+		}
 	}
 }
