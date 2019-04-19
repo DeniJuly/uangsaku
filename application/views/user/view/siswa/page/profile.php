@@ -88,25 +88,35 @@
 		</form>
 	</div>
 </div>
+
 <script>
 $(document).ready(function(){
 	$('#FORM-FOTO-PROFILE').submit(function(e){
         e.preventDefault(); 
+        var foto = new FormData(this);
+        $("#BTN-UBAH-FOTO-PROFILE").hide();
+		$("#BTN-DISABLE2").css('display','block');
         $.ajax({
             url:'<?php echo site_url('UANGSAKU_siswa/ubah_foto_profile') ?>',
             type:"post",
-            data:new FormData(this),
+            data:foto,
             processData:false,
             contentType:false,
             cache:false,
             async:false,
             success: function(response){
             	if (response == 1) {
+            		$("#BTN-UBAH-FOTO-PROFILE").show();
+            		$("#BTN-DISABLE2").css('display','none');
+
             		$("#flash-edit-profile").attr('class','blue-text');
                 	$("#flash-edit-profile").text('berhasil ganti foto profile');
             	}else if(response == 2){
+            		$("#BTN-UBAH-FOTO-PROFILE").show();
+            		$("#BTN-DISABLE2").css('display','none');
+
             		$("#flash-edit-profile").attr('class','rad-text');
-            		$("#flash-edit-profile").text('berhasil ganti foto profile');
+            		$("#flash-edit-profile").text('gagal ganti foto profile');
             	}
             }
         });

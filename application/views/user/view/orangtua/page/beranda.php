@@ -9,7 +9,6 @@
 						<h6 class="left"><b>SALDO</b></h6><br>
 					</div>
 					<div class="col s12 m12 l12" id="SALDO">
-						
 					</div>
 				</div>
 				<div class="col s4 m2 l2">
@@ -81,69 +80,38 @@
 	</div>
 </div>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		// SALDO
-		$.ajax({
-			url : '<?php echo base_url();?>index.php/UANGSAKU_orangtua/show_profile',
-			type : "post",
-			dataType : 'json',
-			success : function (data){
-				var hasil = '';
-				var i;
-				for (i = 0 ; i < data.length ; i++) {
-				var bilangan = data[i].TOTAL_SALDO_SISWA;
-				var	number_string = bilangan.toString(),
-					sisa 	= number_string.length % 3,
-					rupiah 	= number_string.substr(0, sisa),
-					ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
-				if (data[i].ID_SISWA == '' || data[i].ID_SISWA == null) {
-					hasil += '<p class="left">'+
-					'<a href="<?php echo base_url('UANGSAKU_orangtua/profile') ?>">'+
-					'Kaitkan Akun Anda Dengan Anak Anda Dulu!'+'</p>'+
-					'</a>'
-				}else{
-					if (ribuan) {
-						separator = sisa ? '.' : '';
-						hasil += '<h5 class="left blue-text lighten-1"><sup>Rp. </sup>'+separator + ribuan.join('.');+'</h5>'
-					}
-					
-				}
-				$("#SALDO").html(hasil);
-				}
-			}
-		})	
+<script>
+$(document).ready(function() {
+	$.ajax({
+		url : '<?php echo site_url('UANGSAKU_orangtua/saldo') ?>',
+		type : 'post',
+		dataType : 'json',
+		success : function(data){
+			if (data.length == '') {
+				$("#SALDO").html('<h6 class="blue-text">Kaitkan akun Anak Anda</h6>');
+			}else{
+				var bilangan = data[0].TOTAL_SALDO_SISWA;
 
+		        var reverse = bilangan.toString().split('').reverse().join(''),
+		        ribuan  = reverse.match(/\d{1,3}/g);
+		        ribuan  = ribuan.join('.').split('').reverse().join('');
+		        var saldo = '<sup>Rp</sup>'+ribuan;
+		        $("#SALDO").html(saldo);
+	    	}
+		}
+	});
+});
+</script>
+<script type="text/javascript">
+	$(document).ready(function(){
 		// MENU FITUR
 		$.ajax({
-			url : '<?php echo base_url();?>index.php/UANGSAKU_orangtua/show_profile',
+			url : '<?php echo base_url();?>index.php/UANGSAKU_orangtua/get_data',
 			type : "post",
 			dataType : 'json',
 			success : function (data){
-				var hasil = '';
-				var i;
-				for (i = 0 ; i < data.length ; i++) {
-				if (data[i].ID_SISWA != '') {
-					hasil += '<div class="col s4 m2 l2  offset-m2 offset-l3">'+
-					'<a href="<?= site_url('ORANGTUA/Anak') ?>" title="Pembayaran">'+
-						'<div class="card-panel center">'+
-							'<img src="<?php echo base_url('assets/img/app/icon/pembayaran.png') ?>" width="24px">'+
-						'</div>'+
-					'</a>'+
-				'</div>'+
-				'<div class="col s4 m2 l2">'+
-					'<a href="<?= site_url('ORANGTUA/Anak') ?>" title="History Anak">'+
-						'<div class="card-panel center">'+
-							'<img src="<?php echo base_url('assets/img/app/icon/history.png') ?>" width="24px">'+
-						'</div>'+
-					'</a>'+
-				'</div>'+
-				'</div>'
-				}
-				$("#MENU_FITUR").html(hasil);
-				}
+				
 			}
-		})
-
+		});
 	});
 </script>

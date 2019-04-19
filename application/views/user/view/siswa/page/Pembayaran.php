@@ -11,7 +11,11 @@
 					    		<div class="row">
 					    			<a href="<?php echo site_url('SISWA/Bayar?id='.$d->ID_TAGIHAN) ?>">
 						    			<div class="col s2 m2 l2 center" id="ICON-PEMBAYARAN-ANAK">
+						    				<?php if ($d->TOTAL_BIAYA-$d->TOTAL_TERBAYAR == 0):?>
+						    				<img src="<?php echo base_url('assets/img/app/icon/verifed_256.png') ?>" class="responsive-img">
+						    				<?php else: ?>
 						    				<img src="<?php echo base_url('assets/img/app/icon/pembayaran.png') ?>" class="responsive-img">
+						    				<?php endif ?>
 						    			</div>
 						    			<div class="col s8" id="JUDUL-PEMBAYARAN-ANAK">
 						    				<h6 class="left yellow-text"><b><?php echo $d->NAMA_PEMBIAYAAN ?></b></h6>

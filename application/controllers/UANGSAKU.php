@@ -253,15 +253,14 @@ class UANGSAKU extends CI_controller
     }
 	public function proses_masuk()
 	{
+		
 		$EMAIL 		= $this->input->post('EMAIL');
-		$PASSWORD 	= $this->input->post('PASSWORD');
-
+		$PASSWORD 	= $this->input->post('PASS');
 		$data = array(
 			'EMAIL'		=>	$EMAIL,
 			'PASSWORD'	=>  md5($PASSWORD)
 		);
 		$cek = $this->M_user->some($data)->num_rows();
-
 		if ($cek == 1) {
 			$get = $this->M_user->some($data)->row();
 			if ($get->JENIS_USER == 'sekolah') {
@@ -308,11 +307,12 @@ class UANGSAKU extends CI_controller
 				);
 			}
 						
-			$this->session->set_userdata($session);
+			$this->session->set_userdata( $session );
 			echo 1;
 		}else{
 			echo 2;
 		}
+		
 	}
 	public function konfirmasi_email()
 	{

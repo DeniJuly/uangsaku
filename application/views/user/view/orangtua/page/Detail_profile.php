@@ -2,31 +2,30 @@
 	<div class="container">
 	<div class="row">
 
-		<div class="col s12 m12 l12" id="BUNGKUS-TENTANG-PROFILE" style="margin-top: 20px;">
-			<div class="card-panel" style="height:415px;">
-				<div class="col s12 m12 l12" id="JUDUL-TENTANG-PROFILE" style="border-bottom: 1px solid #eee">
-					<div class="col s2 m2 l1 center" id="ICON-MENU-PROFILE">
-						<img src="<?= base_url('assets/img/app/icon/info_umum.png') ?>" style="height:35px;width: 35px;">
+		<div class="col s12 m12 l12" id="BUNGKUS-TENTANG-PROFILE">
+			<div class="card-panel" id="CARD-TENTANG-PROFILE-INFO">
+				<div class="col s12 m12 l12" id="JUDUL-TENTANG-PROFILE">
+					<div class="col s3 m2 l1 center" id="ICON-MENU-PROFILE">
+						<img src="<?= base_url('assets/img/app/icon/info_umum.png') ?>">
 					</div>
-					<div class="col s8 m8 l9" id="JUDUL-MENU-PROFILE">
+					<div class="col s9 m10 l11" id="JUDUL-MENU-PROFILE">
 						<h6>INFO UMUM</h6>
 					</div>
 				</div>
 				<div class="col s12 m12 l12">
 					<table>
 				        <tbody id="INFO_UMUM">
-				          
 				        </tbody>
 				      </table>
 				</div>
 			</div>
 		</div>
 
-		<div class="col s12 m12 l12" id="BUNGKUS-TENTANG-PROFILE" style="margin-top: 20px;">
-			<div class="card-panel" style="height:200px;">
-				<div class="col s12 m12 l12" id="JUDUL-TENTANG-PROFILE" style="border-bottom: 1px solid #eee">
-					<div class="col s2 m2 l1 center" id="ICON-MENU-PROFILE">
-						<img src="<?= base_url('assets/img/app/icon/contact.png') ?>" style="height:35px;width: 35px;">
+		<div class="col s12 m12 l12" id="BUNGKUS-TENTANG-PROFILE">
+			<div class="card-panel" id="CARD-TENTANG-PROFILE-KONTAK">
+				<div class="col s12 m12 l12" id="JUDUL-TENTANG-PROFILE">
+					<div class="col s3 m2 l1 center" id="ICON-MENU-PROFILE">
+						<img src="<?= base_url('assets/img/app/icon/contact.png') ?>">
 					</div>
 					<div class="col s8 m8 l9" id="JUDUL-MENU-PROFILE">
 						<h6>KONTAK</h6>
@@ -35,27 +34,25 @@
 				<div class="col s12 m12 l12">
 					<table>
 				        <tbody id="KONTAK">
-				          
 				        </tbody>
 				      </table>
 				</div>
 			</div>
 		</div>
 
-		<div class="col s12 m12 l12" id="BUNGKUS-TENTANG-PROFILE" style="margin-top: 20px;">
-			<div class="card-panel" style="height:130px;">
-				<div class="col s12 m12 l12" id="JUDUL-TENTANG-PROFILE" style="border-bottom: 1px solid #eee">
-					<div class="col s2 m2 l1 center" id="ICON-MENU-PROFILE">
-						<img src="<?= base_url('assets/img/app/icon/privasi.png') ?>" style="height:35px;width: 35px;">
+		<div class="col s12 m12 l12" id="BUNGKUS-TENTANG-PROFILE">
+			<div class="card-panel" id="CARD-TENTANG-PROFILE-PRIVASI">
+				<div class="col s12 m12 l12" id="JUDUL-TENTANG-PROFILE">
+					<div class="col s3 m2 l1 center" id="ICON-MENU-PROFILE">
+						<img src="<?= base_url('assets/img/app/icon/privasi.png') ?>">
 					</div>
 					<div class="col s8 m8 l9" id="JUDUL-MENU-PROFILE">
-						<h6>Data Pribadi</h6>
+						<h6>PRIVASI</h6>
 					</div>
 				</div>
 				<div class="col s12 m12 l12">
 					<table>
-				        <tbody id="DATA_PRIBADI">
-				          
+				        <tbody id="PRIVASI">
 				        </tbody>
 				      </table>
 				</div>
@@ -65,90 +62,85 @@
 	</div>
 	</div>
 </div>
+<div class="fixed-action-btn">
+    <a class="btn-floating blue lighten-1" href="<?php echo site_url('ORANGTUA/Edit_profile') ?>">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+</div>
+<script>
+$(document).ready(function(){
+	$.ajax({
+		url : '<?php echo site_url('UANGSAKU_orangtua/get_data') ?>',
+		type : 'post',
+		dataType : 'json',
+		success : function(data){
+			var info_umum = '';
+			var kontak = '';
+			var privasi = '';
+			for (var i = 0; i < data.length; i++) {
+				info_umum += '<tr>'+
+				             '<th class="w-50deg">NAMA</th>'+
+				             '<td>'+data[i].NAMA+'</td>'+
+				             '</tr>'+
+				             '<tr>'+
+				             '<th class="w-50deg">NISN ANAK</th>';
+				             if (data[i].NISN == null) {
+				info_umum += '<td>-</td>';
+				             }else{
+				info_umum += '<td>'+data[i].NISN+'</td>';
+				         	 }
+				info_umum += '</tr>'+
+				             '<tr>'+
+				             '<th class="w-50deg">TANGGAL LAHIR</th>';
+				             if (data[i].TANGGAL_LAHIR == null || data[i].TANGGAL_LAHIR == '0000-00-00') {
+				info_umum += '<td>-</td>';
+							 }else{
+				info_umum += '<td>'+data[i].TANGGAL_LAHIR+'</td>';
+							 };
+				info_umum += '</tr>'+
+				             '<tr>'+
+				             '<th class="w-50deg">JENIS KELAMIN</th>';
+				             if (data[i].JENIS_KELAMIN == 'L') {
+				info_umum += '<td>LAKI-LAKI</td>';
+							 }else if(data[i].JENIS_KELAMIN == 'P'){
+				info_umum += '<td>PEREMPUAN</td>';
+							 }else{
+				info_umum += '<td>-</td>';
+							 }
+				info_umum += '</tr>'+
+				             '<tr>'+
+				          	 '<th class="w-50deg">ALAMAT</th>';
+				          	 if (data[i].ALAMAT == null || data[i].ALAMAT == '') {
+				info_umum += '<td>-</td>';
+				          	}else{
+				info_umum += '<td>'+data[i].ALAMAT+'</td>';
+				          	};
+				kontak +='<tr>'+
+				         '<th class="w-50deg">EMAIL</th>'+
+				         '<td>'+data[i].EMAIL+'</td>'+
+				         '</tr>'+
+				         '<tr>'+
+				         '<th class="w-50deg">NO TELEPHON</th>';
+				         if (data[i].NO_TELP == null || data[i].NO_TELP == '') {
+				kontak += '<td>-</td>';
+						 }else{
+				kontak += '<td>'+data[i].NO_TELP+'</td>';
+						 }
+				kontak += '</tr>';
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		$.ajax({
-			url : '<?php echo base_url();?>index.php/UANGSAKU_orangtua/show_profile',
-			type : "post",
-			dataType : 'json',
-			success : function (data){
-				var hasil = '';
-				var i;
-				for (i = 0 ; i < data.length ; i++) {
-				hasil += '<tr>'+
-				            '<th>NAMA</th>'+
-				            '<td><?php echo $this->session->userdata('USERNAME'); ?></td>'+
-				          '</tr>'+
-				          '<tr>'+
-				            '<th>NISN</th>'+
-				            '<td>'+data[i].NISN+'</td>'+
-				          '</tr>'+
-				          '<tr>'+
-				            '<th>TANGGAL LAHIR</th>'+
-				            '<td>'+data[i].TANGGAL_LAHIR+'</td>'+
-				          '</tr>'+
-				          '<tr>'+
-				            '<th>JENIS KELAMIN</th>'+
-				            '<td>'+data[i].JENIS_KELAMIN+'</td>'+
-				          '</tr>'+
-				          '<tr>'+
-				          	'<th>ALAMAT</th>'+
-				          	'<td>'+data[i].ALAMAT+'</td>'+
-				          '</tr>'+
-				          '<tr>'+
-				          	'<th>KELAS</th>'+
-				          	'<td></td>'+
-				          '</tr>';
-				$("#INFO_UMUM").html(hasil);
-				}
+				privasi += '<tr>'+
+				           '<th class="w-50deg">NIK</th>';
+				        if (data[i].NIK == null || data[i].NIK_ORANG_TUA == '') {
+				privasi += '<td>-</td>';
+				        }else{
+				privasi += '<td>'+data[i].NIK_ORANG_TUA+'</td>';
+				        }
+				privasi += '</tr>';
 			}
-		})	
+			$("#INFO_UMUM").html(info_umum);
+			$("#KONTAK").html(kontak);
+			$("#PRIVASI").html(privasi);
+		}
 	});
-</script>
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		$.ajax({
-			url : '<?php echo base_url();?>index.php/UANGSAKU_orangtua/show_profile',
-			type : "post",
-			dataType : 'json',
-			success : function (data){
-				var hasil = '';
-				var i;
-				for (i = 0 ; i < data.length ; i++) {
-				hasil += '<tr>'+
-				            '<th>EMAIL</th>'+
-				            '<td><?php echo $this->session->userdata('EMAIL'); ?></td>'+
-				          '</tr>'+
-				          '<tr>'+
-				            '<th>NO TELEPHON</th>'+
-				            '<td>'+data[i].NO_TELP+'</td>'+
-				          '</tr>';
-				$("#KONTAK").html(hasil);
-				}
-			}
-		})	
-	});
-</script>
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		$.ajax({
-			url : '<?php echo base_url();?>index.php/UANGSAKU_orangtua/show_profile',
-			type : "post",
-			dataType : 'json',
-			success : function (data){
-				var hasil = '';
-				var i;
-				for (i = 0 ; i < data.length ; i++) {
-				hasil += '<tr>'+
-				            '<th>NIK</th>'+
-				            '<td>'+data[i].NIK_ORANG_TUA+'</td>'+
-				          '</tr>';
-				$("#DATA_PRIBADI").html(hasil);
-				}
-			}
-		})	
-	});
+});
 </script>

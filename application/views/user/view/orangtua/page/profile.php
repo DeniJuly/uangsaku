@@ -2,85 +2,142 @@
 	<div class="col s12 m12 l12">
 		
 	<div class="col s12 m8 l8 offset-m2 offset-l2">
-		<div class="col s8 m4 l4 offset-s2 offset-m4 offset-l4 center" id="DIV-FOTO-PROFILE" style="margin-top: 50px">
-			<div class="circle center z-depth-1" id="CIRCLE-FOTO-PROFIL" style="overflow: hidden;height: 150px;width: 150px;margin: auto;border: 6px solid #FFC107;">
-				<img src="<?php echo base_url('assets/img/app/developer/risqi.jpeg') ?>" width="100%" class="responsive-img">
+		<div class="col s8 m4 l4 offset-s2 offset-m4 offset-l4 center" id="DIV-FOTO-PROFILE">
+			<div class="circle center z-depth-1" id="CIRCLE-FOTO-PROFIL">
+				<a href="#EDIT-FOTO" class="btn-floating waves-effect waves-light z-depth-0 grey lighten-1 modal-trigger" id="BTN-EDIT-FOTO-PROFILE">
+					<i class="material-icons">create</i>
+				</a>
+				<img src="" width="100%" class="responsive-img" id="FOTO-PROFILE">
 			</div>
 		</div>
 		<div class="col s8 m4 l4 offset-s2 offset-m4 offset-l4 center">
-			<h6 class="grey-text"><b><?php echo $this->session->userdata('USERNAME'); ?> | <?php echo $this->session->userdata('EMAIL'); ?></b></h6>
+			<h6 class="grey-text" id="NAMA-PROFILE"></h6>
 		</div>
-		
-		<a href="<?= site_url('ORANGTUA/Tentang') ?>">
-		<div class="col s12 m12 l12" id="MENU-PROFILE" style="border-bottom: 1px solid #eee">
-			<div class="col s3 m2 l1 center" id="ICON-MENU-PROFILE">
-				<img src="<?= base_url('assets/img/app/icon/my_profile.png') ?>" class="responsive-img" style="height: 34px;width:34px;margin-top: 11px;margin-bottom: 4px;">
+
+		<div class="col s12 m12 l12" id="MENU-PROFILE">
+			<div class="col s2 m2 l1 center" id="ICON-MENU-PROFILE">
+				<img src="<?= base_url('assets/img/app/icon/my_profile.png') ?>" class="responsive-img">
 			</div>
-			<div class="col s7 m8 l9" id="JUDUL-MENU-PROFILE" style="padding-top: 15px;">
+			<div class="col s8 m8 l9" id="JUDUL-MENU-PROFILE">
 				<h6>TENTANG KAMU</h6>
 			</div>
-			<div class="col s2 m2 l1 center offset-l1" id="LINK-MENU-PROFILE" style="padding-top: 15px;">
-				
+			<div class="col s2 m2 l1 center offset-l1" id="LINK-MENU-PROFILE">
+				<a href="<?= site_url('ORANGTUA/Tentang') ?>">
 					<i class="material-icons">chevron_right</i>
-				
+				</a>
 			</div>
 		</div>
-		</a>
 
-		<a class="modal-trigger" href="#kaitkan_anak">
-		<div class="col s12 m12 l12" id="MENU-PROFILE" style="border-bottom: 1px solid #eee">
-			<div class="col s3 m2 l1 center" id="ICON-MENU-PROFILE">
-				<img src="<?= base_url('assets/img/app/icon/anak.png') ?>" class="responsive-img" style="height: 34px;width:34px;margin-top: 11px;margin-bottom: 4px;">
+		<div class="col s12 m12 l12" id="MENU-PROFILE">
+			<div class="col s2 m2 l1 center" id="ICON-MENU-PROFILE">
+				<img src="<?= base_url('assets/img/app/icon/anak_50.png') ?>" class="responsive-img" width="28px">
 			</div>
-			<div class="col s7 m8 l9" id="JUDUL-MENU-PROFILE" style="padding-top: 15px;">
+			<div class="col s8 m8 l9" id="JUDUL-MENU-PROFILE">
 				<h6>KAITKAN AKUN ANAK</h6>
 			</div>
-			<div class="col s2 m2 l1 center offset-l1" id="LINK-MENU-PROFILE" style="padding-top: 15px;">
-				
+			<div class="col s2 m2 l1 center offset-l1" id="LINK-MENU-PROFILE">
+				<a href="<?= site_url('SISWA/Topup') ?>">
 					<i class="material-icons">chevron_right</i>
-				
+				</a>
 			</div>
 		</div>
-		</a>
 
-		<a href="<?php echo site_url('UANGSAKU_orangtua/del_session') ?>">
-		<div class="col s12 m12 l12" id="MENU-PROFILE" style="border-bottom: 1px solid #eee">
-			<div class="col s3 m2 l1 center" id="ICON-MENU-PROFILE">
-				<img src="<?= base_url('assets/img/app/icon/logout.png') ?>" class="responsive-img" style="height: 34px;width:34px;margin-top: 11px;margin-bottom: 4px;">
+		<div class="col s12 m12 l12" id="MENU-PROFILE">
+			<div class="col s2 m2 l1 center" id="ICON-MENU-PROFILE">
+				<img src="<?= base_url('assets/img/app/icon/logout.png') ?>" class="responsive-img">
 			</div>
-			<div class="col s7 m8 l9" id="JUDUL-MENU-PROFILE" style="padding-top: 15px;">
+			<div class="col s8 m8 l9" id="JUDUL-MENU-PROFILE">
 				<h6>KELUAR</h6>
 			</div>
-			<div class="col s2 m2 l1 center offset-l1" id="LINK-MENU-PROFILE" style="padding-top: 15px;">
-				
+			<div class="col s2 m2 l1 center offset-l1" id="LINK-MENU-PROFILE">
+				<a href="<?= site_url('SISWA/Topup') ?>">
 					<i class="material-icons">chevron_right</i>
-				
+				</a>
 			</div>
 		</div>
-		</a>
+
 	</div>
 
 	</div>
 </div>
+<script>
+	$(document).ready(function(){
+		$.ajax({
+			url : '<?php echo site_url('UANGSAKU_orangtua/get_data') ?>',
+			type : 'post',
+			dataType : 'json',
+			success : function(data){
+				$("#NAMA-PROFILE").html('<b>'+data[0].NAMA+'</b>');
+				$("#FOTO-PROFILE").attr('src','<?php echo base_url("assets/img/user/orangtua/foto-profile/") ?>'+data[0].FOTO);
+			}
+		});
+	});
+</script>
+<!-- Modal Structure -->
+<div id="EDIT-FOTO" class="modal">
+    <div class="modal-content">
+      <h5>EDIT FOTO PROFILE</h5>
+      <small id="flash-edit-profile"></small>
+      	<form id="FORM-FOTO-PROFILE">
+	    <div class="file-field input-field">
+	      <div class="btn btn-small">
+	        <i class="material-icons">add_a_photo</i>
+	        <input type="file" name="FOTO">
+	      </div>
+	      <div class="file-path-wrapper">
+	        <input class="file-path validate" type="text">
+	      </div>
+	    </div>
+      
+    </div>
+    <div class="modal-footer">
+    	<button class="btn blue lighten-1 right" id="BTN-UBAH-FOTO-PROFILE">
+            <i class="material-icons">send</i>
+        </button>
+        <button class="waves-effect waves-light btn right" id="BTN-DISABLE2" disabled style="display: none;">
+			<img src="<?php echo base_url('assets\img\app\icon/loading.gif') ?>">
+		</button>
+		</form>
+	</div>
+</div>
+<script>
+$(document).ready(function(){
+	$('#FORM-FOTO-PROFILE').submit(function(e){
+        e.preventDefault(); 
+        var foto = new FormData(this);
 
-<div id="kaitkan_anak" class="modal">
-    <div class="row">
+        $.ajax({
+            url:'<?php echo site_url('UANGSAKU_orangtua/ubah_foto_profile') ?>',
+            type:"post",
+            data: foto,
+            processData:false,
+            contentType:false,
+            cache:false,
+            async:false,
+            success: function(response){
+            	if (response == 1) {
+            		$("#BTN-UBAH-FOTO-PROFILE").show();
+            		$("#BTN-DISABLE2").css('display','none');
 
-          <div class="modal-content">
-           	<h4 class="center">Kaitkan Akun Dengan Anak</h4>
+            		$("#flash-edit-profile").attr('class','blue-text');
+                	$("#flash-edit-profile").text('berhasil ganti foto profile');
+            	}else if(response == 2){
+            		$("#BTN-UBAH-FOTO-PROFILE").show();
+            		$("#BTN-DISABLE2").css('display','none');
 
-            <!-- penulis -->
-            <div class="input-field col s12 m12">
-              <input placeholder="Parent Code" id="CODE" type="number" class="validate" name="CODE">
-            </div>
-            <button class="btn blue lighten-1 right" id="BTN-UBAH-EMAIL">
-                <i class="material-icons">send</i>
-            </button>
-            <button class="waves-effect waves-light btn right" id="BTN-DISABLE2" disabled style="display: none;">
-				<img src="<?php echo base_url('assets\img\app\icon/loading.gif') ?>">
-			</button>
-
-          </div>
-
-        </div>
-      </div>
+            		$("#flash-edit-profile").attr('class','rad-text');
+            		$("#flash-edit-profile").text('gagal ganti foto profile');
+            	}
+            }
+        });
+    });
+});
+</script>
+<script>
+$(document).ready(function(){
+	$("#BTN-UBAH-FOTO-PROFILE").click(function(){
+		$(this).hide();
+		$("#BTN-DISABLE2").css('display','block');
+	});
+});
+</script>

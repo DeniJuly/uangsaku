@@ -101,25 +101,103 @@ class UANGSAKU_orangtua extends CI_Controller {
 		$var['judul']  = 'TENTANG';
 		$this->load->view('template',$var);		
 	}
-
-	public function show_profile()
+	public function Edit_profile()
 	{
-		$id = $this->session->userdata('ID_USER');
-		$this->db->select('*');
-		$this->db->from('orangtua');
-		$this->db->join('saldo_dana_siswa', 'saldo_dana_siswa.ID_SISWA = orangtua.ID_SISWA');
-		$this->db->where('ID_USER', $id);
-		$get = $this->db->get()->result();
+		$var['header'] = 'user/main_view/orangtua/sub_header_orang_tua';
+		$var['konten'] = 'user/view/orangtua/page/edit_profile';
+		$var['footer'] = 'user/main_view/orangtua/sub_footer_orang_tua';
+		$where = array('ID_USER'=> $this->session->userdata('ID_USER'));
+		$var['data']   = $this->M_orangtua->some($where)->result();
+		$var['judul']  = 'EDIT PROFILE';
+		$this->load->view('template',$var);	
+	}
+	public function get_data()
+	{
+		$ID_USER	= $this->session->userdata('ID_USER');
+		$where = array('ID_USER'=>$ID_USER);
+		$get = $this->M_orangtua->some($where)->result();
 		echo json_encode($get);
 	}
-
 	public function show_pemmbayaran()
 	{
 		$this->db->get('pembayaran')->result();
 		
 	}
-
-	public function del_session()
+	public function saldo()
+	{
+		$ID_USER 	= $this->session->userdata('ID_USER');
+		$where 		= array('ID_USER'=> $ID_USER);
+		$get_data_orangtua = $this->M_orangtua->some($where)->row();
+		if ($get_data_orangtua) {
+			$where_id  = array('ID_SISWA'=>$get_data_orangtua->ID_SISWA);
+			$get_saldo = $this->M_saldo_dana_siswa->saldo($where_id)->result();
+			echo json_encode($get_saldo);
+		}
+	}
+	public function ubah_foto_profile()
+	{
+		$USERNAME = $this->session->userdata('USERNAME');
+		date_default_timezone_set('Asia/Jakarta');
+		$tanggal = date("d-M-Y,H-i-s");
+		$config['upload_path']   = './assets/img/user/orangtua/foto-profile/';
+		$config['allowed_types'] = 'jpg|png|jpeg';
+		$config['max_size']  = '10000';
+		$config['file_name'] = $USERNAME.','.$tanggal;
+		
+		$this->load->library('upload', $config);
+		
+		if ( ! $this->upload->do_upload('FOTO')){
+			echo 2;
+		}
+		else{
+			$data =  $this->upload->data();
+			$where = array('ID_USER'=>$this->session->userdata('ID_USER'));
+			$get_data_siswa = $this->M_orangtua->some($where)->row();
+			if ($get_data_siswa->FOTO != 'default.png') {
+				unlink('./assets/img/user/orangtua/foto-profile/'.$get_data_siswa->FOTO);
+			}
+			$data_update = array('FOTO'=>$data['file_name']);
+			$upd = $this->M_orangtua->upd($where,$data_update);
+			if($upd){
+				echo 1;
+			}else{
+				echo 2;
+			}	
+		}
+	}
+	public function proses_edit_profile()
+	{
+		$TGL_LAHIR = $this->input->post('tgl_lahir');
+		$ALAMAT	   = $this->input->post('alamat');
+		$NO_TELP   = $this->input->post('no_telp');
+		$NIK       = $this->input->post('nik');
+		$JENIS_KELAMIN = $this->input->post('jenis_kelamin');
+		if ($ALAMAT != 'null') {
+			$data = array(
+				'JENIS_KELAMIN' =>$JENIS_KELAMIN,
+				'TANGGAL_LAHIR' =>$TGL_LAHIR,
+				'ALAMAT'		=>$ALAMAT,
+				'NO_TELP'		=>$NO_TELP,
+				'NIK_ORANG_TUA'	=>$NIK
+			);
+		}elseif ($ALAMAT == 'null') {
+			$data = array(
+				'JENIS_KELAMIN' =>$JENIS_KELAMIN,
+				'TANGGAL_LAHIR' =>$TGL_LAHIR,
+				'NO_TELP'		=>$NO_TELP,
+				'NIK_ORANG_TUA' =>$NIK
+			);
+		}
+		$ID_USER = $this->session->userdata('ID_USER');
+		$where = array('ID_USER'=>$ID_USER);
+		$upd = $this->M_orangtua->upd($where,$data);
+		if ($upd) {
+			echo 1;
+		}else{
+			echo 2;
+		}
+	}
+	public function keluar()
 	{
 		$this->session->sess_destroy();
 		redirect('UANGSAKU');

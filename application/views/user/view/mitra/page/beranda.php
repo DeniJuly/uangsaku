@@ -30,7 +30,7 @@
 						<h6>SALDO</h6>
 					</div>
 					<div class="col s6 m10 l10" id="ISI-SALDO">
-						<h6 class="right"><b>Rp 0</b></h6>
+						<h6 class="right blue-text"><b>Rp 0</b></h6>
 					</div>
 				</div>
 			</div>

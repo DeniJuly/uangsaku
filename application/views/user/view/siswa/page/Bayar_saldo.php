@@ -42,7 +42,9 @@
 			          <small class="grey-text" style="font-size: 10px;" id="nomina-bayar"><sup>Rp </sup>0</small>
 			        </div>
 			        <div class="col s12 m4 l4" style="margin-top: 10px;padding-top: 10px">
-						<a class="btn yellow darken-3" style="width: 100%;border-radius: 25px;" id="BTN-BAYAR">BAYAR</a>
+						<a class="btn yellow darken-3" style="width: 100%;border-radius: 25px;" id="BTN-BAYAR" <?php if ($d->TOTAL_BIAYA-$d->TOTAL_TERBAYAR == 0) {
+							echo 'disabled';
+						} ?>>BAYAR</a>
 						<button class="waves-effect waves-light btn" id="BTN-DISABLE" disabled style="margin-top: 0!important; width: 100%; border-radius: 25px; display: none;">
 			              <img src="<?php echo base_url('assets\img\app\icon/loading.gif') ?>">
 			            </button>
@@ -80,11 +82,12 @@ $(document).ready(function(){
 		var nomina = parseInt($("#NOMINA").val());
 		var saldo  = parseInt('<?php echo $d->TOTAL_SALDO_SISWA ?>');
 		var total_biaya = '<?php echo $d->TOTAL_BIAYA ?>';
+		var total_terbayar = '<?php echo $d->TOTAL_TERBAYAR ?>';
 		if (nomina > saldo) {
 			$("#flash-bayar").css('display','block');
 			$("#flash-bayar").text('maaf saldo anda tidak mencukupi');
 			$("#flash-bayar").attr('class','red-text');
-		}if (nomina > total_biaya) {
+		}if (nomina > total_biaya-total_terbayar) {
 				$("#flash-bayar").css('display','block');
 				$("#flash-bayar").text('nomina pembayaran anda terlalu banyak');
 				$("#flash-bayar").attr('class','red-text');	
@@ -103,7 +106,8 @@ $(document).ready(function(){
 		var saldo  = parseInt('<?php echo $d->TOTAL_SALDO_SISWA ?>');
 		var id_tagihan = '<?php echo $this->input->get("id") ?>';
 		var total_biaya = '<?php echo $d->TOTAL_BIAYA ?>';
-		nama_pembiayaan = '<?php echo $d->NAMA_PEMBIAYAAN ?>'
+		nama_pembiayaan = '<?php echo $d->NAMA_PEMBIAYAAN ?>';
+		var total_terbayar = '<?php echo $d->TOTAL_TERBAYAR ?>';
 		if (nomina > saldo) {
 			$("#BTN-BAYAR").show();
 			$("#BTN-DISABLE").css('display','none');
@@ -112,7 +116,7 @@ $(document).ready(function(){
 			$("#flash-bayar").text('maaf saldo anda tidak mencukupi');
 			$("#flash-bayar").attr('class','red-text');
 		}else{
-			if (nomina > total_biaya) {
+			if (nomina > total_biaya-total_terbayar) {
 				$("#BTN-BAYAR").show();
 				$("#BTN-DISABLE").css('display','none');
 

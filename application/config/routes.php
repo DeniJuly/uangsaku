@@ -42,6 +42,7 @@ $route = array(
 	'ORANGTUA/Topup'			=> 'UANGSAKU_Orangtua/Tips',
 	'ORANGTUA/Beli/Beranda'		=> 'UANGSAKU_Orangtua/Beli_beranda',
 	'ORANGTUA/Tentang'			=> 'UANGSAKU_Orangtua/Detail_profile',
+	'ORANGTUA/Edit_profile'		=> 'UANGSAKU_Orangtua/Edit_profile',
 
 	// CONTROLLER SISWA
 	'SISWA'							=> 'UANGSAKU_Siswa',

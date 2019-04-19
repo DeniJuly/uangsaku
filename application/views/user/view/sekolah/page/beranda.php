@@ -9,7 +9,7 @@
 						<h6 class="left"><b>SALDO</b></h6><br>
 					</div>
 					<div class="col s12 m12 l12">
-						<h5 id="SALDO" class="left"><sup>Rp</sup></h5>
+						<h5 id="SALDO" class="left blue-text"></h5>
 					</div>
 				</div>
 				<div class="col s4 m2 l2">
@@ -97,12 +97,18 @@ $(document).ready(function() {
 		type : 'post',
 		dataType : 'json',
 		success : function(data){
-			var bilangan = data[0].TOTAL_SALDO_SEKOLAH;
+			if (data.length == 0) {
+				var saldo = '<sup>Rp </sup>0';
+				$("#SALDO").html()
+			}else{
+				var bilangan = data[0].TOTAL_SALDO_SEKOLAH;
 
-	        var reverse = bilangan.toString().split('').reverse().join(''),
-	        ribuan  = reverse.match(/\d{1,3}/g);
-	        ribuan  = ribuan.join('.').split('').reverse().join('');
-	        $("#SALDO").append(ribuan);
+		        var reverse = bilangan.toString().split('').reverse().join(''),
+		        ribuan  = reverse.match(/\d{1,3}/g);
+		        ribuan  = ribuan.join('.').split('').reverse().join('');
+		        var saldo = '<sup>Rp </sup>'+ribuan;
+		        $("#SALDO").html(saldo);
+	    	}
 		}
 	});
 });
