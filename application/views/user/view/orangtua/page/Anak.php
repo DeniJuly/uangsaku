@@ -1,5 +1,5 @@
 <div class="col s12 m10 l10" id="isi">
-	<div class="container">
+	<div class="container" id="BODY">
 		<div class="row">
 
 			<div class="col s8 m4 l4 right" id="BUNGKUS-ADD-ANAK">
@@ -12,8 +12,7 @@
 
 		    <div class="col s12">
 			    <ul class="tabs">
-			    	<li class="tab col s6"><a class="active" href="#PEMBAYARAN-ANAK">PEMBAYARAN</a></li>
-			        <li class="tab col s6"><a href="#HISTORY">HISTORY ANAK</a></li>
+			    	<li class="tab col s12"><a class="active" href="#PEMBAYARAN-ANAK">PEMBAYARAN</a></li>
 			    </ul>
 		    </div>
 		    <!-- PEMBAYARAN -->
@@ -67,40 +66,27 @@
 		    	</div>
 		    </div>
 		    <!-- END PEMBAYARAN -->
-		    <!-- HISTORY -->
-		    <div id="HISTORY" class="col s12">
-		    	<div class="row">
-
-		    		<div class="col s12 m6 l6">
-		    			<a href="<?php echo site_url('ORANGTUA/Detail_history') ?>">
-			    			<div class="card-panel" id="CARD-HISTORY-KEUANGAN-ANAK">
-			    				<div class="row">
-			    					<div class="col s2 m2 l2 center" id="ICON-HISTORY-KEUANGAN-ANAK">
-			    						<img src="<?php echo base_url('assets/img/app/icon/pembayaran.png') ?>" class="responsive-img">
-			    					</div>
-			    					<div class="col s8" id="JUDUL-HISTORY-KEUANGAN-ANAK">
-			    						<h6 class="left yellow-text"><b>COKELAT KACANG IJO MANG</b></h6>
-			    					</div>
-			    					<div class="col s12 m12 l12" id="UANG-HISTORY-KEUANGAN-ANAK">
-			    						<h6 class="grey-text"><sup>Rp </sup>10.000</h6>
-			    					</div>
-			    					<div class="col s12 m12 l12" id="INFO-HISTORY-KEUANGAN-ANAK">
-			    						<small class="grey-text left">KOPERASI SEKOLAH</small>
-			    						<small class="grey-text right">22 April 2019</small>
-			    					</div>
-			    				</div>
-			    			</div>
-		    			</a>
-		    		</div>
-
-		    	</div>
-		    </div>
-		    <!-- END HISTORY -->
 		 </div>
 	 </div>
 </div>
-<script>
+
+<script type="text/javascript">
 	$(document).ready(function() {
-	    $('select').material_select();
-	  });
+		// SALDO
+		$.ajax({
+			url : '<?php echo base_url();?>index.php/UANGSAKU_orangtua/show_riwayat',
+			type : "post",
+			dataType : 'json',
+			success : function (data){
+				var hasil = '';
+				var i;
+				for (i = 0 ; i < data.length ; i++) {
+				if (data[i].STATUS_PEMBAYARAN == 'lunas') {
+					html += 
+				}
+				$("#SHOW_HISTORY").html(hasil);
+				}
+			}
+		})
+	});
 </script>

@@ -8,8 +8,8 @@
 					<div class="col s12 m12 l12" id="JUDUL-SALDO">
 						<h6 class="left"><b>SALDO</b></h6><br>
 					</div>
-					<div class="col s12 m12 l12">
-						<h5 id="SALDO" class="left"><sup>Rp</sup>10.000</h5>
+					<div class="col s12 m12 l12" id="SALDO">
+						
 					</div>
 				</div>
 				<div class="col s4 m2 l2">
@@ -18,47 +18,16 @@
 
 			</div>
 
-			<div class="col s12 m12">
-
-				<!-- JIKA SUDAH TERKAIT -->
-				<div class="col s4 m2 l2  offset-m2 offset-l3">
-					<a href="<?= site_url('ORANGTUA/Anak') ?>">
-						<div class="card-panel center">
-							<img src="<?php echo base_url('assets/img/app/icon/pembayaran.png') ?>" width="24px">
-						</div>
-					</a>
-				</div>
-				<div class="col s4 m2 l2">
-					<a href="<?= site_url('ORANGTUA/Anak') ?>">
-						<div class="card-panel center">
-							<img src="<?php echo base_url('assets/img/app/icon/history.png') ?>" width="24px">
-						</div>
-					</a>
-				</div>
-				<div class="col s4 m2 l2">
-					<a href="<?= site_url('ORANGTUA/Beli') ?>">
-						<div class="card-panel center">
-							<img src="<?php echo base_url('assets/img/app/icon/pembelian.png') ?>" width="24px">
-						</div>
-					</a>
-				</div>
-
-				<!-- JIKA BELUM TERKAIT -->
-				<!-- <div class="col s4 m2 l2 offset-s4 offset-m5 offset-l5">
-					<a href="<?= site_url('UangSaku/spp') ?>">
-						<div class="card-panel center">
-							<img src="<?php echo base_url('assets/img/app/icon/pembelian.png') ?>" width="24px">
-						</div>
-					</a>
-				</div> -->
-
+			<div class="col s12 m12" id="MENU_FITUR">
+				
 			</div>			
 		</div>
 
 		<div class="col s12 m12 l12" id="BUNGKUS-TIPS-BERANDA">
-			<p><h6 class="left">TIPS</h6></p>
-
-			<div class="col s12 m12 l12"id="TIPS-BERANDA">
+			<p><h6 class="left">TIPS : </h6></p>
+			
+			<a href="<?= site_url('ORANGTUA/Topup') ?>" title="Tips Isi Saldo">
+			<div class="col s12 m12 l12" id="TIPS-BERANDA">
 				<div class="col s3 m2 l1 center" id="ICON-TIPS-BERANDA">
 					<img src="<?= base_url('assets/img/app/logo/logo_64.png') ?>" class="responsive-img">
 				</div>
@@ -67,13 +36,15 @@
 					<small class="grey-text lighten-1 left">di paymen poin uangsaku</small>
 				</div>
 				<div class="col s2 m2 l1 center offset-l1" id="LINK-TIPS-BERANDA">
-					<a href="<?= site_url('ORANGTUA/Topup') ?>">
+					
 						<i class="material-icons">chevron_right</i>
-					</a>
+					
 				</div>
 			</div>
-
-			<div class="col s12 m12 l12"id="TIPS-BERANDA">
+			</a>
+			
+			<a href="<?= site_url('UangSaku/tips/tips_beli') ?>" title="Tips Beli Makanan">
+			<div class="col s12 m12 l12" id="TIPS-BERANDA">
 				<div class="col s3 m2 l1 center" id="ICON-TIPS-BERANDA">
 					<img src="<?= base_url('assets/img/app/logo/logo_64.png') ?>" class="responsive-img">
 				</div>
@@ -82,12 +53,14 @@
 					<small class="grey-text lighten-1 left">Lebih praktis dan cepat</small>
 				</div>
 				<div class="col s2 m2 l1 center offset-l1" id="LINK-TIPS-BERANDA">
-					<a href="<?= site_url('UangSaku/tips/tips_beli') ?>">
+					
 						<i class="material-icons">chevron_right</i>
-					</a>
+					
 				</div>
 			</div>
+			</a>
 
+			<a href="<?= site_url('UangSaku/tips/tips_spp') ?>" title="Tips Bayar SPP Anak">
 			<div class="col s12 m12 l12" id="TIPS-BERANDA">
 				<div class="col s3 m2 l1 center" id="ICON-TIPS-BERANDA">
 					<img src="<?= base_url('assets/img/app/logo/logo_64.png') ?>" class="responsive-img">
@@ -97,13 +70,80 @@
 					<small class="grey-text lighten-1 left">Bayar tanpa antri</small>
 				</div>
 				<div class="col s2 m2 l1 center offset-l1" id="LINK-TIPS-BERANDA">
-					<a href="<?= site_url('UangSaku/tips/tips_spp') ?>">
+					
 						<i class="material-icons">chevron_right</i>
-					</a>
+					
 				</div>
 			</div>
-
+			</a>
 		</div>
 
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		// SALDO
+		$.ajax({
+			url : '<?php echo base_url();?>index.php/UANGSAKU_orangtua/show_profile',
+			type : "post",
+			dataType : 'json',
+			success : function (data){
+				var hasil = '';
+				var i;
+				for (i = 0 ; i < data.length ; i++) {
+				var bilangan = data[i].TOTAL_SALDO_SISWA;
+				var	number_string = bilangan.toString(),
+					sisa 	= number_string.length % 3,
+					rupiah 	= number_string.substr(0, sisa),
+					ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+				if (data[i].ID_SISWA == '' || data[i].ID_SISWA == null) {
+					hasil += '<p class="left">'+
+					'<a href="<?php echo base_url('UANGSAKU_orangtua/profile') ?>">'+
+					'Kaitkan Akun Anda Dengan Anak Anda Dulu!'+'</p>'+
+					'</a>'
+				}else{
+					if (ribuan) {
+						separator = sisa ? '.' : '';
+						hasil += '<h5 class="left blue-text lighten-1"><sup>Rp. </sup>'+separator + ribuan.join('.');+'</h5>'
+					}
+					
+				}
+				$("#SALDO").html(hasil);
+				}
+			}
+		})	
+
+		// MENU FITUR
+		$.ajax({
+			url : '<?php echo base_url();?>index.php/UANGSAKU_orangtua/show_profile',
+			type : "post",
+			dataType : 'json',
+			success : function (data){
+				var hasil = '';
+				var i;
+				for (i = 0 ; i < data.length ; i++) {
+				if (data[i].ID_SISWA != '') {
+					hasil += '<div class="col s4 m2 l2  offset-m2 offset-l3">'+
+					'<a href="<?= site_url('ORANGTUA/Anak') ?>" title="Pembayaran">'+
+						'<div class="card-panel center">'+
+							'<img src="<?php echo base_url('assets/img/app/icon/pembayaran.png') ?>" width="24px">'+
+						'</div>'+
+					'</a>'+
+				'</div>'+
+				'<div class="col s4 m2 l2">'+
+					'<a href="<?= site_url('ORANGTUA/Anak') ?>" title="History Anak">'+
+						'<div class="card-panel center">'+
+							'<img src="<?php echo base_url('assets/img/app/icon/history.png') ?>" width="24px">'+
+						'</div>'+
+					'</a>'+
+				'</div>'+
+				'</div>'
+				}
+				$("#MENU_FITUR").html(hasil);
+				}
+			}
+		})
+
+	});
+</script>

@@ -2,7 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class UANGSAKU_orangtua extends CI_Controller {
-	
+	public function __construct()
+	{
+		parent::__construct();
+		if ($this->session->userdata('JENIS_USER') != 'orang_tua') {
+			redirect('UANGSAKU');
+		}
+	}
 	// Page Orang Tua
 	public function index()
 	{
@@ -94,6 +100,29 @@ class UANGSAKU_orangtua extends CI_Controller {
 		$var['footer'] = 'user/main_view/orangtua/sub_footer_orang_tua';
 		$var['judul']  = 'TENTANG';
 		$this->load->view('template',$var);		
+	}
+
+	public function show_profile()
+	{
+		$id = $this->session->userdata('ID_USER');
+		$this->db->select('*');
+		$this->db->from('orangtua');
+		$this->db->join('saldo_dana_siswa', 'saldo_dana_siswa.ID_SISWA = orangtua.ID_SISWA');
+		$this->db->where('ID_USER', $id);
+		$get = $this->db->get()->result();
+		echo json_encode($get);
+	}
+
+	public function show_pemmbayaran()
+	{
+		$this->db->get('pembayaran')->result();
+		
+	}
+
+	public function del_session()
+	{
+		$this->session->sess_destroy();
+		redirect('UANGSAKU');
 	}
 
 }

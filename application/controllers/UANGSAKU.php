@@ -254,7 +254,7 @@ class UANGSAKU extends CI_controller
 	public function proses_masuk()
 	{
 		$EMAIL 		= $this->input->post('EMAIL');
-		$PASSWORD 	= $this->input->post('PASS');
+		$PASSWORD 	= $this->input->post('PASSWORD');
 
 		$data = array(
 			'EMAIL'		=>	$EMAIL,
@@ -286,7 +286,7 @@ class UANGSAKU extends CI_controller
 					'EMAIL'				=> $get->EMAIL,
 					'USERNAME'			=> $get->USERNAME
 				);
-			}elseif ($get->JENIS_USER == 'orangtua') {
+			}elseif ($get->JENIS_USER == 'orang_tua') {
 				$session = array(
 					'ID_USER' 			=> $get->ID_USER,
 					'KODE_VERIFIKASI'	=> $get->KODE_VERIFIKASI,
@@ -308,7 +308,7 @@ class UANGSAKU extends CI_controller
 				);
 			}
 						
-			$this->session->set_userdata( $session );
+			$this->session->set_userdata($session);
 			echo 1;
 		}else{
 			echo 2;
@@ -478,5 +478,6 @@ class UANGSAKU extends CI_controller
 	public function del_session()
 	{
 		$this->session->sess_destroy();
+		redirect('/');
 	}
 }
