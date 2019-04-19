@@ -89,7 +89,7 @@
               <img class="img-xs rounded-circle" src="<?php echo site_url('assets/img/user/coba.jpg') ?>" alt="Profile image">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-              <a href="#" class="dropdown-item mt-2">
+              <a href="<?php echo site_url('UANGSAKU_admin/keluar') ?>" class="dropdown-item mt-2">
                 <i class="mdi mdi-logout"></i>Sign Out
               </a>
             </div>

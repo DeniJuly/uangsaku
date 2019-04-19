@@ -47,5 +47,10 @@ class UANGSAKU_mitra extends CI_Controller {
 		$var['judul']  = 'Info | Mitra';
 		$this->load->view('template',$var);			
 	}
+	public function keluar()
+	{
+		$this->session->sess_destroy();
+		redirect(base_url());
+	}
 
 }

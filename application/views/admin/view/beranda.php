@@ -6,10 +6,9 @@
             <div class="card card-weather">
               <div class="card-body">
                 <div class="weather-date-location">
-                  <h3>Monday</h3>
+                  <h3><?php echo date('D') ?></h3>
                   <p class="text-gray">
-                    <span class="weather-date">25 October, 2016</span>
-                    <span class="weather-location">London, UK</span>
+                    <span class="weather-date"><?php echo date('d M, Y') ?></span>
                   </p>
                 </div>
                 <div class="weather-data d-flex" style="padding-bottom: 0px;">

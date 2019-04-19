@@ -6,7 +6,7 @@
 			<div class="input-field col s9 m9 l9">
 	          <input placeholder="Cari Siswa" id="key" type="text" class="validate" autocomplete="off" autofocus="on">
 	        </div>
-	          <a class="waves-effect waves-light btn white btn-cari-siswa"><i class="material-icons blue-text">search</i></a>
+	          <a class="waves-effect waves-light btn white btn-cari-siswa" id="BTN-CARI-SISWA"><i class="material-icons blue-text">search</i></a>
 		</div>
 		<div class="col s12 m12 l12">
 			<div class="col s12 m12 l12">
@@ -85,5 +85,44 @@ $(document).ready(function(){
 			}
 		});
 	}
+});
+</script>
+<script>
+$(document).ready(function(){
+	$("#BTN-CARI-SISWA").click(function(){
+		var key = $("#key").val();
+		if (key != '') {
+			$.ajax({
+				url : '<?php echo site_url('UANGSAKU_sekolah/cari_siswa') ?>',
+				type : 'post',
+				data : {key : key},
+				dataType : 'json',
+				success : function(data){
+					var hasil = '';
+					var no 	  = 0;
+					var base = '<?php echo site_url('UANGSAKU_sekolah/Edit_siswa/') ?>';
+					for (var i = 0; i < data.length; i++) {
+						no++;
+						hasil +='<tr>'+
+								'<td class="center">'+no+'</td>'+
+								'<td>'+data[i].NISN+'</td>'+
+								'<td>'+data[i].NAMA+'</td>'+
+								'<td>'+data[i].KELAS+'</td>'+
+								'<td class="center" id="OPSI">'+
+								'<a class="btn-floating btn-small waves-effect waves-light blue lighten-1" href="'+base+data[i].ID_SISWA+'">'+
+								'<i class="material-icons">create</i>'+
+								'</a>'+
+								'<a class="btn-floating btn-small waves-effect waves-light red" onclick="hapus_data('+data[i].ID_SISWA+')">'+
+								'<i class="material-icons">delete</i>'+
+								'</a>'+
+								'</td>'+
+								'</tr>';
+					}
+					$("#JML-DATA-SISWA").text(data.length);
+					$("#DATA-SISWA").html(hasil);
+				}
+			});
+		}
+	});
 });
 </script>

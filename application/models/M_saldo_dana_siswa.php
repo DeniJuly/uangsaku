@@ -8,11 +8,17 @@ class M_saldo_dana_siswa extends CI_Model {
 
 	public function saldo($where)
 	{
+		$this->db->select('*');
+		$this->db->from($this->table);
 		$this->db->where($where);
-		return $this->db->get($this->table);
+		$this->db->order_by('TGL_SALDO_SISWA','DESC');
+		$this->db->limit(1);
+		return $this->db->get();
 	}
-	
-
+	public function ins($data)
+	{
+		return $this->db->insert($this->table,$data);
+	}
 }
 
 /* End of file M_saldo_dana_siswa.php */

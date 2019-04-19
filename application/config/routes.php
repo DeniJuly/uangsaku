@@ -56,7 +56,11 @@ $route = array(
 	'SISWA/Notifikasi'				=> 'UANGSAKU_Siswa/Notifikasi',
 	'SISWA/Notifikasi/Pembayaran'	=> 'UANGSAKU_Siswa/Detail_notifikasi',
 	'SISWA/Tentang'					=> 'UANGSAKU_Siswa/Detail_profile',
+	'SISWA/Edit_profile'			=> 'UANGSAKU_Siswa/Edit_profile',
 	'SISWA/Keluar'					=> 'UANGSAKU_Siswa/Keluar',
+	'SISWA/Bayar/Paymant_poin'		=> 'UANGSAKU_Siswa/Bayar_paymant_point',
+	'SISWA/Bayar/Saldo'				=> 'UANGSAKU_Siswa/Bayar_Saldo',
+	'SISWA/Bayar_sukses'			=> 'UANGSAKU_Siswa/Bayar_sukses',
 
 	// CONTROLLER MITRA
 	'MITRA'						=> 'UANGSAKU_mitra',
@@ -69,6 +73,9 @@ $route = array(
 	'ADMIN/sekolah'		=> 'UANGSAKU_admin/sekolah',
 	'ADMIN/orangtua'	=> 'UANGSAKU_admin/orangtua',
 	'ADMIN/siswa'		=> 'UANGSAKU_admin/siswa',
+
+	// cCONTROLLER LOGIN ADMIN
+	'ADMIN/login'		=> 'UANGSAKU_login_admin',
 );
 
 /*

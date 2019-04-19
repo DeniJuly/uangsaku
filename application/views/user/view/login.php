@@ -9,7 +9,7 @@
           </div>
           <div class="input-field col s10 offset-s1">
             <small class="red-text" id="flash">*isi semua colom</small>
-            <input placeholder="EMAIL" name="EMAIL" id="EMAIL" type="email" class="validate" autocomplete="off" required="on">
+            <input placeholder="EMAIL" name="EMAIL" id="EMAIL" type="email" class="validate" autofocus="on" autocomplete="off" required="on">
           </div>
 
           <div class="input-field col s10 offset-s1">
@@ -39,6 +39,8 @@
     var EMAIL   = $("#EMAIL").val();
     var PASSWORD= $("#PASSWORD").val();
     if (EMAIL == '' || PASSWORD == '') {
+      $("#BTN-DISABLE").css('display','none');
+      $("#BTN-LOGIN").show();
       $("#flash").css('display','block');
     }else{
       $.ajax({
@@ -47,7 +49,7 @@
         data : {EMAIL : EMAIL , PASS : PASSWORD},
         success : function(response){
           if (response == 1) {
-            location.href= '<?php site_url('UANGSAKU') ?>'
+            location.href= '<?php base_url() ?>'
           }else if (response == 2) {
             $("#BTN-DISABLE").css('display','none');
             $("#BTN-LOGIN").show();

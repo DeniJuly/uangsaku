@@ -27,7 +27,7 @@
                     <i class="material-icons white-text" id="ICON-LINK-KEMBALI">chevron_left</i>
                   </a>
                   <?php endif; ?>
-                  <div class="left" id="HEADER-UANGSAKU-JUDUL">
+                  <div id="HEADER-UANGSAKU-JUDUL">
                     <h6 class="white-text"><?php echo $judul; ?></h6>
                   </div>
                 </div>

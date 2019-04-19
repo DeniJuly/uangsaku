@@ -326,6 +326,21 @@ html{
 #CARD-TENTANG-PROFILE-PRIVASI{
 	height: 130px;
 }
+/*EDIT PROFILE*/
+#CARD-EDIT-PROFILE-INFO{
+	height: 490px;
+}
+#CARD-EDIT-PROFILE-INFO input,
+#CARD-EDIT-PROFILE-KONTAK input,
+#CARD-EDIT-PROFILE-PRIVASI input{
+	margin: 0!important;
+}
+#CARD-EDIT-PROFILE-KONTAK{
+	height: 220px;
+}
+#CARD-EDIT-PROFILE-PRIVASI{
+	height: 240px;
+}
 /*PROFILE BERANDA*/
 #BUNGKUS-PROFILE-BERANDA{
 	height: 145px;
@@ -345,7 +360,22 @@ html{
 #ISI-SALDO h6{
 	margin-top: 17px;
 }
-
+/*PROFILE*/
+#BTN-EDIT-FOTO-PROFILE{
+	position: absolute;
+	margin-left: 100px;
+	margin-top: 101px;
+	border: 2px solid #fff;
+}
+#BTN-EDIT-FOTO-PROFILE i{
+	font-size: 22px;
+	margin-top: -1px;
+	margin-left: -2px;
+}
+/*template*/
+.w-50deg{
+	width: 50%!important;
+}
 /*RESPONSIVE*/
 @media only screen and (min-width: 1000px){
 	#TIPS-BERANDA #JUDUL-TIPS-BERANDA{

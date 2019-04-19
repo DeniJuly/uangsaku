@@ -33,6 +33,13 @@ class M_siswa extends CI_Model {
 		$this->db->from('siswa');
 		return $this->db->get();
 	}
+	public function search($key)
+	{
+		$this->db->like('NAMA',$key);
+		$this->db->or_like('NISN',$key);
+		$this->db->or_like('KELAS',$key);
+		return $this->db->get($this->table);
+	}
 }
 
 /* End of file M_siswa.php */

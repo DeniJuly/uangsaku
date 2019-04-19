@@ -11,13 +11,13 @@
 		<div class="col s12 m12 l12">
 			<div class="col s12 m12 l12">
 				<h5 class="left">Data Jenis Pembayaran</h5> 
-				<div class="chip" style="margin-left: 10px;margin-top: 5px;">
-				    2 jenis pembayaran
-				</div>
+				<div class="chip" style="margin-left: 10px;margin-top: 5px;" id="JML-JENIS-PEMBIAYAAN"><?php if ($jml == null) {
+					echo '0 jenis pembiayaan';
+				}else{ echo $jml.' jenis pembiayaan'; }?></div>
 			</div>
+			<?php foreach ($data as $d) :?>
 			<div class="col s12 m4 l4">
-				<div class="col s12 m12 l12">
-
+				<div class="col s12 m12 l12" id="DATA-PEMBIAYAAN">
 			    	<div class="card-panel" id="CARD-PEMBAYARAN-ANAK">
 			    		<a class='right dropdown-button' data-activates='DROPDOWN-OPSI' id="DROPDOWN-TABEL">
 							<i class="material-icons">more_vert</i>
@@ -34,11 +34,6 @@
 						    		<i class="material-icons center">delete</i>HAPUS
 						    	</a>
 						    </li>
-						    <li class="blue-text">
-						    	<a href="<?php echo site_url('SEKOLAH/detail_data_pembiayaan') ?>" class="blue-text modal-trigger">
-						    		<i class="material-icons center">info</i>INFO
-						    	</a>
-						    </li>
 						  </ul>
 			    		<div class="row">
 			    			<a href="<?php echo site_url('SEKOLAH/informasi_pembiayaan_siswa') ?>">
@@ -46,20 +41,70 @@
 				    				<img src="<?php echo base_url('assets/img/app/icon/pembayaran.png') ?>" class="responsive-img">
 				    			</div>
 				    			<div class="col s8" id="JUDUL-PEMBAYARAN-ANAK">
-				    				<h6 class="left yellow-text"><b>PEMBAYARAN SPP</b></h6>
+				    				<h6 class="left yellow-text"><b><?php echo $d->NAMA_PEMBIAYAAN ?></b></h6>
 				    			</div>
 				    			<div class="col s12 m12 l12" id="JENIS-PEMBAYARAN-ANAK">
-				    				<h6 class="grey-text"><sup>Rp </sup>1.000.000</h6>
+				    				<h6 class="grey-text"><sup>Rp </sup><?php echo $d->BIAYA ?></h6>
 				    			</div>
 				    			<div class="col s12 m12 l12" id="INFO-PEMBAYARAN-ANAK">
-				    				<small class="grey-text left">SMKN 1 Bawang</small>
+				    				<small class="grey-text left">STATUS PEMBIAYAAN <?php echo $d->STATUS_PEMBIAYAAN ?></small>
 				    			</div>
 			    			</a>
 			    		</div>
 			    	</div>
-
 		    	</div>
 			</div>
+			<?php endforeach ?>
 		</div>
 	</div>
 </div>
+<!-- <script>
+$(document).ready(function(){
+	$.ajax({
+		url : '<?php echo site_url('UANGSAKU_Sekolah/get_data_jenis_pembiayaan') ?>',
+		type :'post',
+		dataType : 'json',
+		success : function(data){
+			var hasil = '';
+			for (var i = 0; i < data.length; i++) {
+				hasil +='<div class="card-panel" id="CARD-PEMBAYARAN-ANAK">'+
+			    		"<a class='right dropdown-button' data-activates='DROPDOWN-OPSI' id='DROPDOWN-TABEL'>"+
+						'<i class="material-icons">more_vert</i>'+
+						'</a>'+
+						"<ul id='DROPDOWN-OPSI' class='dropdown-content'>"
+						'<li class="blue-text">'+
+						'<a href="#EDIT" class="blue-text modal-trigger">'+
+						'<i class="material-icons center">create</i>EDIT</a>'+
+						'</li>'+
+						'<li class="blue-text">'+
+						'<a href="#!" class="blue-text modal-trigger">'+
+						'<i class="material-icons center">delete</i>HAPUS</a>'+
+						'</li>'+
+						'<li class="blue-text">'+
+						'<a href="<?php echo site_url('SEKOLAH/detail_data_pembiayaan') ?>" class="blue-text modal-trigger">'+
+						'<i class="material-icons center">info</i>INFO</a>'+
+						'</li>'+
+						'</ul>'+
+			    		'<div class="row">'+
+			    		'<a href="<?php echo site_url('SEKOLAH/informasi_pembiayaan_siswa') ?>">'+
+				    	'<div class="col s2 m2 l2 center" id="ICON-PEMBAYARAN-ANAK">'+
+				    	'<img src="<?php echo base_url('assets/img/app/icon/pembayaran.png') ?>" class="responsive-img">'+
+				    	'</div>'+
+				    	'<div class="col s8" id="JUDUL-PEMBAYARAN-ANAK">'+
+				    	'<h6 class="left yellow-text"><b>PEMBAYARAN SPP</b></h6>'+
+				    	'</div>'+
+				    	'<div class="col s12 m12 l12" id="JENIS-PEMBAYARAN-ANAK">'+
+				    	'<h6 class="grey-text"><sup>Rp </sup>1.000.000</h6>'+
+				    	'</div>'+
+				    	'<div class="col s12 m12 l12" id="INFO-PEMBAYARAN-ANAK">'+
+				    	'<small class="grey-text left">SMKN 1 Bawang</small>'+
+				    	'</div>'+
+			    		'</a>'+
+			    		'</div>'+
+			    		'</div>';
+			}
+			$("#DATA-PEMBIAYAAN").html(hasi);
+		}
+	});
+});
+</script> -->

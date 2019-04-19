@@ -2,6 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class UANGSAKU_admin extends CI_Controller {
+	public function __construct()
+	{
+		parent::__construct();
+		$JENIS_USER = $this->session->userdata('JENIS_USER');
+		if ($JENIS_USER != 'admin') {
+			redirect(site_url('ADMIN/login'));
+		}
+	}
 
 	public function index()
 	{
@@ -107,5 +115,10 @@ class UANGSAKU_admin extends CI_Controller {
 				echo 2;
 			}
 		}
+	}
+	public function keluar()
+	{
+		$this->session->sess_destroy();
+		redirect(site_url('ADMIN/login'));
 	}
 }

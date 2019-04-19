@@ -57,10 +57,10 @@
 <div id="ubah_email" class="modal">
     <div class="row">
 
-          <div class="modal-content">
+        <div class="modal-content">
            	<h4 class="center">UBAH EMAIL</h4>
            	<div id="flash-email"></div>
-            <!-- penulis -->
+            <!-- email -->
             <div class="input-field col s12 m12">
               <input placeholder="EMAIL" id="EMAIL" type="email" class="validate" name="EMAIL">
             </div>
@@ -71,10 +71,10 @@
 				<img src="<?php echo base_url('assets\img\app\icon/loading.gif') ?>">
 			</button>
 
-          </div>
-
         </div>
-      </div>
+
+    </div>
+</div>
 <script>
 $(document).ready(function(){
 	$("#BTN-KONFIRMASI").click(function(){

@@ -1,7 +1,4 @@
 	<div class="col s12 m10 l10" id="isi">
-		<div class="col s3 m1 l1" id="tambah-siswa">
-			<a class="waves-effect waves-light btn modal-trigger white" href="<?php echo site_url('UANGSAKU_sekolah/Tambah_data_siswa') ?>"><i class="material-icons blue-text">add</i></a>
-		</div>
 		<div class="col s12 m9 l9">
 			<div class="input-field col s9 m9 l9">
 	          <input placeholder="Cari Siswa" id="key" type="text" class="validate" autocomplete="off" autofocus="on">

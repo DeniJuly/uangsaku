@@ -464,7 +464,7 @@ class UANGSAKU extends CI_controller
 	}
 	public function parent_code($jml)
 	{
-		$characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'; 
+		$characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; 
 	    $randomString = ''; 
 	  
 	    for ($i = 0; $i < $jml; $i++) { 

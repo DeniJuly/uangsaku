@@ -20,6 +20,10 @@ class M_saldo_dana_sekolah extends CI_Model {
 		$this->db->limit(1);
 		return $this->db->get();
 	}
+	public function ins($data)
+	{
+		return $this->db->insert($this->table,$data);
+	}
 
 }
 
