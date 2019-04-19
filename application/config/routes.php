@@ -67,6 +67,8 @@ $route = array(
 	'MITRA/Profile'				=> 'UANGSAKU_mitra/Profile',
 	'MITRA/Info'				=> 'UANGSAKU_mitra/Info',
 	'MITRA/Order'				=> 'UANGSAKU_mitra/Order',
+	'MITRA/tambah_data_produk'	=> 'UANGSAKU_mitra/tambah_data_produk',
+	'MITRA/produk'				=> 'UANGSAKU_mitra/produk',
 
 	// CONTROLLER ADMIN
 	'ADMIN'				=> 'UANGSAKU_admin',

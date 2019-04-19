@@ -83,6 +83,7 @@ class UANGSAKU_Siswa extends CI_Controller {
 	}
 	public function Detail_riwayat()
 	{
+		$ID_PEMBAYARAN = $this->input->get('id');
 		$var['header'] = 'user/main_view/siswa/sub_header_siswa';
 		$var['konten'] = 'user/view/siswa/page/Detail_riwayat';
 		$var['footer'] = 'user/main_view/siswa/sub_footer_siswa';
@@ -261,6 +262,8 @@ class UANGSAKU_Siswa extends CI_Controller {
 				'ID_SALDO_DANA_SEKOLAH'=>$get_saldo_sekolah->ID_SALDO_DANA_SEKOLAH
 			);
 			$ins_pendapatan_sekolah = $this->M_pendapatan_sekolah->ins($data_pedapatan_sekolah);
+			$to = $this->session->userdata('EMAIL');
+			$this->kirim_email_bukti($to,$TANGGAL_PEMBAYARAN,$TOTAL_PEMBAYARAN,$METODE_PEMBAYARAN,$NAMA,$NAMA_PEMBIAYAAN_BUKTI);
 			$response = array(
 				'STATUS'	=> 'sukses',
 				'ID_PEMBAYARAN'=>$get_pembayaran->ID_PEMBAYARAN
@@ -358,6 +361,39 @@ class UANGSAKU_Siswa extends CI_Controller {
 				echo 2;
 			}	
 		}
+	}
+	public function kirim_email_bukti($to,$TANGGAL_PEMBAYARAN,$TOTAL_PEMBAYARAN,$METODE_PEMBAYARAN,$NAMA,$NAMA_PEMBIAYAAN_BUKTI)
+	{
+		$config = Array(
+	         'protocol'  	=> 'smtp',
+	         'smtp_host' 	=> 'ssl://smtp.gmail.com',
+	         'smtp_port' 	=> 465,
+	         'smtp_user' 	=> 'go.uangsaku.id@gmail.com', 
+	         'smtp_pass' 	=> 'SMKBisa_Hebat01', 
+	         'mailtype'  	=> 'html',
+	         'charset'  	=> 'iso-8859-1',
+	         'wordwrap'  	=> TRUE
+      	);
+		$this->load->library('email', $config);
+		$this->email->set_newline("\r\n");
+		$this->email->from('go.uangsaku.id@gmail.com','UANGSAKU');
+		$this->email->to($to);
+		$message  = '<center>';
+		$message .= '<div>';
+		$message .= '<h1 style="font-family: arial;">Bukti Pembayaran UANGSAKU</h1>';
+		$message .= '<img src="'.FCPATH.("assets/img/app/logo/logo_200.png").'" style="float:left; width:100px;  margin-left: 520px;">';
+		$message .= 'TANGGAL : '.$TANGGAL_PEMBAYARAN.'<br>';
+		$message .= 'TOTAL HARGA : Rp '.number_format($TOTAL_PEMBAYARAN).'<br>';
+		$message .= 'PEMBAYARAN : '.$NAMA_PEMBIAYAAN_BUKTI.'<br>';
+		$message .= 'Metode Pembayaran : '.$METODE_PEMBAYARAN.'</p>';
+		$message .= '</div>';
+		$message .= '<div>';
+		$message .= '<p>Terima kasih telah melakukan pembayaran menggunakan aplikasi UANGSAKU. Terus gunakan aplikasi UANGSAKU untuk bayar kebutuhan sekolahmu, temukan dan nikmati kemudahan serta fitur menarik lainnya di aplikasi UANGSAKU.</p>';
+		$message .= '</div>';
+		$message .= '</center>';
+		$this->email->subject('UANGSAKU | PEMBAYARAN');
+		$this->email->message($message);
+		$this->email->send();
 	}
 	public function bukti_bayar_saldo($TANGGAL_PEMBAYARAN,$TOTAL_PEMBAYARAN,$METODE_PEMBAYARAN,$NAMA,$NAMA_PEMBIAYAAN_BUKTI)
 	{

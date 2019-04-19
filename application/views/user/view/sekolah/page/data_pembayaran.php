@@ -44,7 +44,7 @@
 				    				<h6 class="left yellow-text"><b><?php echo $d->NAMA_PEMBIAYAAN ?></b></h6>
 				    			</div>
 				    			<div class="col s12 m12 l12" id="JENIS-PEMBAYARAN-ANAK">
-				    				<h6 class="grey-text"><sup>Rp </sup><?php echo $d->BIAYA ?></h6>
+				    				<h6 class="grey-text"><sup>Rp </sup><?php echo number_format($d->BIAYA) ?></h6>
 				    			</div>
 				    			<div class="col s12 m12 l12" id="INFO-PEMBAYARAN-ANAK">
 				    				<small class="grey-text left">STATUS PEMBIAYAAN <?php echo $d->STATUS_PEMBIAYAAN ?></small>

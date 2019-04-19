@@ -424,7 +424,8 @@ class UANGSAKU extends CI_controller
 						'ID_USER'		=> $get_data_user->ID_USER,
 						'EMAIL'			=> $get_data_user->EMAIL,
 						'NAMA'			=> $get_data_user->USERNAME,
-						'PASSWORD'		=> $get_data_user->PASSWORD
+						'PASSWORD'		=> $get_data_user->PASSWORD,
+						'FOTO'			=> 'default.png'
 					);
 					$ins_mitra = $this->M_mitra->ins($data_ins_mitra);
 					if ($ins_mitra == 1) {

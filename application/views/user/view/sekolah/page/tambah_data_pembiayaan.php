@@ -6,7 +6,7 @@
 					<h5 class="grey-text">TAMBAH DATA PEMBIAYAAN</h5>
 					<small id="flash-tambah" style="display: block;"></small>
 					<div class="input-field col s12">
-						<input id="NAMA" type="text" class="validate">
+						<input id="NAMA" type="text" class="validate" style="margin-bottom: 0!important">
 						<label for="NAMA">NAMA PEMBIAYAAN</label>
 					</div>
 					<div class="input-field col s12 m6 l6">
@@ -34,7 +34,7 @@
 					    <small class="grey-text" style="font-size: 10px;" id="TEKS-TOTAL-BIAYA"><sup>Rp </sup>0</small>
 					</div>
 					<div class="input-field col s12">
-					    <textarea class="materialize-textarea" id="DESKRIPSI" data-length="200"></textarea>
+					    <textarea class="materialize-textarea" id="DESKRIPSI" data-length="200" style="margin-bottom: 0!important"></textarea>
 					    <label for="deskripsi">Deskripsi</label>
 					</div>
 					<div class="input-field col s12">

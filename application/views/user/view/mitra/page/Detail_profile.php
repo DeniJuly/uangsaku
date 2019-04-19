@@ -2,7 +2,7 @@
 	<div class="container">
 	<div class="row">
 
-		<div class="col s12 m12 l12" id="BUNGKUS-TENTANG-PROFILE"">
+		<div class="col s12 m12 l12" id="BUNGKUS-TENTANG-PROFILE">
 			<div class="card-panel" id="CARD-TENTANG-PROFILE-INFO">
 				<div class="col s12 m12 l12" id="JUDUL-TENTANG-PROFILE">
 					<div class="col s2 m2 l1 center" id="ICON-MENU-PROFILE">

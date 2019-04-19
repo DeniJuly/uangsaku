@@ -6,6 +6,7 @@
       <link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/css/materialize.min.css') ?>"  media="screen,projection"/>
       <link rel="stylesheet" href="<?php echo base_url('assets/css/style_all.css') ?>">
       <link rel="stylesheet" href="<?php echo base_url('assets/css/style_all_ui_user.css') ?>">
+      <link rel="stylesheet" href="<?php echo base_url('assets/css/style_uangsaku_mitra.css') ?>">
       <link rel="shortcut icon" href="<?php echo base_url('assets/img/app/logo/logo_32.png') ?>">
 
       <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.js') ?>"></script>
@@ -64,6 +65,10 @@
               <a href="<?php echo site_url('MITRA/Riwayat') ?>">
                 <img src="<?php echo base_url('assets/img/app/icon/riwayat.png') ?>" class="icon-navbar responsive-img left">RIWAYAT</a>
             </li>
+            <li>
+              <a href="<?php echo site_url('UANGSAKU_mitra/keluar') ?>">
+                <img src="<?php echo base_url('assets/img/app/icon/logout.png') ?>" class="icon-navbar responsive-img left">KELUAR</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -91,11 +96,11 @@
             </li>
 
             <li id="li-side-navbar3">
-              <a href="<?php echo site_url('UANGSAKU_mitra/produk') ?>" id="link-side-navbar3" class="<?php if ($this->uri->segment(2)=='produk') {
+              <a href="<?php echo site_url('MITRA/produk') ?>" id="link-side-navbar3" class="<?php if ($this->uri->segment(2)=='produk') {
                 echo"active-side-navbar";
               } ?>">
                 <i class="material-icons">shopping_basket</i>
-                <label id="label-side-navbar3">Produk</label>
+                <label id="label-side-navbar3">PRODUK</label>
               </a>
             </li>
 
@@ -135,6 +140,15 @@
               </a>
             </li>
 
+            <li id="li-side-navbar8">
+              <a href="<?php echo site_url('UANGSAKU_mitra/keluar') ?>" id="link-side-navbar8" class="<?php if ($this->uri->segment(2)=='keluar') {
+                echo"active-side-navbar";
+              } ?>">
+                <img src="<?php echo base_url('assets/img/app/icon/logout.png') ?>" class="responsive-img icon-side-navbar">
+                <label id="label-side-navbar8">KELUAR</label>
+              </a>
+            </li>
+
           </ul>
         </div>
 <script>
@@ -153,6 +167,7 @@
         $("#li-side-navbar5").addClass("li-side-navbar-small");
         $("#li-side-navbar6").addClass("li-side-navbar-small");
         $("#li-side-navbar7").addClass("li-side-navbar-small");
+        $("#li-side-navbar8").addClass("li-side-navbar-small");
 
         $("#label-side-navbar").hide();
         $("#label-side-navbar2").hide();
@@ -161,6 +176,7 @@
         $("#label-side-navbar5").hide();
         $("#label-side-navbar6").hide();
         $("#label-side-navbar7").hide();
+        $("#label-side-navbar8").hide();
 
         $("#link-side-navbar").css("padding-left","0");
         $("#link-side-navbar2").css("padding-left","0");
@@ -169,6 +185,7 @@
         $("#link-side-navbar5").css("padding-left","0");
         $("#link-side-navbar6").css("padding-left","0");
         $("#link-side-navbar7").css("padding-left","0");
+        $("#link-side-navbar8").css("padding-left","0");
     });
     $("#btn-big-side-nav-big").click(function(){
         $(this).css("display","none");
@@ -185,6 +202,7 @@
         $("#li-side-navbar5").removeClass("li-side-navbar-small");
         $("#li-side-navbar6").removeClass("li-side-navbar-small");
         $("#li-side-navbar7").removeClass("li-side-navbar-small");
+        $("#li-side-navbar8").removeClass("li-side-navbar-small");
 
         $("#label-side-navbar").show();
         $("#label-side-navbar2").show();
@@ -193,6 +211,7 @@
         $("#label-side-navbar5").show();
         $("#label-side-navbar6").show();
         $("#label-side-navbar7").show();
+        $("#label-side-navbar8").show();
 
         $("#link-side-navbar").css("padding-left","25px");
         $("#link-side-navbar2").css("padding-left","25px");
@@ -201,6 +220,7 @@
         $("#link-side-navbar5").css("padding-left","25px");
         $("#link-side-navbar6").css("padding-left","25px");
         $("#link-side-navbar7").css("padding-left","25px");
+        $("#link-side-navbar8").css("padding-left","25px");
   });
   });
 </script>

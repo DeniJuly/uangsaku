@@ -51,7 +51,7 @@
             </li>
             <li>
               <a href="<?php echo site_url('SEKOLAH/Verifikasi_siswa') ?>">
-                <img src="<?php echo base_url('assets/img/app/icon/bayar.png') ?>" style="margin-right: 34px;margin-top: 10px;" class="responsive-img left">PEMBAYARAN</a>
+                <img src="<?php echo base_url('assets/img/app/icon/bayar.png') ?>" style="margin-right: 34px;margin-top: 10px;" class="responsive-img left">DATA PEMBIAYAAN</a>
             </li>
             <li><a href="#!"><i class="material-icons">verified_user</i>VERIFIKASI SISWA</a></li>
             <li>
@@ -102,7 +102,7 @@
                 echo"active-side-navbar";
               } ?>">
                 <img src="<?php echo base_url('assets/img/app/icon/bayar.png') ?>" class="responsive-img">
-                <label id="label-side-navbar4">Pembayaran</label>
+                <label id="label-side-navbar4">PEMBIAYAAN SEKOLAH</label>
               </a>
             </li>
 

@@ -1,0 +1,45 @@
+/*siswa*/
+#tambah-siswa{
+	margin-top: 20px;
+}
+#tambah-siswa a{
+	border-radius: 25px;
+}
+.btn-cari-siswa{
+	margin-top: 20px;
+	border-radius: 25px;	
+}
+#BTN-TAMBAH-SISWA,
+#btn-edit-siswa{
+	border-radius: 25px!important;
+}
+/*PEMBAYARAN*/
+#TAMBAH-PRODUK{
+	margin-top: 20px;
+}
+#TAMBAH-JENIS-PRODUK a{
+	border-radius: 25px;
+}
+.btn-cari-PRODUK,
+#TAMBAH-JENIS-PRODUK{
+	margin-top: 20px;
+	border-radius: 25px;	
+}
+#BTN-SIMPAN-PRODUK{
+	border-radius: 25px!important;
+}
+/*TABEL*/
+#DROPDOWN-TABEL{
+	cursor: pointer;
+}
+#CARD-FORM{
+	height: 600px;
+}
+#BTN-SIMPAN-PEMBIAYAAN,
+#BTN-EDIT-SISWA{
+	border-radius: 25px;
+}
+/*VERIFIKASI*/
+#verifed{
+	padding: 5px;
+}
