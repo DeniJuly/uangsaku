@@ -228,6 +228,10 @@ $(document).ready(function(){
               }else if (response == 2) {
                 $("#flash").attr('class','text-danger');
                 $(this).text('gagal tambah user payment poin');
+              }else if (response == 3) {
+                $("#flash").attr('class','text-danger');
+                $(this).text('berhasil tambah user payment poin');
+                location.reload(true);
               }
             }
         });

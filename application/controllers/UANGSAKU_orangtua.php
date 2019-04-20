@@ -111,6 +111,28 @@ class UANGSAKU_orangtua extends CI_Controller {
 		$var['judul']  = 'EDIT PROFILE';
 		$this->load->view('template',$var);	
 	}
+	public function proses_kaitkan_akun_anak()
+	{
+		$PARENT_CODE = $this->input->post('parent');
+		$where_parent = array('PARENT_CODE'=>$PARENT_CODE);
+		$cek_siswa = $this->M_siswa->some($where_parent)->num_rows();
+		if ($cek_siswa == 1) {
+			$get_siswa = $this->M_siswa->some($where_parent)->row();
+			$data_orang = array(
+				'ID_SISWA'=>$get_siswa->ID_SISWA
+			);
+			$ID_USER = $this->session->userdata('ID_USER');
+			$where_orang = array('ID_USER'=>$ID_USER);
+			$upd = $this->M_orangtua->upd($where_orang,$data_orang);
+			if ($upd) {
+				echo 2;
+			}else{
+				echo 3;
+			}
+		}else{
+			echo 1;
+		}
+	}
 	public function get_data()
 	{
 		$ID_USER	= $this->session->userdata('ID_USER');

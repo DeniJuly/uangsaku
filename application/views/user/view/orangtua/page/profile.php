@@ -36,7 +36,7 @@
 				<h6>KAITKAN AKUN ANAK</h6>
 			</div>
 			<div class="col s2 m2 l1 center offset-l1" id="LINK-MENU-PROFILE">
-				<a href="<?= site_url('SISWA/Topup') ?>">
+				<a class="modal-trigger" href="#KAITAKN-AKUN-ANAK">
 					<i class="material-icons">chevron_right</i>
 				</a>
 			</div>
@@ -72,6 +72,56 @@
 			}
 		});
 	});
+</script>
+<div id="KAITAKN-AKUN-ANAK" class="modal">
+    <div class="row">
+
+        <div class="modal-content">
+           	<h4 class="center">KAITKAN AKUN ANAK</h4>
+           	<div id="flash-email"></div>
+            <!-- email -->
+            <div class="input-field col s12 m12">
+              <input placeholder="PARENT CODE" id="PARENT-CODE" type="text" class="validate" name="PARENT-CODE">
+            </div>
+            <button class="btn blue lighten-1 right" id="BTN-KAITKAN-AKUN">
+                <i class="material-icons">send</i>
+            </button>
+            <button class="waves-effect waves-light btn right" id="BTN-DISABLE2" disabled style="display: none;">
+				<img src="<?php echo base_url('assets\img\app\icon/loading.gif') ?>">
+			</button>
+
+        </div>
+
+    </div>
+</div>
+<script>
+$(document).ready(function(){
+	$("#BTN-KAITKAN-AKUN").click(function(){
+		$(this).hide();
+		$("#BTN-DISABLE2").css('display','block');
+		var parent_code = $("#PARENT-CODE").val();
+		if (parent_code == '') {
+			$("#BTN-KAITKAN-AKUN").show();
+			$("#BTN-DISABLE2").css('display','none');
+			$("#flash-email").text('isi parent code');
+		}else{
+			$.ajax({
+				url : '<?php echo site_url('UANGSAKU_orangtua/proses_kaitkan_akun_anak') ?>',
+				data : {parent : parent_code},
+				type : 'post',
+				success : function(response){
+					if (response == 1) {
+						$("#BTN-KAITKAN-AKUN").show();
+						$("#BTN-DISABLE2").css('display','none');
+						$("#flash-email").text('parent code salah');
+					}else if (response == 2) {
+
+					}
+				}
+			});
+		}
+	});
+});
 </script>
 <!-- Modal Structure -->
 <div id="EDIT-FOTO" class="modal">

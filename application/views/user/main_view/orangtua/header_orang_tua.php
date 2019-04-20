@@ -119,7 +119,7 @@
             </li>
 
             <li id="li-side-navbar6">
-              <a href="<?php echo site_url('UANGSAKU_orangtua/keluar') ?>" id="link-side-navbar6" class="<?php if ($this->uri->segment(2)=='Riwayat') {
+              <a href="<?php echo site_url('UANGSAKU_orangtua/keluar') ?>" id="link-side-navbar6" class="<?php if ($this->uri->segment(2)=='Keluar') {
                 echo"active-side-navbar";
               } ?>">
                 <img src="<?php echo base_url('assets/img/app/icon/logout.png') ?>" class="responsive-img icon-side-navbar">

@@ -9,12 +9,6 @@
 				    </select>
 				</div>
 			</div>
-
-		    <div class="col s12">
-			    <ul class="tabs">
-			    	<li class="tab col s12"><a class="active" href="#PEMBAYARAN-ANAK">PEMBAYARAN</a></li>
-			    </ul>
-		    </div>
 		    <!-- PEMBAYARAN -->
 		    <div id="PEMBAYARAN-ANAK" class="col s12 m12 l12">
 		    	<div class="row">

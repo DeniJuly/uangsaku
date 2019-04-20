@@ -24,6 +24,16 @@ class M_penarikan_dana_sekolah extends CI_Model {
 		$this->db->where($where);
 		return $this->db->update($this->table,$data);
 	}
+	public function join_rekening_seklolah()
+	{
+		$this->db->select('
+			penarikan_dana_sekolah.*,rekening.NO_REKENING,sekolah.NAMA,sekolah.EMAIL
+		');
+		$this->db->join('rekening','penarikan_dana_sekolah.ID_REKENING = rekening.ID_REKENING');
+		$this->db->join('sekolah','penarikan_dana_sekolah.ID_SEKOLAH = sekolah.ID_SEKOLAH');
+		$this->db->from($this->table);
+		return $this->db->get();
+	}
 
 }
 

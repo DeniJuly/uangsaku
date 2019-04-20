@@ -83,7 +83,7 @@ $route = array(
 	'ADMIN/orangtua'		=> 'UANGSAKU_admin/orangtua',
 	'ADMIN/siswa'			=> 'UANGSAKU_admin/siswa',
 	'ADMIN/payment_poin'	=> 'UANGSAKU_admin/payment_poin',
-	'ADMIN/keuangan'		=> 'UANGSAKU_admin/keuangan',
+	'ADMIN/Tarik_dana'		=> 'UANGSAKU_admin/Tarik_dana',
 	'ADMIN/feedback'		=> 'UANGSAKU_admin/feedback',
 
 	// cCONTROLLER LOGIN ADMIN

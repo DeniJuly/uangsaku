@@ -74,6 +74,35 @@ class UANGSAKU_admin extends CI_Controller {
 		$this->load->view('template',$var);			
 	}
 
+	public function Tarik_dana()
+	{
+		$var['data']   = $this->M_penarikan_dana_sekolah->join_rekening_seklolah()->result();
+		$var['header'] = 'admin/main_view/header_admin';
+		$var['konten'] = 'admin/view/Tarik_dana';
+		$var['footer'] = 'admin/main_view/footer_admin';
+		$var['judul']  = 'Keuangan | Uangsaku';
+		$this->load->view('template',$var);
+	}
+
+	public function proses_upload_bukti()
+	{
+		$tanggal = date('d-m-Y');
+		$config['upload_path']   = './assets/img/user/sekolah/bukti-transaksi/';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['max_size']  	 = '10000';
+		$config['file_name']	 = $tanggal;
+		
+		$this->load->library('upload', $config);
+		
+		if ( ! $this->upload->do_upload('foto')){
+			echo 2;
+		}
+		else{
+			$data = array('upload_data' => $this->upload->data());
+			echo "success";
+		}
+	}
+
 	public function feedback()
 	{
 		$var['header'] = 'admin/main_view/header_admin';
@@ -143,6 +172,18 @@ class UANGSAKU_admin extends CI_Controller {
 			echo 2;
 		}
 	}
+	public function aktifkan_payment_poin()
+	{
+		$id = $this->input->post('id_user');
+		$where = array('ID_USER' => $id);
+		$data  = array('STATUS_USER' => 'online');
+		$upd = $this->M_user->upd($where,$data);
+		if ($upd == 1) {
+			echo 1;
+		}else{
+			echo 2;
+		}
+	}
 	public function nonaktifkan_sekolah()
 	{
 		$id = $this->input->post('id_user');
@@ -168,6 +209,18 @@ class UANGSAKU_admin extends CI_Controller {
 		}
 	}
 	public function nonaktifkan_siswa()
+	{
+		$id = $this->input->post('id_user');
+		$where = array('ID_USER' => $id);
+		$data  = array('STATUS_USER' => 'offline');
+		$upd = $this->M_user->upd($where,$data);
+		if ($upd == 1) {
+			echo 1;
+		}else{
+			echo 2;
+		}
+	}
+	public function nonaktifkan_payment_poin()
 	{
 		$id = $this->input->post('id_user');
 		$where = array('ID_USER' => $id);
@@ -255,6 +308,7 @@ class UANGSAKU_admin extends CI_Controller {
 				$data_payment_poin = array(
 					'ID_USER'	=> $get_user->ID_USER,
 					'NAMA'		=> $NAMA,
+					'EMAIL'		=> $EMAIL,
 					'FOTO'		=> 'default.png',
 					'ALAMAT'	=> $ALAMAT,
 					'PASSWORD'	=> $PASSWORD
@@ -264,7 +318,7 @@ class UANGSAKU_admin extends CI_Controller {
 					$this->kirim_email($EMAIL,$KODE,$NAMA);
 					echo 3;
 				}
-			}{
+			}else{
 				$this->M_user->del($data_user);
 				echo 2;
 			}

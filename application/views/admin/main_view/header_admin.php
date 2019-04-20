@@ -147,12 +147,13 @@
               <i class="menu-icon mdi mdi-account"></i>
               <span class="menu-title">Payment poin</span>
             </a>
-          </li>          <li class="nav-item">
-            <a class="nav-link <?php if ($this->uri->segment(2)=='keuangan') {
+          </li>          
+          <li class="nav-item">
+            <a class="nav-link <?php if ($this->uri->segment(2)=='Tarik_dana') {
                 echo"text-primary";
-              } ?>" style="color: black;" href="<?php echo site_url('ADMIN/keuangan'); ?>">
+              } ?>" style="color: black;" href="<?php echo site_url('ADMIN/Tarik_dana'); ?>">
               <i class="menu-icon mdi mdi-credit-card-multiple"></i>
-              <span class="menu-title">Keuangan</span>
+              <span class="menu-title">Permintaan Tarik Dana</span>
             </a>
           </li>
           <li class="nav-item">
