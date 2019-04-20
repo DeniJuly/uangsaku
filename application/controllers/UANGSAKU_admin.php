@@ -5,6 +5,7 @@ class UANGSAKU_admin extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('M_feedback');
 		$JENIS_USER = $this->session->userdata('JENIS_USER');
 		if ($JENIS_USER != 'admin') {
 			redirect(site_url('ADMIN/login'));
@@ -38,14 +39,14 @@ class UANGSAKU_admin extends CI_Controller {
 		$this->load->view('template',$var);			
 	}
 
-	public function siswa()
-	{
-		$var['header'] = 'admin/main_view/header_admin';
-		$var['konten'] = 'admin/view/siswa';
-		$var['footer'] = 'admin/main_view/footer_admin';
-		$var['judul']  = 'Siswa | Admin';
-		$this->load->view('template',$var);			
-	}
+	// public function siswa()
+	// {
+	// 	$var['header'] = 'admin/main_view/header_admin';
+	// 	$var['konten'] = 'admin/view/siswa';
+	// 	$var['footer'] = 'admin/main_view/footer_admin';
+	// 	$var['judul']  = 'Siswa | Admin';
+	// 	$this->load->view('template',$var);			
+	// }
 	public function payment_poin()
 	{
 		$var['header'] = 'admin/main_view/header_admin';
@@ -55,7 +56,7 @@ class UANGSAKU_admin extends CI_Controller {
 		$this->load->view('template',$var);			
 	}
 
-	public function list_siswa()
+	public function siswa()
 	{
 		$var['header'] = 'admin/main_view/header_admin';
 		$var['konten'] = 'admin/view/list_siswa';
@@ -91,7 +92,46 @@ class UANGSAKU_admin extends CI_Controller {
 		$get = $this->M_payment_poin->all_join_user()->result();
 		echo json_encode($get);
 	}
+	public function get_data_orang_tua()
+	{
+		$get = $this->M_orangtua->all_join_user()->result();
+		echo json_encode($get);
+	}
+	public function get_data_siswa()
+	{
+		$get = $this->M_siswa->all_join_user()->result();
+		echo json_encode($get);
+	}
+	public function get_data_feedback()
+	{
+		$get = $this->M_feedback->all_join_user()->result();
+		echo json_encode($get);
+	}
 	public function aktifkan_sekolah()
+	{
+		$id = $this->input->post('id_user');
+		$where = array('ID_USER' => $id);
+		$data  = array('STATUS_USER' => 'online');
+		$upd = $this->M_user->upd($where,$data);
+		if ($upd == 1) {
+			echo 1;
+		}else{
+			echo 2;
+		}
+	}
+	public function aktifkan_orang_tua()
+	{
+		$id = $this->input->post('id_user');
+		$where = array('ID_USER' => $id);
+		$data  = array('STATUS_USER' => 'online');
+		$upd = $this->M_user->upd($where,$data);
+		if ($upd == 1) {
+			echo 1;
+		}else{
+			echo 2;
+		}
+	}
+	public function aktifkan_siswa()
 	{
 		$id = $this->input->post('id_user');
 		$where = array('ID_USER' => $id);
@@ -115,6 +155,30 @@ class UANGSAKU_admin extends CI_Controller {
 			echo 2;
 		}
 	}
+	public function nonaktifkan_orang_tua()
+	{
+		$id = $this->input->post('id_user');
+		$where = array('ID_USER' => $id);
+		$data  = array('STATUS_USER' => 'offline');
+		$upd = $this->M_user->upd($where,$data);
+		if ($upd == 1) {
+			echo 1;
+		}else{
+			echo 2;
+		}
+	}
+	public function nonaktifkan_siswa()
+	{
+		$id = $this->input->post('id_user');
+		$where = array('ID_USER' => $id);
+		$data  = array('STATUS_USER' => 'offline');
+		$upd = $this->M_user->upd($where,$data);
+		if ($upd == 1) {
+			echo 1;
+		}else{
+			echo 2;
+		}
+	}
 	public function get_data()
 	{
 		$ID_ADMIN	= $this->session->userdata('ID_ADMIN');
@@ -123,6 +187,34 @@ class UANGSAKU_admin extends CI_Controller {
 		echo json_encode($get);
 	}
 	public function hapus_sekolah()
+	{
+		$id = $this->input->post('id_user');
+		$where = array('ID_USER' => $id);
+		$del = $this->M_user->del($where);
+		if ($del == 1) {
+			$del2 = $this->M_sekolah->del($where);
+			if ($del2 == 1) {
+				echo 1;
+			}else{
+				echo 2;
+			}
+		}
+	}
+	public function hapus_orang_tua()
+	{
+		$id = $this->input->post('id_user');
+		$where = array('ID_USER' => $id);
+		$del = $this->M_user->del($where);
+		if ($del == 1) {
+			$del2 = $this->M_orangtua->del($where);
+			if ($del2 == 1) {
+				echo 1;
+			}else{
+				echo 2;
+			}
+		}
+	}
+	public function hapus_siswa()
 	{
 		$id = $this->input->post('id_user');
 		$where = array('ID_USER' => $id);

@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_siswa extends CI_Model {
-	public $table 	= 'siswa';
-	public $pk		= 'ID_SISWA';
+class M_feedback extends CI_Model {
+	public $table 	= 'feedback';
+	public $pk		= 'ID_FEEDBACK';
 	
 	public function some($where)
 	{
@@ -27,29 +27,22 @@ class M_siswa extends CI_Model {
 	public function join_verifikasi()
 	{
 		$this->db->select(
-			'siswa.*,user.ID_USER AS ID_USER, user.STATUS_USER'
+			'feedback.*,user.ID_USER AS ID_USER, user.STATUS_USER'
 		);
-		$this->db->join('user','siswa.ID_USER = user.ID_USER');
-		$this->db->from('siswa');
+		$this->db->join('user','feedback.ID_USER = user.ID_USER');
+		$this->db->from('feedback');
 		return $this->db->get();
-	}
-	public function search($key)
-	{
-		$this->db->like('NAMA',$key);
-		$this->db->or_like('NISN',$key);
-		$this->db->or_like('KELAS',$key);
-		return $this->db->get($this->table);
 	}
 	public function all_join_user()
 	{
 		$this->db->select('
-          siswa.*, user.ID_USER AS ID_USER, user.STATUS_USER
-	      ');
-	    $this->db->join('user', 'siswa.ID_USER = user.ID_USER');
-	    $this->db->from('siswa');
+          feedback.*, user.ID_USER AS ID_USER, user.STATUS_USER
+	      ,user.USERNAME');
+	    $this->db->join('user', 'feedback.ID_USER = user.ID_USER');
+	    $this->db->from('feedback');
 	    return $this->db->get();
 	}
 }
 
-/* End of file M_siswa.php */
-/* Location: ./application/models/M_siswa.php */
+/* End of file M_feedback.php */
+/* Location: ./application/models/M_feedback.php */
