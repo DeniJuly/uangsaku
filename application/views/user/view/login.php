@@ -9,7 +9,7 @@
           </div>
           <div class="input-field col s10 offset-s1">
             <small class="red-text" id="flash">*isi semua colom</small>
-            <input placeholder="EMAIL" name="EMAIL" id="EMAIL" type="email" class="validate" autofocus="on" autocomplete="off" required="on">
+            <input placeholder="EMAIL ATAU USERNAME" name="EMAIL_USERNAME" id="EMAIL_USERNAME" type="text" class="validate" autofocus="on" autocomplete="off" required="on">
           </div>
 
           <div class="input-field col s10 offset-s1">
@@ -36,9 +36,9 @@
   $("#BTN-LOGIN").click(function(){
     $(this).hide();
     $("#BTN-DISABLE").css('display','block');
-    var EMAIL   = $("#EMAIL").val();
+    var EMAIL_USERNAME   = $("#EMAIL_USERNAME").val();
     var PASSWORD= $("#PASSWORD").val();
-    if (EMAIL == '' || PASSWORD == '') {
+    if (EMAIL_USERNAME == '' || PASSWORD == '') {
       $("#BTN-DISABLE").css('display','none');
       $("#BTN-LOGIN").show();
       $("#flash").css('display','block');
@@ -46,7 +46,7 @@
       $.ajax({
         url : '<?php echo site_url('UANGSAKU/proses_masuk') ?>',
         type : 'post',
-        data : {EMAIL : EMAIL , PASS : PASSWORD},
+        data : {EMAIL_USERNAME : EMAIL_USERNAME , PASS : PASSWORD},
         success : function(response){
           if (response == 1) {
             location.href= '<?php base_url() ?>'

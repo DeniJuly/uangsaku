@@ -55,11 +55,15 @@ class UANGSAKU_Siswa extends CI_Controller {
 	}
 	public function Bayar()
 	{	
-		$ID_USER	   = $this->session->userdata('ID_USER');
-		$where_siswa   = array('ID_USER'=>$ID_USER);
-		$get           = $this->M_siswa->some($where_siswa)->row();
-		$where         = array('pembiayaan.ID_SISWA'=>$get->ID_SISWA);
-		$var['data']   = $this->M_pembiayaan->join_pembiayaan_bayar($where)->result();
+		$ID_USER	   	= $this->session->userdata('ID_USER');
+		$where_siswa   	= array('ID_USER'=>$ID_USER);
+		$get           	= $this->M_siswa->some($where_siswa)->row();
+		$ID_TAGIHAN 	= $this->input->get('id');
+		$where         	= array(
+							'pembiayaan.ID_SISWA'=>$get->ID_SISWA,
+							'pembiayaan.ID_TAGIHAN'=>$ID_TAGIHAN
+						);
+		$var['data']   	= $this->M_pembiayaan->join_pembiayaan_bayar($where)->result();
 
 		$var['header'] = 'user/main_view/siswa/sub_header_siswa';
 		$var['konten'] = 'user/view/siswa/page/Bayar';
@@ -153,11 +157,15 @@ class UANGSAKU_Siswa extends CI_Controller {
 	}
 	public function Bayar_saldo()
 	{
-		$ID_USER	   = $this->session->userdata('ID_USER');
-		$where_siswa   = array('ID_USER'=>$ID_USER);
-		$get           = $this->M_siswa->some($where_siswa)->row();
-		$where         = array('pembiayaan.ID_SISWA'=>$get->ID_SISWA);
-		$var['data']   = $this->M_pembiayaan->join_pembiayaan_bayar($where)->result();
+		$ID_USER	   	= $this->session->userdata('ID_USER');
+		$where_siswa   	= array('ID_USER'=>$ID_USER);
+		$get           	= $this->M_siswa->some($where_siswa)->row();
+		$where         	= array('pembiayaan.ID_SISWA'=>$get->ID_SISWA);
+		$var['data']   	= $this->M_pembiayaan->join_pembiayaan_bayar($where)->result();
+		$where_saldo = array(
+			'ID_SISWA'	=> $get->ID_SISWA
+		);
+		$var['saldo']	= $this->M_saldo_dana_siswa->saldo($where_saldo)->result();
 
 		$var['header'] = 'user/main_view/siswa/sub_header_siswa';
 		$var['konten'] = 'user/view/siswa/page/Bayar_saldo';
@@ -234,32 +242,13 @@ class UANGSAKU_Siswa extends CI_Controller {
 				'ID_TAGIHAN'=>$ID_TAGIHAN
 			);
 			$upd_pembiayaan = $this->M_pembiayaan->upd($where_pembiayaan,$data_pembiayaan);
-			// insert saldo sekolah
-			$where_sekolah = array('ID_SEKOLAH'=>$get_siswa->ID_SEKOLAH);
-			$cek_saldo_sekolah = $this->M_saldo_dana_sekolah->saldo($where_sekolah)->num_rows();
-			if ($cek_saldo_sekolah == 1) {
-				$get_saldo_sekolah = $this->M_saldo_dana_sekolah->saldo($where_sekolah)->row();
-				$SALDO_SEKOLAH = $get_saldo_sekolah->TOTAL_SALDO_SEKOLAH+$TOTAL_PEMBAYARAN;
-				$data_saldo_sekolah = array(
-					'ID_SEKOLAH'=>$get_siswa->ID_SEKOLAH,
-					'TOTAL_SALDO_SEKOLAH'=>$SALDO_SEKOLAH
-				);
-			}else{
-				$data_saldo_sekolah = array(
-					'ID_SEKOLAH'=>$get_siswa->ID_SEKOLAH,
-					'TOTAL_SALDO_SEKOLAH'=>$TOTAL_PEMBAYARAN
-				);
-			}
-			$ins_saldo_sekolah = $this->M_saldo_dana_sekolah->ins($data_saldo_sekolah);
-			
 			// insert pendapatan sekolah
 			$get_pembayaran = $this->M_pembayaran->some($data_pembayaran)->row();
 			$data_pedapatan_sekolah = array(
 				'ID_SEKOLAH'=> $get_siswa->ID_SEKOLAH,
 				'ID_TAGIHAN'=> $ID_TAGIHAN,
 				'ID_PEMBAYARAN'=>$get_pembayaran->ID_PEMBAYARAN,
-				'TOTAL_PENDAPATAN_SEKOLAH'=> $TOTAL_PEMBAYARAN,
-				'ID_SALDO_DANA_SEKOLAH'=>$get_saldo_sekolah->ID_SALDO_DANA_SEKOLAH
+				'TOTAL_PENDAPATAN_SEKOLAH'=> $TOTAL_PEMBAYARAN
 			);
 			$ins_pendapatan_sekolah = $this->M_pendapatan_sekolah->ins($data_pedapatan_sekolah);
 			$to = $this->session->userdata('EMAIL');

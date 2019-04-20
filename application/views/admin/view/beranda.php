@@ -6,17 +6,13 @@
             <div class="card card-weather">
               <div class="card-body">
                 <div class="weather-date-location">
-                  <h3><?php echo date('D') ?></h3>
-                  <p class="text-gray">
-                    <span class="weather-date"><?php echo date('d M, Y') ?></span>
-                  </p>
+                  <img src="<?php echo base_url('assets/img/app/logo/logo_64.png') ?>">
                 </div>
                 <div class="weather-data d-flex" style="padding-bottom: 0px;">
                   <div class="mr-auto">
-                    <h4 class="display-3">21
-                      <span class="symbol">&deg;</span>C</h4>
-                    <p>
-                      Mostly Cloudy
+                    <h3><?php echo date('D') ?></h3>
+                    <p class="text-gray">
+                      <span class="weather-date"><?php echo date('d M, Y') ?></span>
                     </p>
                   </div>
                 </div>

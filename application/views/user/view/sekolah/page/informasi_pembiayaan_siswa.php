@@ -6,20 +6,16 @@
 		<div class="col s12 m12 l12" style="margin-top: 30px;">
 
 			<?php foreach ($data_jenis_pembiayaan as $j ):?>
-			<a href="<?php echo site_url('SEKOLAH/edit_pembiayaan?id='.$j->ID_JENIS_PEMBIAYAAN) ?>" class="waves-effect waves-light btn white btn-cari-siswa" style="margin-top: -7px;">
+			<a href="<?php echo site_url('SEKOLAH/edit_pembiayaan?id='.$j->ID_JENIS_PEMBIAYAAN) ?>" class="waves-effect waves-light btn white btn-cari-siswa">
 				<i class="material-icons blue-text">create</i>
 			</a>
-			<a id="BTN_HAPUS_PEMBIAYAAN" class="waves-effect waves-light btn white btn-cari-siswa" style="margin-top: -7px;">
+			<a id="BTN_HAPUS_PEMBIAYAAN" class="waves-effect waves-light btn white btn-cari-siswa">
 				<i class="material-icons red-text">delete</i>
 			</a>
 			<?php if ($j->STATUS_PEMBIAYAAN == 'online') :?>
-			<a class="waves-effect waves-light btn white btn-cari-siswa" style="margin-top: -7px;">
-				<i class="material-icons red-text">cancel</i>
-			</a>
+			<a class="waves-effect waves-light btn white red-text btn-cari-siswa" id="BTN-NONAKTIFKAN" style="width: 145px;">NONAKTIFKAN</a>
 			<?php else: ?>
-			<a class="waves-effect waves-light btn white btn-cari-siswa" style="margin-top: -7px;">
-				<i class="material-icons red-text">cancel</i>
-			</a>
+			<a class="waves-effect waves-light btn white blue-text btn-cari-siswa" id="BTN-AKTIFKAN" style="width: 145px;">AKTIFKAN</a>
 			<?php endif ?>
 			<small id="flash"></small>
 			<div class="col s12 m12 l12" style="margin-top: 30px;">
@@ -27,6 +23,9 @@
 				<div class="chip" style="margin-left: 10px;margin-top: 5px;" id="JML-JENIS-PEMBIAYAAN"><?php if ($jml == null) {
 					echo '0 siswa';
 				}else{ echo $jml.' siswa'; }?></div>
+				<?php foreach ($pendapatan as $pen):?>
+				<div class="chip">Rp <?php echo number_format($pen->TOTAL_TERBAYAR) ?></div>
+				<?php endforeach ?>
 			</div>
 			<?php endforeach ?>
 			<table class="table table-bordered">
@@ -113,7 +112,48 @@ $(document).ready(function(){
 						location.href='<?php echo site_url('SEKOLAH/Pembayaran') ?>';
 					}else if (response == 2) {
 						$("#flash").text('gagal hapus pembiayaan');
-						$("#BTN-UBAH-EMAIL").show();
+					}
+				}
+			});
+		}
+	});
+});
+</script>
+<script>
+$(document).ready(function(){
+	$("#BTN-AKTIFKAN").click(function(){
+		var id = '<?php echo $this->input->get('id') ?>';
+		if (id != '') {
+			$.ajax({
+				url : '<?php echo site_url('UANGSAKU_sekolah/aktifkan_pembiayaan') ?>',
+				type : 'post',
+				data : {id:id},
+				success : function(response){
+					if (response == 1) {
+						location.reload(true);
+					}else if (response == 2) {}{
+						$("#flash").text('gagal aktifkan pembiayaan');
+					}
+				}
+			});
+		}
+	});
+});
+</script>
+<script>
+$(document).ready(function(){
+	$("#BTN-NONAKTIFKAN").click(function(){
+		var id = '<?php echo $this->input->get('id') ?>';
+		if (id != '') {
+			$.ajax({
+				url : '<?php echo site_url('UANGSAKU_sekolah/nonaktifkan_pembiayaan') ?>',
+				type : 'post',
+				data : {id:id},
+				success : function(response){
+					if (response == 1) {
+						location.reload(true);
+					}else if (response == 2) {}{
+						$("#flash").text('gagal nonaktifkan pembiayaan');
 					}
 				}
 			});

@@ -73,10 +73,11 @@ $route = array(
 	'MITRA/produk'				=> 'UANGSAKU_mitra/produk',
 
 	// CONTROLLER ADMIN
-	'ADMIN'				=> 'UANGSAKU_admin',
-	'ADMIN/sekolah'		=> 'UANGSAKU_admin/sekolah',
-	'ADMIN/orangtua'	=> 'UANGSAKU_admin/orangtua',
-	'ADMIN/siswa'		=> 'UANGSAKU_admin/siswa',
+	'ADMIN'					=> 'UANGSAKU_admin',
+	'ADMIN/sekolah'			=> 'UANGSAKU_admin/sekolah',
+	'ADMIN/orangtua'		=> 'UANGSAKU_admin/orangtua',
+	'ADMIN/siswa'			=> 'UANGSAKU_admin/siswa',
+	'ADMIN/payment_poin'	=> 'UANGSAKU_admin/payment_poin',
 
 	// cCONTROLLER LOGIN ADMIN
 	'ADMIN/login'		=> 'UANGSAKU_login_admin',

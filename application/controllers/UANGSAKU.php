@@ -66,8 +66,7 @@ class UANGSAKU extends CI_controller
 		$pass  		= $this->input->post('pass');
 		$sekolah  	= $this->input->post('sekolah');
 
-		$data_cek_email = array('EMAIL' => $email );
-		$cek_email = $this->M_user->some($data_cek_email)->num_rows();
+		$cek_email = $this->M_user->cek_some($email,$nama)->num_rows();
 		if ($cek_email == 1) {
 			echo 1;
 		}else{
@@ -142,8 +141,7 @@ class UANGSAKU extends CI_controller
 		$email = $this->input->post('email');
 		$pass  = $this->input->post('pass');
 
-		$where_email = array('EMAIL' => $email );
-		$cek_email = $this->M_user->some($where_email)->num_rows();
+		$cek_email = $this->M_user->cek_some($email,$nama)->num_rows();
 		if ($cek_email == 1) {
 			echo 1;
 		}else{
@@ -254,16 +252,34 @@ class UANGSAKU extends CI_controller
 	public function proses_masuk()
 	{
 		
-		$EMAIL 		= $this->input->post('EMAIL');
+		$EMAIL 		= $this->input->post('EMAIL_USERNAME');
 		$PASSWORD 	= $this->input->post('PASS');
-		$data = array(
-			'EMAIL'		=>	$EMAIL,
-			'PASSWORD'	=>  md5($PASSWORD)
-		);
+		if (strpos($EMAIL, '@')==true) {
+			$data = array(
+				'EMAIL'		=>	$EMAIL,
+				'PASSWORD'	=>  md5($PASSWORD)
+			);	
+		}else{
+			$data = array(
+				'USERNAME'		=>	$EMAIL,
+				'PASSWORD'	=>  md5($PASSWORD)
+			);
+		}
 		$cek = $this->M_user->some($data)->num_rows();
 		if ($cek == 1) {
 			$get = $this->M_user->some($data)->row();
 			if ($get->JENIS_USER == 'sekolah') {
+				if (strpos($EMAIL, '@')==true) {
+					$data = array(
+						'EMAIL'		=>	$EMAIL,
+						'PASSWORD'	=>  md5($PASSWORD)
+					);	
+				}else{
+					$data = array(
+						'NAMA'		=>	$EMAIL,
+						'PASSWORD'	=>  md5($PASSWORD)
+					);
+				}
 				$get2 = $this->M_sekolah->some($data)->row();
 				$session = array(
 					'ID_USER' 			=> $get->ID_USER,
@@ -285,7 +301,7 @@ class UANGSAKU extends CI_controller
 					'EMAIL'				=> $get->EMAIL,
 					'USERNAME'			=> $get->USERNAME
 				);
-			}elseif ($get->JENIS_USER == 'orang_tua') {
+			}elseif ($get->JENIS_USER == 'orangtua') {
 				$session = array(
 					'ID_USER' 			=> $get->ID_USER,
 					'KODE_VERIFIKASI'	=> $get->KODE_VERIFIKASI,
@@ -332,8 +348,7 @@ class UANGSAKU extends CI_controller
 		$email = $this->input->post('email');
 		$pass  = $this->input->post('password');
 
-		$data_cek_email = array('EMAIL' => $email );
-		$cek_email = $this->M_user->some($data_cek_email)->num_rows();
+		$cek_email = $this->M_user->cek_some($email,$nama)->num_rows();
 		if ($cek_email == 1) {
 			echo 1;
 		}else{
@@ -400,8 +415,7 @@ class UANGSAKU extends CI_controller
 		$email = $this->input->post('email');
 		$pass  = $this->input->post('password');
 
-		$data_cek_email = array('EMAIL' => $email );
-		$cek_email = $this->M_user->some($data_cek_email)->num_rows();
+		$cek_email = $this->M_user->cek_some($email,$nama)->num_rows();
 		if ($cek_email == 1) {
 			echo 1;
 		}else{

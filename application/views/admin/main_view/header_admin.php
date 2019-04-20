@@ -86,7 +86,7 @@
           </li>
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <img class="img-xs rounded-circle" src="<?php echo site_url('assets/img/user/coba.jpg') ?>" alt="Profile image">
+              <img class="img-xs rounded-circle" src="" alt="Profile image" id="HEADER-FOTO-PROFILE">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <a href="<?php echo site_url('UANGSAKU_admin/keluar') ?>" class="dropdown-item mt-2">
@@ -141,6 +141,13 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link <?php if ($this->uri->segment(2)=='payment_poin') {
+                echo"text-primary";
+              } ?>" style="color: black;" href="<?php echo site_url('ADMIN/payment_poin'); ?>">
+              <i class="menu-icon mdi mdi-account"></i>
+              <span class="menu-title">Payment poin</span>
+            </a>
+          </li>          <li class="nav-item">
             <a class="nav-link <?php if ($this->uri->segment(2)=='keuangan') {
                 echo"text-primary";
               } ?>" style="color: black;" href="<?php echo site_url('ADMIN/keuangan'); ?>">

@@ -11,6 +11,12 @@ class M_user extends CI_Model {
 		$this->db->where($where);
 		return $this->db->get($this->table);
 	}
+	public function cek_some($email,$nama)
+	{
+		$this->db->where('EMAIL',$email);
+		$this->db->or_where('USERNAME',$nama);
+		return $this->db->get($this->table);
+	}
 	public function ins($data)
 	{
 		return $this->db->insert($this->table,$data);

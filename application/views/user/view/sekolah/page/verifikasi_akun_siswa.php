@@ -95,6 +95,7 @@
 	    					flash += '<i class="close material-icons">close</i>';
 	  						flash += '</div>';
 	  					$("#flash-siswa").html(flash);
+	  					location.reload(true);
 					}else{
 						var flash  = '<div class="chip">akun gagal diaktifkan';
 	    					flash += '<i class="close material-icons">close</i>';

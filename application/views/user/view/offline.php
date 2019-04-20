@@ -30,14 +30,12 @@
 					<img src="<?php echo base_url('assets/img/app/logo/logo_300.png') ?>">
 					<h5 class="center"><b>TERIMAKASIH TELAH MENDAFTAR DI UANGSAKU</b></h5>
 					<?php if ($this->session->userdata('JENIS_USER')=='sekolah'):?>
-						<h5 class="center"><b>KAMI SENDANG MENGECEK DATA AKUN ANDA</b></h5>
+						<h5 class="center"><b>KAMI SEDANG MENGECEK DATA ANDA</b></h5>
 					<?php elseif ($this->session->userdata('JENIS_USER')=='siswa'):?>
-						<h5 class="center"><b>SEKOLAH ANDA SEDANG MENGECEK DATA AKUN ANDA</b></h5>
+						<h5 class="center"><b>SEKOLAH ANDA SEDANG MENGECEK DATA ANDA</b></h5>
 					<?php elseif ($this->session->userdata('JENIS_USER')=='orang_tua') :?>
-						<h5 class="center"><b>SEKOLAH ANAK ANDA SEDANG MENGECEK DATA AKUN ANDA</b></h5>
-					<?php elseif ($this->session->userdata('JENIS_USER')=='mitra') :?>
-						<h5 class="center"><b>SEKOLAH YANG BERKERJASAMA DENGAN ANDA SEDANG MENGECEK DATA AKUN ANDA</b></h5>
-					<?php endif ?>
+						<h5 class="center"><b>SEKOLAH ANAK ANDA SEDANG MENGECEK DATA ANDA</b></h5>
+					<?php endif?>
 					<a href="<?php echo site_url('UANGSAKU_offline/keluar') ?>" class="btn yellow darken-3">KELUAR</a>
 				</div>
 			</div>

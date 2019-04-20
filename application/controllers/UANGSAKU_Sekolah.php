@@ -93,6 +93,7 @@ class UANGSAKU_Sekolah extends CI_controller
 		$var['jml']   		= $this->M_pembiayaan->some($where_pembiayaan)->num_rows();
 		$var['data_jenis_pembiayaan'] = $this->M_jenis_pembiayaan->some($where_pembiayaan)->result();
 		$var['data']   		= $this->M_pembiayaan->some($where_pembiayaan)->result();
+		$var['pendapatan']  = $this->M_pembiayaan->sum($where_pembiayaan)->result();
 
 		$var['header'] = 'user/main_view/sekolah/sub_header_sekolah';
 		$var['konten'] = 'user/view/sekolah/page/informasi_pembiayaan_siswa';
@@ -238,6 +239,50 @@ class UANGSAKU_Sekolah extends CI_controller
 			echo 2;
 		}
 	}
+	public function aktifkan_pembiayaan()
+	{
+		$id 		= $this->input->post('id');
+		$data_jenis_pembiayaan = array('STATUS_PEMBIAYAAN'=> 'online');
+		$where_id 	= array('ID_JENIS_PEMBIAYAAN'=>$id);
+		$upd = $this->M_jenis_pembiayaan->upd($where_id,$data_jenis_pembiayaan);
+		if ($upd) {
+			$data_pembiayaan = array('STATUS_TAGIHAN'=>'online');
+			$upd_pembiayaan = $this->M_pembiayaan->upd($where_id,$data_pembiayaan);
+			if ($upd_pembiayaan) {
+				echo 1;
+			}else{
+				echo 2;
+			}
+		}
+	}
+	public function nonaktifkan_pembiayaan()
+	{
+		$id 		= $this->input->post('id');
+		$data_jenis_pembiayaan = array('STATUS_PEMBIAYAAN'=> 'offline');
+		$where_id 	= array('ID_JENIS_PEMBIAYAAN'=>$id);
+		$upd = $this->M_jenis_pembiayaan->upd($where_id,$data_jenis_pembiayaan);
+		if ($upd) {
+			$data_pembiayaan = array('STATUS_TAGIHAN'=>'offline');
+			$upd_pembiayaan = $this->M_pembiayaan->upd($where_id,$data_pembiayaan);
+			if ($upd_pembiayaan) {
+				echo 1;
+			}else{
+				echo 2;
+			}
+		}
+	}
+	public function hapus_pembiayaan()
+	{
+		$id = $this->input->post('id');
+		$where_hapus = array('ID_JENIS_PEMBIAYAAN'=>$id);
+		$del = $this->M_jenis_pembiayaan->del($where_hapus);
+		if ($del) {
+			$this->M_pembiayaan->del($where_hapus);
+			echo 1;
+		}else{
+			echo 2;
+		}
+	}
 	public function hapus_data_siswa()
 	{
 		$ID_SISWA = $this->input->post('id');
@@ -287,7 +332,10 @@ class UANGSAKU_Sekolah extends CI_controller
 				if ($KELAS == 'ALL') {
 					$where_siswa =array('NPSN'=>$get->NPSN);
 				}else{
-					$where_siswa =array('NPSN'=>$get->NPSN,'KELAS'=>$KELAS);
+					$where_siswa =array(
+						'NPSN'=>$get->NPSN,
+						'KELAS'=>$KELAS
+					);
 				}
 				$get_siswa = $this->M_siswa->some($where_siswa)->result();
 				$jml = count($get_siswa);
@@ -316,6 +364,7 @@ class UANGSAKU_Sekolah extends CI_controller
 							'KELAS_SISWA'		  => $get_siswa[$i]->KELAS,
 							'TGL_PEMBIAYAAN'      => $tanggal,
 							'TOTAL_BIAYA'         => $get_jenis_pembiayaan->BIAYA,
+							'STATUS_TAGIHAN'	  => 'offline',
 							'ID_TAGIHAN'          => $get_tagihan->ID_TAGIHAN
 						);
 						$ins = $this->M_pembiayaan->ins($data_pembiayaan);	

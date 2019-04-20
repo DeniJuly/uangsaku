@@ -20,21 +20,21 @@
 
 			<div class="col s12 m12">
 
-				<div class="col s5 m2 l2  offset-m2 offset-l3">
-					<a href="<?= site_url('SEKOLAH/Pembayaran') ?>">
+				<!-- JIKA SUDAH TERKAIT -->
+				<div class="col s5 m2 l2 offset-m2 offset-l3">
+					<a href="<?= site_url('SISWA/Pembayaran') ?>">
 						<div class="card-panel center">
-							<img src="<?php echo base_url('assets/img/app/icon/bayar_beranda.png') ?>" width="24px">
+							<img src="<?php echo base_url('assets/img/app/icon/pembayaran.png') ?>" width="24px">
 						</div>
 					</a>
 				</div>
-				<div class="col s5 m2 l2 offset-s2 offset-l2 offset-m2">
-					<a href="<?= site_url('SEKOLAH/Siswa') ?>">
+				<div class="col s5 m2 l2 offset-s2 offset-l2 m2">
+					<a href="<?= site_url('SISWA/Beli') ?>">
 						<div class="card-panel center">
-							<img src="<?php echo base_url('assets/img/app/icon/siswa_beranda.png') ?>" width="24px">
+							<img src="<?php echo base_url('assets/img/app/icon/pembelian.png') ?>" width="24px">
 						</div>
 					</a>
 				</div>
-
 			</div>			
 		</div>
 
@@ -93,7 +93,7 @@
 <script>
 $(document).ready(function() {
 	$.ajax({
-		url : '<?php echo site_url('UANGSAKU_Sekolah/saldo') ?>',
+		url : '<?php echo site_url('UANGSAKU_Siswa/saldo') ?>',
 		type : 'post',
 		dataType : 'json',
 		success : function(data){
@@ -101,7 +101,7 @@ $(document).ready(function() {
 				var saldo = '<sup>Rp </sup>0';
 				$("#SALDO").html(saldo);
 			}else{
-				var bilangan = data[0].TOTAL_SALDO_SEKOLAH;
+				var bilangan = data[0].TOTAL_SALDO_SISWA;
 
 		        var reverse = bilangan.toString().split('').reverse().join(''),
 		        ribuan  = reverse.match(/\d{1,3}/g);

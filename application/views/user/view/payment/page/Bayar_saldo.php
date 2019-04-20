@@ -3,23 +3,16 @@
 		<div class="row">
 			
 			<div class="s12 m12 l12">
+				<?php foreach ($data as $d):?>
 				<div class="col s12 m12 l12" style="border: 1px solid #eee;margin-top: 10px;">
 					<div class="col s6 m6 l6">
 						<h6 class="grey-text">SALDO UANGSAKU</h6>
 					</div>
 					<div class="col s6 m6 l6">
-					<?php if ($saldo != null) :?>
-					<?php foreach ($saldo as $s):?>
-						<h6 class="grey-text right">Rp <?php if ($s->TOTAL_SALDO_SISWA == null) {
-						echo 0;
-						}else{ echo number_format($s->TOTAL_SALDO_SISWA); }?></h6>
-					<?php endforeach ?>
-					<?php else: ?>
-					<h6 class="grey-text right">Rp 0</h6>
-					<?php endif ?>
+						<h6 class="grey-text right">Rp <?php echo number_format($d->TOTAL_SALDO_SISWA); ?></h6>
 					</div>
 				</div>
-				<?php foreach ($data as $d):?>
+
 				<div class="col s12 m12 l12" style="border: 1px solid #eee;margin-top: 10px;">
 					<div class="col s12 m12 l12" style="border-bottom: 1px solid #eee">
 						<h6 class="grey-text"><?php echo $d->NAMA_PEMBIAYAAN ?></h6>
@@ -37,10 +30,10 @@
 				</div>
 
 				<div class="col s12 m12 l12">
-					<h6 class="grey-text" id="BAYAR-KEBUTUHAN-SEKOLAH">BAYAR KEBUTUHAN SEKOLAH</h6>
+					<h6 class="grey-text">BAYAR KEBUTUHAN SEKOLAH</h6>
 				</div>
 
-				<div class="col s12 m12 l12" style="border: 1px solid #eee;margin-top: 10px;padding: 10px;" id="PEMBAYARAN">
+				<div class="col s12 m12 l12" style="border: 1px solid #eee;margin-top: 10px;padding: 10px;">
 					<div class="col s12 m12 l12">
 						<small id="flash-bayar"></small>
 					</div>
@@ -64,9 +57,7 @@
 		</div>
 	</div>
 </div>
-<?php if ($saldo != null) :?>
 <?php foreach ($data as $d):?>
-<?php foreach ($saldo as $s):?>
 <script>
 $(document).ready(function(){
 	$("#NOMINA").on('keyup',function(){
@@ -89,7 +80,7 @@ $(document).ready(function(){
 	$("#NOMINA").on('keyup',function(){
 		$("#flash-bayar").css('display','none');
 		var nomina = parseInt($("#NOMINA").val());
-		var saldo  = parseInt('<?php echo $s->TOTAL_SALDO_SISWA ?>');
+		var saldo  = parseInt('<?php echo $d->TOTAL_SALDO_SISWA ?>');
 		var total_biaya = '<?php echo $d->TOTAL_BIAYA ?>';
 		var total_terbayar = '<?php echo $d->TOTAL_TERBAYAR ?>';
 		if (nomina > saldo) {
@@ -112,7 +103,7 @@ $(document).ready(function(){
 		$("#flash-bayar").css('display','none');
 
 		var nomina = parseInt($("#NOMINA").val());
-		var saldo  = parseInt('<?php echo $s->TOTAL_SALDO_SISWA ?>');
+		var saldo  = parseInt('<?php echo $d->TOTAL_SALDO_SISWA ?>');
 		var id_tagihan = '<?php echo $this->input->get("id") ?>';
 		var total_biaya = '<?php echo $d->TOTAL_BIAYA ?>';
 		nama_pembiayaan = '<?php echo $d->NAMA_PEMBIAYAAN ?>';
@@ -158,13 +149,3 @@ $(document).ready(function(){
 });
 </script>
 <?php endforeach ?>
-<?php endforeach ?>
-<?php else: ?>
-<script>
-$(document).ready(function(){
-	$("#PEMBAYARAN").hide();
-	$("#BAYAR-KEBUTUHAN-SEKOLAH").text("ISI SALDO ANDA UNTUK MELAKUKAN PEMBAYARAN");
-	$("#BAYAR-KEBUTUHAN-SEKOLAH").attr('class','blue-text');
-});
-</script>
-<?php endif ?>

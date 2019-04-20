@@ -2,7 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class UANGSAKU_mitra extends CI_Controller {
-
+	public function __construct()
+	{
+		parent::__construct();
+		if ($this->session->userdata('JENIS_USER') != 'mitra') {
+			redirect('UANGSAKU');
+		}
+	}
 	public function index()
 	{
 		$var['header'] = 'user/main_view/mitra/header_mitra';

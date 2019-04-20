@@ -9,7 +9,7 @@
 						<h6 class="grey-text">TOTAL PEMBAYARAN</h6>
 					</div>
 					<div class="col s6 m6 l6">
-						<h6 class="grey-text right">Rp <?php echo number_format($d->TOTAL_TAGIHAN); ?></h6>
+						<h6 class="grey-text right">Rp <?php echo number_format($d->TOTAL_TAGIHAN,2,',','.'); ?></h6>
 					</div>
 				</div>
 

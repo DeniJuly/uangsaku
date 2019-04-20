@@ -14,10 +14,22 @@ class M_pembiayaan extends CI_Model {
 	{
 		return $this->db->insert($this->table,$data);
 	}
+	public function del($where)
+	{
+		$this->db->where($where);
+		return $this->db->delete($this->table);
+	}
 	public function upd($where,$data)
 	{
 		$this->db->where($where);
 		return $this->db->update($this->table,$data);
+	}
+	public function sum($where)
+	{
+		$this->db->select('sum(TOTAL_TERBAYAR) AS TOTAL_TERBAYAR');
+		$this->db->from($this->table);
+		$this->db->where($where);
+		return $this->db->get();
 	}
 	// public function cari($key,$id)
 	// {
@@ -35,17 +47,18 @@ class M_pembiayaan extends CI_Model {
 		$this->db->from($this->table);
 		$this->db->join('jenis_pembiayaan','pembiayaan.ID_JENIS_PEMBIAYAAN = jenis_pembiayaan.ID_JENIS_PEMBIAYAAN');
 		$this->db->where($where);
+		$this->db->where('STATUS_TAGIHAN','online');
 	    return $this->db->get();
 	}
 	public function join_pembiayaan_bayar($where)
 	{
 		$this->db->select('
-			pembiayaan.*, jenis_pembiayaan.NAMA_PEMBIAYAAN, jenis_pembiayaan.DESKRIPSI, saldo_dana_siswa.TOTAL_SALDO_SISWA, 
+			pembiayaan.*, jenis_pembiayaan.NAMA_PEMBIAYAAN, jenis_pembiayaan.DESKRIPSI
 		');
 		$this->db->from($this->table);
 		$this->db->join('jenis_pembiayaan','pembiayaan.ID_JENIS_PEMBIAYAAN = jenis_pembiayaan.ID_JENIS_PEMBIAYAAN');
-		$this->db->join('saldo_dana_siswa','pembiayaan.ID_SISWA = saldo_dana_siswa.ID_SISWA');
-		$this->db->order_by('saldo_dana_siswa.TGL_SALDO_SISWA','DESC');
+		// $this->db->join('saldo_dana_siswa','pembiayaan.ID_SISWA = saldo_dana_siswa.ID_SISWA');
+		// $this->db->order_by('saldo_dana_siswa.TGL_SALDO_SISWA','DESC');
 		$this->db->where($where);
 		$this->db->limit(1);
 		return $this->db->get();

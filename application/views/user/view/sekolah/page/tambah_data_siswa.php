@@ -4,7 +4,7 @@
 			<div class="col s12 m10 l10 offset-m1 offset-l1" id="BUNGKUS-FORM">
 				<div class="card-panel" id="CARD-FORM">
 					<h5 class="grey-text">TAMBAH DATA SISWA</h5>
-					<small class="red-text" id="flash-tambah" style="display: block;"></small>
+					<small id="flash-tambah" style="display: block;"></small>
 					<div class="input-field col s12">
 			          <input placeholder="NISN" id="NISN-TAMBAH" type="number" class="validate">
 			        </div>
@@ -59,14 +59,17 @@
 					success : function(respone){
 						if (respone == 1) {
 							$("#flash-tambah").text('NISN sudah terdaftar');
+							$("flash-tambah").attr('class','red-text');
 							$("#BTN-TAMBAH-SISWA").show();
 							$("#BTN-DISABLE").css('display','none');
 						}else if(respone == 2){
 							$("#flash-tambah").text('gagal tambah data siswa');
+							$("flash-tambah").attr('class','red-text');
 							$("#BTN-TAMBAH-SISWA").show();
 							$("#BTN-DISABLE").css('display','none');
 						}else if(respone == 3){
 							$("#flash-tambah").text('berhasil tambah data siswa');
+							$("flash-tambah").attr('class','blue-text');
 							$("#BTN-TAMBAH-SISWA").show();
 							$("#BTN-DISABLE").css('display','none');
 						}

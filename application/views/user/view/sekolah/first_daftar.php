@@ -85,7 +85,7 @@
 								$("#BTN-DAFTAR").show();
 
 								$("#flash").css('display','block');
-								$("#flash").text('email sudah terdaftar');
+								$("#flash").text('email atau nama sudah terdaftar');
 
 							}else if(response == 2){
 
