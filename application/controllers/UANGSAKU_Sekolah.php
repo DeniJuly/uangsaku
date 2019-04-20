@@ -48,6 +48,10 @@ class UANGSAKU_Sekolah extends CI_controller
 	}
 	public function profile()
 	{
+		$ID_USER = $this->session->userdata('ID_USER');
+		$where_rekening 	= array('ID_USER'=>$ID_USER);
+		$var['rekening']    = $this->M_rekening->some($where_rekening)->result();
+
 		$var['header'] = 'user/main_view/sekolah/header_sekolah';
 		$var['konten'] = 'user/view/sekolah/page/profile';
 		$var['footer'] = 'user/main_view/sekolah/footer_sekolah';
@@ -107,6 +111,21 @@ class UANGSAKU_Sekolah extends CI_controller
 		$var['konten'] = 'user/view/sekolah/page/verifikasi_akun_siswa';
 		$var['footer'] = 'user/main_view/sekolah/footer_sekolah';
 		$var['judul']  = 'UANGSAKU';
+		$this->load->view('template',$var);
+	}
+	public function Tarik_dana()
+	{
+		$ID_USER 	   = $this->session->userdata('ID_USER');
+		$where_sekolah = array('ID_USER'=>$ID_USER);
+		$get_sekolah   = $this->M_sekolah->some($where_sekolah)->row();
+		$where_penarikan = array('ID_SEKOLAH'=>$get_sekolah->ID_SEKOLAH);
+		$var['data']   = $this->M_penarikan_dana_sekolah->some($where_penarikan)->result();
+		$var['jml']    = $this->M_penarikan_dana_sekolah->some($where_penarikan)->num_rows();
+
+		$var['header'] = 'user/main_view/sekolah/header_sekolah';
+		$var['konten'] = 'user/view/sekolah/page/Tarik_dana';
+		$var['footer'] = 'user/main_view/sekolah/footer_sekolah';
+		$var['judul']  = 'UANGSAKU';
 		$this->load->view('template',$var);	
 	}
 	public function Edit_siswa($id)
@@ -127,6 +146,78 @@ class UANGSAKU_Sekolah extends CI_controller
 		$var['footer'] = 'user/main_view/sekolah/sub_footer_sekolah';
 		$var['judul']  = 'TAMBAH DATA SISWA';
 		$this->load->view('template',$var);	
+	}
+	public function Detail_profile()
+	{
+		$var['header'] = 'user/main_view/sekolah/sub_header_sekolah';
+		$var['konten'] = 'user/view/sekolah/page/Detail_profile';
+		$var['footer'] = 'user/main_view/sekolah/sub_footer_sekolah';
+		$var['judul']  = 'Tentang';
+		$this->load->view('template',$var);	
+	}
+	public function Kaitkan_rekening()
+	{
+		$var['header'] = 'user/main_view/sekolah/sub_header_sekolah';
+		$var['konten'] = 'user/view/sekolah/page/kaitkan_rekening';
+		$var['footer'] = 'user/main_view/sekolah/sub_footer_sekolah';
+		$var['judul']  = 'Kaitkan Rekening';
+		$this->load->view('template',$var);	
+	}
+	public function Edit_rekening()
+	{
+		$ID_USER = $this->session->userdata('ID_USER');
+		$where_rekening = array('ID_USER'=>$ID_USER);
+		$var['rekening'] = $this->M_rekening->some($where_rekening)->result();
+		$var['header'] = 'user/main_view/sekolah/sub_header_sekolah';
+		$var['konten'] = 'user/view/sekolah/page/edit_rekening';
+		$var['footer'] = 'user/main_view/sekolah/sub_footer_sekolah';
+		$var['judul']  = 'EDIT REKENING';
+		$this->load->view('template',$var);	
+	}
+	public function proses_tambah_data_rekening()
+	{
+		$NAMA_BANK 		= $this->input->post('nama_bank');
+		$NAMA_REKENING 	= $this->input->post('nama_rekening');
+		$NO_REKENING 	= $this->input->post('no_rekening');
+		$CABANG      	= $this->input->post('cabang');
+
+		$ID_USER		= $this->session->userdata('ID_USER');
+		$data = array(
+			'ID_USER'		=> $ID_USER,
+			'NAMA_BANK'		=> $NAMA_BANK,
+			'NAMA_REKENING'	=> $NAMA_REKENING,
+			'NO_REKENING'	=> $NO_REKENING,
+			'CABANG'		=> $CABANG
+		);
+		$ins = $this->M_rekening->ins($data);
+		if ($ins) {
+			echo 1;
+		}else{
+			echo 2;
+		}
+	}
+	public function proses_edit_data_rekening()
+	{
+		$NAMA_BANK 		= $this->input->post('nama_bank');
+		$NAMA_REKENING 	= $this->input->post('nama_rekening');
+		$NO_REKENING 	= $this->input->post('no_rekening');
+		$CABANG      	= $this->input->post('cabang');
+
+		$ID_USER		= $this->session->userdata('ID_USER');
+		$data = array(
+			'ID_USER'		=> $ID_USER,
+			'NAMA_BANK'		=> $NAMA_BANK,
+			'NAMA_REKENING'	=> $NAMA_REKENING,
+			'NO_REKENING'	=> $NO_REKENING,
+			'CABANG'		=> $CABANG
+		);
+		$where_rekening = array('ID_USER'=>$ID_USER);
+		$upd = $this->M_rekening->upd($where_rekening,$data);
+		if ($upd) {
+			echo 1;
+		}else{
+			echo 2;
+		}
 	}
 	public function edit_pembiayaan()
 	{
@@ -150,6 +241,44 @@ class UANGSAKU_Sekolah extends CI_controller
 			$get_saldo = $this->M_saldo_dana_sekolah->saldo($where_id)->result();
 			echo json_encode($get_saldo);
 		}
+	}
+	public function ubah_logo()
+	{
+		$USERNAME = $this->session->userdata('USERNAME');
+		date_default_timezone_set('Asia/Jakarta');
+		$tanggal = date("d-M-Y,H-i-s");
+		$config['upload_path']   = './assets/img/user/sekolah/logo-profile/';
+		$config['allowed_types'] = 'jpg|png|jpeg';
+		$config['max_size']  = '10000';
+		$config['file_name'] = $USERNAME.','.$tanggal;
+		
+		$this->load->library('upload', $config);
+		
+		if ( ! $this->upload->do_upload('FOTO')){
+			echo 2;
+		}
+		else{
+			$data =  $this->upload->data();
+			$where = array('ID_USER'=>$this->session->userdata('ID_USER'));
+			$get_sekolah = $this->M_sekolah->some($where)->row();
+			if ($get_sekolah->LOGO != 'default.png') {
+				unlink('./assets/img/user/sekolah/logo-profile/'.$get_sekolah->LOGO);
+			}
+			$data_update = array('LOGO'=>$data['file_name']);
+			$upd = $this->M_sekolah->upd($where,$data_update);
+			if($upd){
+				echo 1;
+			}else{
+				echo 2;
+			}	
+		}
+	}
+	public function get_data_rekening()
+	{
+		$ID_USER	= $this->session->userdata('ID_USER');
+		$where 		= array('ID_USER'=>$ID_USER);
+		$get_rekening = $this->M_rekening->some($where)->result();
+		echo json_encode($get_rekening);
 	}
 	public function get_data_all()
 	{
@@ -237,6 +366,63 @@ class UANGSAKU_Sekolah extends CI_controller
 			echo 1;
 		}else{
 			echo 2;
+		}
+	}
+	public function Edit_profile()
+	{
+		$var['header'] = 'user/main_view/sekolah/sub_header_sekolah';
+		$var['konten'] = 'user/view/sekolah/page/edit_profile';
+		$var['footer'] = 'user/main_view/sekolah/sub_footer_sekolah';
+		$where = array('ID_USER'=> $this->session->userdata('ID_USER'));
+		$var['data']   = $this->M_sekolah->some($where)->result();
+		$var['judul']  = 'EDIT PROFILE';
+		$this->load->view('template',$var);	
+	}
+	public function proses_edit_profile()
+	{
+		$ALAMAT	   = $this->input->post('alamat');
+		$data = array('ALAMAT'=>$ALAMAT);
+		$ID_USER = $this->session->userdata('ID_USER');
+		$where = array('ID_USER'=>$ID_USER);
+		$upd = $this->M_sekolah->upd($where,$data);
+		if ($upd) {
+			echo 1;
+		}else{
+			echo 2;
+		}
+	}
+	public function proses_tarik_dana()
+	{
+		$NOMINAL = $this->input->post('nominal');
+		$ID_USER = $this->session->userdata('ID_USER');
+		$where_rekening 	= array('ID_USER'=>$ID_USER);
+		$cek_rekening = $this->M_rekening->some($where_rekening)->num_rows();
+		if ($cek_rekening == 1) {
+			$get_rekening = $this->M_rekening->some($where_rekening)->row();
+			$get_sekolah  = $this->M_sekolah->some($where_rekening)->row();
+			$where_sekolah = array('ID_SEKOLAH'=>$get_sekolah->ID_SEKOLAH);
+			$cek_saldo    = $this->M_saldo_dana_sekolah->saldo($where_sekolah)->num_rows();
+			if ($cek_saldo == 0) {
+				$ID_SALDO_DANA_SEKOLAH = 0;
+			}else{
+				$get_saldo    = $this->M_saldo_dana_sekolah->saldo($where_rekening)->row();
+				$ID_SALDO_DANA_SEKOLAH = $get_saldo->ID_SALDO_DANA_SEKOLAH;
+			}
+			$data_penarikan = array(
+				'ID_SEKOLAH'			=> $get_sekolah->ID_SEKOLAH,
+				'ID_SALDO_DANA_SEKOLAH'	=>$ID_SALDO_DANA_SEKOLAH,
+				'ID_REKENING'			=> $get_rekening->ID_REKENING,
+				'TOTAL_PENARIKAN_DANA_SEKOLAH'	=> $NOMINAL,
+				'STATUS_PENARIKAN_DANA_SEKOLAH'	=>'110'
+			);
+			$ins = $this->M_penarikan_dana_sekolah->ins($data_penarikan);
+			if ($ins) {
+				echo 3;
+			}else{
+				echo 4;
+			}
+		}else{
+			echo 1;
 		}
 	}
 	public function aktifkan_pembiayaan()

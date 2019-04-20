@@ -59,6 +59,10 @@
                 <img src="<?php echo base_url('assets/img/app/icon/siswa.png') ?>" style="margin-right: 34px;margin-top: 10px;" class="responsive-img left">SISWA</a>
             </li>
             <li>
+              <a href="<?php echo site_url('SEKOLAH/Tarik') ?>">
+                <img src="<?php echo base_url('assets/img/app/icon/tarik_dana.png') ?>" style="margin-right: 34px;margin-top: 10px;" class="responsive-img left">TARIK DANA</a>
+            </li>
+            <li>
               <a href="<?php echo site_url('SEKOLAH/Keluar') ?>">
                 <img src="<?php echo base_url('assets/img/app/icon/logout-24.png') ?>" style="margin-right: 34px;margin-top: 10px;" class="responsive-img left">KELUAR</a>
             </li>
@@ -116,17 +120,26 @@
             </li>
 
             <li id="li-side-navbar6">
-              <a href="<?php echo site_url('SEKOLAH/Siswa') ?>" id="link-side-navbar6" class="<?php if ($this->uri->segment(2)=='Siswa') {
+              <a href="<?php echo site_url('SEKOLAH/Tarik') ?>" id="link-side-navbar6" class="<?php if ($this->uri->segment(2)=='Tarik') {
+                echo"active-side-navbar";
+              } ?>">
+                <img src="<?php echo base_url('assets/img/app/icon/tarik_dana.png') ?>" class="responsive-img">
+                <label id="label-side-navbar6">TARIK DANA</label>
+              </a>
+            </li>
+
+            <li id="li-side-navbar7">
+              <a href="<?php echo site_url('SEKOLAH/Siswa') ?>" id="link-side-navbar7" class="<?php if ($this->uri->segment(2)=='Siswa') {
                 echo"active-side-navbar";
               } ?>">
                 <img src="<?php echo base_url('assets/img/app/icon/siswa.png') ?>" class="responsive-img">
-                <label id="label-side-navbar6">SISWA</label>
+                <label id="label-side-navbar7">SISWA</label>
               </a>
             </li>
-            <li id="li-side-navbar7">
-              <a href="<?php echo site_url('SEKOLAH/Keluar') ?>" id="link-side-navbar7">
+            <li id="li-side-navbar8">
+              <a href="<?php echo site_url('SEKOLAH/Keluar') ?>" id="link-side-navbar8">
                 <img src="<?php echo base_url('assets/img/app/icon/logout-24.png') ?>" class="responsive-img">
-                <label id="label-side-navbar7">KELUAR</label>
+                <label id="label-side-navbar8">KELUAR</label>
               </a>
             </li>
 
@@ -149,6 +162,7 @@
         $("#li-side-navbar5").addClass("li-side-navbar-small");
         $("#li-side-navbar6").addClass("li-side-navbar-small");
         $("#li-side-navbar7").addClass("li-side-navbar-small");
+        $("#li-side-navbar8").addClass("li-side-navbar-small");
 
         $("#label-side-navbar").hide();
         $("#label-side-navbar2").hide();
@@ -157,6 +171,7 @@
         $("#label-side-navbar5").hide();
         $("#label-side-navbar6").hide();
         $("#label-side-navbar7").hide();
+        $("#label-side-navbar8").hide();
 
         $("#link-side-navbar").css("padding-left","0");
         $("#link-side-navbar2").css("padding-left","0");
@@ -165,6 +180,7 @@
         $("#link-side-navbar5").css("padding-left","0");
         $("#link-side-navbar6").css("padding-left","0");
         $("#link-side-navbar7").css("padding-left","0");
+        $("#link-side-navbar8").css("padding-left","0");
     });
     $("#btn-big-side-nav-big").click(function(){
         $(this).css("display","none");
@@ -181,6 +197,7 @@
         $("#li-side-navbar5").removeClass("li-side-navbar-small");
         $("#li-side-navbar6").removeClass("li-side-navbar-small");
         $("#li-side-navbar7").removeClass("li-side-navbar-small");
+        $("#li-side-navbar8").removeClass("li-side-navbar-small");
 
         $("#label-side-navbar").show();
         $("#label-side-navbar2").show();
@@ -189,6 +206,7 @@
         $("#label-side-navbar5").show();
         $("#label-side-navbar6").show();
         $("#label-side-navbar7").show();
+        $("#label-side-navbar8").show();
 
         $("#link-side-navbar").css("padding-left","25px");
         $("#link-side-navbar2").css("padding-left","25px");
@@ -197,6 +215,7 @@
         $("#link-side-navbar5").css("padding-left","25px");
         $("#link-side-navbar6").css("padding-left","25px");
         $("#link-side-navbar7").css("padding-left","25px");
+        $("#link-side-navbar8").css("padding-left","25px");
     });
   });
 </script>

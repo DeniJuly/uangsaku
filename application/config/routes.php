@@ -31,6 +31,11 @@ $route = array(
 	'SEKOLAH/Keluar'					=> 'UANGSAKU_Sekolah/Keluar',
 	'SEKOLAH/Verifikasi_siswa'			=> 'UANGSAKU_Sekolah/data_verifikasi_siswa',
 	'SEKOLAH/edit_pembiayaan'			=> 'UANGSAKU_sekolah/edit_pembiayaan',
+	'SEKOLAH/Tarik'						=> 'UANGSAKU_sekolah/Tarik_dana',
+	'SEKOLAH/Tentang'					=> 'UANGSAKU_sekolah/Detail_profile',
+	'SEKOLAH/Edit_profile'				=> 'UANGSAKU_sekolah/Edit_profile',
+	'SEKOLAH/Kaitkan_rekening'			=> 'UANGSAKU_sekolah/Kaitkan_rekening',
+	'SEKOLAH/Edit_rekening'				=> 'UANGSAKU_sekolah/Edit_rekening',
 
 	// CONTROLLER ORANGTUA
 	'ORANGTUA'					=> 'UANGSAKU_Orangtua',

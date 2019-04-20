@@ -13,9 +13,9 @@
 				<i class="material-icons red-text">delete</i>
 			</a>
 			<?php if ($j->STATUS_PEMBIAYAAN == 'online') :?>
-			<a class="waves-effect waves-light btn white red-text btn-cari-siswa" id="BTN-NONAKTIFKAN" style="width: 145px;">NONAKTIFKAN</a>
+			<a class="waves-effect waves-light btn white red-text btn-cari-siswa" id="BTN-NONAKTIFKAN" style="width: 145px;padding: 0;">NONAKTIFKAN</a>
 			<?php else: ?>
-			<a class="waves-effect waves-light btn white blue-text btn-cari-siswa" id="BTN-AKTIFKAN" style="width: 145px;">AKTIFKAN</a>
+			<a class="waves-effect waves-light btn white blue-text btn-cari-siswa" id="BTN-AKTIFKAN" style="width: 145px;padding: 0;">AKTIFKAN</a>
 			<?php endif ?>
 			<small id="flash"></small>
 			<div class="col s12 m12 l12" style="margin-top: 30px;">
@@ -59,6 +59,11 @@
 	</div>
 	</div>
 </div>
+<script>
+	$(document).ready(function(){
+	    $('.modal').modal();
+	  });
+</script>
 <script>
 $(document).ready(function(){
 	$("#BTN_CARI").click(function(){
