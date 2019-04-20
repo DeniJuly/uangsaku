@@ -23,7 +23,21 @@ class M_orangtua extends CI_Model {
 	public function get_pembayaran($where)
 	{
 		$this->db->where($where);
-		return $this->db->get('pemmbayaran');
+		return $this->db->get('pembayaran');
+	}
+	public function all_join_user()
+	{
+		$this->db->select('
+          orangtua.*, user.ID_USER AS ID_USER, user.STATUS_USER
+	      ');
+	    $this->db->join('user', 'orangtua.ID_USER = user.ID_USER');
+	    $this->db->from('orangtua');
+	    return $this->db->get();
+	}
+	public function del($where)
+	{
+		$this->db->where($where);
+		return $this->db->delete($this->table);
 	}
 
 }

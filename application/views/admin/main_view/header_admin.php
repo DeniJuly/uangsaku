@@ -123,9 +123,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link <?php if ($this->uri->segment(2)=='orang_tua') {
+            <a class="nav-link <?php if ($this->uri->segment(2)=='orangtua') {
                 echo"text-primary";
-              } ?>" style="color: black;" href="<?php echo site_url('ADMIN/orang_tua'); ?>">
+              } ?>" style="color: black;" href="<?php echo site_url('ADMIN/orangtua'); ?>">
               <i class="menu-icon mdi mdi-account"></i>
               <span class="menu-title">Orang Tua</span>
             </a>
