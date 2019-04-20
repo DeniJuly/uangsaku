@@ -19,6 +19,11 @@ class M_jenis_pembiayaan extends CI_Model {
 		$this->db->where($where);
 		return $this->db->delete($this->table);
 	}
+	public function upd($where,$data)
+	{
+		$this->db->where($where);
+		return $this->db->update($this->table,$data);
+	}
 
 }
 

@@ -19,6 +19,14 @@ class M_pembiayaan extends CI_Model {
 		$this->db->where($where);
 		return $this->db->update($this->table,$data);
 	}
+	// public function cari($key,$id)
+	// {
+	// 	$this->db->where('ID_JENIS_PEMBIAYAAN',$id);
+	// 	$this->db->like('NISN',$key);
+	// 	$this->db->or_like('NAMA_SISWA',$key);
+	// 	$this->db->or_like('KELAS_SISWA',$key);
+	// 	return $this->db->get($this->table);
+	// }
 	public function join_pembiayaan_pembayaran($where)
 	{
 		$this->db->select('
@@ -27,7 +35,6 @@ class M_pembiayaan extends CI_Model {
 		$this->db->from($this->table);
 		$this->db->join('jenis_pembiayaan','pembiayaan.ID_JENIS_PEMBIAYAAN = jenis_pembiayaan.ID_JENIS_PEMBIAYAAN');
 		$this->db->where($where);
-		// $this->db->query('SELECT Pembiayaan.*, jenis_pembiayaan.NAMA_PEMBIAYAAN FROM pembiayaan INNER JOIN jenis_pembiayaan ON pembiayaan.ID_JENIS_PEMBIAYAAN = jenis_pembiayaan.ID_JENIS_PEMBIAYAAN WHERE pembiayaan.ID_SISWA = '.$where);
 	    return $this->db->get();
 	}
 	public function join_pembiayaan_bayar($where)

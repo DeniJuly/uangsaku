@@ -203,8 +203,11 @@ html{
 	height: 150px!important;
 	border-left: 2px solid #f3c60e !important;
 }
-#CARD-PEMBAYARAN-ANAK #JUDUL-PEMBAYARAN-ANAK{
-	height: 45px!important;
+#CARD-PEMBAYARAN-ANAK{
+	height: 145px!important;
+}
+#JUDUL-PEMBAYARAN-ANAK{
+	height: max-content;
 }
 #CARD-PEMBAYARAN-ANAK .row{
 	margin-bottom: 0!important;

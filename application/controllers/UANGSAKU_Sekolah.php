@@ -31,8 +31,9 @@ class UANGSAKU_Sekolah extends CI_controller
 		$where         = array('ID_SEKOLAH'=>$get->ID_SEKOLAH);
 	    $var['jml']	   = $this->M_jenis_pembiayaan->some($where)->num_rows();
 		$var['data']   = $this->M_jenis_pembiayaan->some($where)->result();
+
 		$var['header'] = 'user/main_view/sekolah/header_sekolah';
-		$var['konten'] = 'user/view/sekolah/page/data_pembayaran';
+		$var['konten'] = 'user/view/sekolah/page/data_pembiayaan';
 		$var['footer'] = 'user/main_view/sekolah/footer_sekolah';
 		$var['judul']  = 'UANGSAKU';
 		$this->load->view('template',$var);
@@ -87,6 +88,12 @@ class UANGSAKU_Sekolah extends CI_controller
 	}
 	public function informasi_pembiayaan_siswa()
 	{
+		$ID_JENIS_PEMBIAYAAN= $this->input->get('id');
+		$where_pembiayaan 	= array('ID_JENIS_PEMBIAYAAN'=>$ID_JENIS_PEMBIAYAAN);
+		$var['jml']   		= $this->M_pembiayaan->some($where_pembiayaan)->num_rows();
+		$var['data_jenis_pembiayaan'] = $this->M_jenis_pembiayaan->some($where_pembiayaan)->result();
+		$var['data']   		= $this->M_pembiayaan->some($where_pembiayaan)->result();
+
 		$var['header'] = 'user/main_view/sekolah/sub_header_sekolah';
 		$var['konten'] = 'user/view/sekolah/page/informasi_pembiayaan_siswa';
 		$var['footer'] = 'user/main_view/sekolah/sub_footer_sekolah';
@@ -119,6 +126,18 @@ class UANGSAKU_Sekolah extends CI_controller
 		$var['footer'] = 'user/main_view/sekolah/sub_footer_sekolah';
 		$var['judul']  = 'TAMBAH DATA SISWA';
 		$this->load->view('template',$var);	
+	}
+	public function edit_pembiayaan()
+	{
+		$ID_JENIS_PEMBIAYAAN	   	= $this->input->get('id');
+		$where_jenis_pembiayaan 	= array('ID_JENIS_PEMBIAYAAN'=>$ID_JENIS_PEMBIAYAAN);
+		$var['data']   = $this->M_jenis_pembiayaan->some($where_jenis_pembiayaan)->result();
+
+		$var['header'] = 'user/main_view/sekolah/sub_header_sekolah';
+		$var['konten'] = 'user/view/sekolah/page/edit_data_pembiayaan';
+		$var['footer'] = 'user/main_view/sekolah/sub_footer_sekolah';
+		$var['judul']  = 'EDIT JENIS PEMBIAYAAN';
+		$this->load->view('template',$var);			
 	}
 	public function saldo()
 	{
@@ -230,6 +249,13 @@ class UANGSAKU_Sekolah extends CI_controller
 			echo 2;
 		}
 	}
+	// public function cari_pembiayaan()
+	// {
+	// 	$Key 	= $this->input->post('key');
+	// 	$id 	= $this->input->post('id');
+	// 	$cari 	= $this->M_pembiayaan->cari($Key,$id)->result();
+	// 	echo json_encode($cari);
+	// }
 	public function proses_tambah_data_pembiayaan()
 	{
 		$NAMA_PEMBIAYAAN = $this->input->post('nama');
@@ -253,7 +279,7 @@ class UANGSAKU_Sekolah extends CI_controller
 				'BIAYA'=> $BIAYA,
 				'DESKRIPSI'=> $DESKRIPSI,
 				'JENIS_PEMBIAYAAN'=> $NAMA_PEMBIAYAAN,
-				'STATUS_PEMBIAYAAN'=> 'online'
+				'STATUS_PEMBIAYAAN'=> 'offline'
 			);
 			$ins = $this->M_jenis_pembiayaan->ins($data);
 			if ($ins) {
@@ -285,6 +311,9 @@ class UANGSAKU_Sekolah extends CI_controller
 						$data_pembiayaan = array(
 							'ID_JENIS_PEMBIAYAAN' => $get_jenis_pembiayaan->ID_JENIS_PEMBIAYAAN,
 							'ID_SISWA'            => $get_siswa[$i]->ID_SISWA,
+							'NISN'				  => $get_siswa[$i]->NISN,
+							'NAMA_SISWA'		  => $get_siswa[$i]->NAMA,
+							'KELAS_SISWA'		  => $get_siswa[$i]->KELAS,
 							'TGL_PEMBIAYAAN'      => $tanggal,
 							'TOTAL_BIAYA'         => $get_jenis_pembiayaan->BIAYA,
 							'ID_TAGIHAN'          => $get_tagihan->ID_TAGIHAN
@@ -295,6 +324,32 @@ class UANGSAKU_Sekolah extends CI_controller
 				echo 3;
 			}else{
 				$del = $this->M_jenis_pembiayaan->del($where_nama);
+				echo 2;
+			}
+		}
+	}
+	public function proses_edit_data_pembiayaan()
+	{
+		$NAMA_PEMBIAYAAN = $this->input->post('nama');
+		$BIAYA 			 = $this->input->post('biaya');
+		$ID_JENIS_PEMBIAYAAN = $this->input->post('id') ;
+		$DESKRIPSI       = $this->input->post('deskripsi');	
+
+		$data_jenis_pembiayaan = array(
+			'NAMA_PEMBIAYAAN'	=> $NAMA_PEMBIAYAAN,
+			'BIAYA'				=> $BIAYA,
+			'DESKRIPSI'			=> $DESKRIPSI
+		);
+		$where_id = array('ID_JENIS_PEMBIAYAAN'=>$ID_JENIS_PEMBIAYAAN);
+		$upd = $this->M_jenis_pembiayaan->upd($where_id,$data_jenis_pembiayaan);
+		if ($upd) {
+			$data_pembiayaan = array(
+				'TOTAL_BIAYA'	=> $BIAYA
+			);	
+			$upd_pembiayaan = $this->M_pembiayaan->upd($where_id,$data_pembiayaan);
+			if ($upd_pembiayaan) {
+				echo 1;
+			}else{
 				echo 2;
 			}
 		}

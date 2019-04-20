@@ -30,6 +30,7 @@ $route = array(
 	'SEKOLAH/informasi_pembiayaan_siswa'=> 'UANGSAKU_Sekolah/informasi_pembiayaan_siswa',
 	'SEKOLAH/Keluar'					=> 'UANGSAKU_Sekolah/Keluar',
 	'SEKOLAH/Verifikasi_siswa'			=> 'UANGSAKU_Sekolah/data_verifikasi_siswa',
+	'SEKOLAH/edit_pembiayaan'			=> 'UANGSAKU_sekolah/edit_pembiayaan',
 
 	// CONTROLLER ORANGTUA
 	'ORANGTUA'					=> 'UANGSAKU_Orangtua',

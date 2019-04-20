@@ -87,49 +87,55 @@ class UANGSAKU_email extends CI_Controller {
     {
     	$EMAIL   		= $this->input->post('EMAIL');
     	$ID_USER 		= $this->session->userdata('ID_USER');
-    	$KODE_VERIFIKASI= $this->kode_verifikasi(6);
-    	$where 		= array('ID_USER'	=> $ID_USER);
-    	$data 		= array(
-    		'EMAIL'		=> $EMAIL,
-    		'KODE_VERIFIKASI'	=>	$KODE_VERIFIKASI
-    	);
-    	$upd 		= $this->M_user->upd($where,$data);
-    	if ($upd == 1) {
-    		$data2	= array('EMAIL'	=> $EMAIL);
-    		if ($this->session->userdata('JENIS_USER') == 'sekolah') {
-    			$model	= 'M_sekolah';	
-    		}elseif ($this->session->userdata('JENIS_USER') == 'siswa') {
-    			$model	= 'M_siswa';	
-    		}elseif ($this->session->userdata('JENIS_USER') == 'orang_tua') {
-    			$model	= 'M_orangtua';	
-    		}elseif ($this->session->userdata('JENIS_USER') == 'mitra') {
-    			$model	= 'M_mitra';	
-    		}
-    		$upd2	= $this->$model->upd($where,$data2);
-    		if ($upd2 == 1) {
-    			$get_data_user = $this->M_user->some($where)->row();
-	    		$session = array(
-					'ID_USER' 			=> $get_data_user->ID_USER,
-					'KODE_VERIFIKASI'	=> $get_data_user->KODE_VERIFIKASI,
-					'JENIS_USER'		=> $get_data_user->JENIS_USER,
-					'STATUS_EMAIL'		=> $get_data_user->STATUS_EMAIL,
-					'STATUS_USER'		=> $get_data_user->STATUS_USER,
-					'EMAIL'				=> $get_data_user->EMAIL,
-					'USERNAME'			=> $get_data_user->USERNAME
-				);
-							
-				$this->session->set_userdata( $session );
-				$this->kirim_email();
-    		}else{
-    			$EMAIL_OLD 	= $this->session->userdata('EMAIL');
-    			$KODE_VERIFIKASI = $this->session->userdata('KODE_VERIFIKASI');
-    			$data_old	= array('EMAIL'	=> $EMAIL_OLD,'KODE_VERIFIKASI'	=> $KODE_VERIFIKASI);
-    			$upd3		= $this->M_user->upd($where,$data_old);
-    			echo 3;
-    		}
+    	$where_email 	= array('EMAIL'=>$EMAIL);
+    	$cek = $this->M_user->some($where_email)->num_rows();
+    	if ($cek == 1) {
+    		echo 3;
     	}else{
-    		echo 2;
-    	}
+	    	$KODE_VERIFIKASI= $this->kode_verifikasi(6);
+	    	$where 			= array('ID_USER'	=> $ID_USER);
+	    	$data 			= array(
+	    		'EMAIL'		=> $EMAIL,
+	    		'KODE_VERIFIKASI'	=>	$KODE_VERIFIKASI
+	    	);
+	    	$upd 		= $this->M_user->upd($where,$data);
+	    	if ($upd == 1) {
+	    		$data2	= array('EMAIL'	=> $EMAIL);
+	    		if ($this->session->userdata('JENIS_USER') == 'sekolah') {
+	    			$model	= 'M_sekolah';	
+	    		}elseif ($this->session->userdata('JENIS_USER') == 'siswa') {
+	    			$model	= 'M_siswa';	
+	    		}elseif ($this->session->userdata('JENIS_USER') == 'orang_tua') {
+	    			$model	= 'M_orangtua';	
+	    		}elseif ($this->session->userdata('JENIS_USER') == 'mitra') {
+	    			$model	= 'M_mitra';	
+	    		}
+	    		$upd2	= $this->$model->upd($where,$data2);
+	    		if ($upd2 == 1) {
+	    			$get_data_user = $this->M_user->some($where)->row();
+		    		$session = array(
+						'ID_USER' 			=> $get_data_user->ID_USER,
+						'KODE_VERIFIKASI'	=> $get_data_user->KODE_VERIFIKASI,
+						'JENIS_USER'		=> $get_data_user->JENIS_USER,
+						'STATUS_EMAIL'		=> $get_data_user->STATUS_EMAIL,
+						'STATUS_USER'		=> $get_data_user->STATUS_USER,
+						'EMAIL'				=> $get_data_user->EMAIL,
+						'USERNAME'			=> $get_data_user->USERNAME
+					);
+								
+					$this->session->set_userdata( $session );
+					$this->kirim_email();
+	    		}else{
+	    			$EMAIL_OLD 	= $this->session->userdata('EMAIL');
+	    			$KODE_VERIFIKASI = $this->session->userdata('KODE_VERIFIKASI');
+	    			$data_old	= array('EMAIL'	=> $EMAIL_OLD,'KODE_VERIFIKASI'	=> $KODE_VERIFIKASI);
+	    			$upd3		= $this->M_user->upd($where,$data_old);
+	    			echo 3;
+	    		}
+	    	}else{
+	    		echo 2;
+	    	}
+	    }
     }
     public function kode_verifikasi($jml) { 
 	    $characters = '0123456789'; 
